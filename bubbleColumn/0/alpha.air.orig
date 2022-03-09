@@ -20,16 +20,16 @@ internalField   uniform 0;
 
 boundaryField
 {
-    inlet
+    base
     {
         type            fixedValue;
         value           uniform 0.5;
     }
     outlet
     {
-        type            inletOutlet;
+        type            baseOutlet;
         phi             phi.air;
-        inletValue      uniform 1;
+        baseValue      uniform 1;
         value           uniform 1;
     }
     walls

@@ -25,12 +25,12 @@ boundaryField
     }
     outlet
     {
-        type               inletOutlet;
+        type               baseOutlet;
         phi                phi.air;
-        inletValue         $internalField;
+        baseValue         $internalField;
         value              $internalField;
     }
-    inlet
+    base
     {
         type               fixedValue;
         value              $internalField;

@@ -19,7 +19,7 @@ internalField   uniform 1e-8;
 
 boundaryField
 {
-    inlet
+    base
     {
         type            calculated;
         value           $internalField;
