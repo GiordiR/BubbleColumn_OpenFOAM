@@ -38,7 +38,7 @@ edges
 
 boundary
 (
-	base
+/*	base
 	{
 		type patch;
 		faces
@@ -46,6 +46,7 @@ boundary
 			(1 5 4 0)
 		);
 	}
+	*/
     outlet
     {
     	type patch;
@@ -59,6 +60,7 @@ boundary
     	type wall;
 		faces
 		(
+		    (1 5 4 0)
 		    (0 1 2 3)
 		    (4 5 6 7)
 		    (0 4 7 3)

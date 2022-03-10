@@ -12,17 +12,18 @@ FoamFile
     object      U.air;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+#include "../input"
 
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (0 0.1 0);
+internalField   uniform (0 0 0);
 
 boundaryField
 {
     inlet
     {
         type               fixedValue;
-        value              $internalField;
+        value              $Uinlet;
     }
     outlet
     {
