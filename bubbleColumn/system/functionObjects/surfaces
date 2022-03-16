@@ -1,0 +1,52 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  6                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      functionObject;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+surfaces
+{
+    type            	surfaces;
+    functionObjectLibs 	("libfieldFunctionObjects.so");
+    enabled         	true;
+    writeControl    	timeStep;
+    writeInterval		100;
+
+	interpolationScheme cell;
+	surfaceFormat 		raw;
+
+	surfaces
+	(
+	        surf1
+		    {
+	    		type            	plane;
+	    		planeType       	pointAndNormal;
+	    		pointAndNormalDict
+	    		{
+	        		basePoint       (0.05 0.08 0.01);
+	        		normalVector    (0 1 0);
+	    		}
+		    }	
+    );
+
+	fields
+	(   
+		UMean.air
+		UMean.water
+		alphaMean.air
+		alphaMean.water
+		pMean
+	);
+
+}
+
