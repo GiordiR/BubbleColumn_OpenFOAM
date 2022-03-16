@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         5;
+endTime         1;
 
 deltaT          0.005;
 
@@ -52,7 +52,13 @@ maxDeltaT       1;
 
 functions
 {
-    #includeFunc fieldAverage(U.air, U.water, alpha.air, p)
+    #include	"functionObjects/readFields"
+    #include	"functionObjects/fieldAverage"
+    #include	"functionObjects/surfaceFieldValue"
+    #include	"functionObjects/cuttingPlane"
+    #include	"functionObjects/volFieldValue"
+    #include	"functionObjects/surfaces"
+    
 }
 
 

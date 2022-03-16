@@ -38,15 +38,6 @@ edges
 
 boundary
 (
-/*	base
-	{
-		type patch;
-		faces
-		(
-			(1 5 4 0)
-		);
-	}
-	*/
     outlet
     {
     	type patch;
