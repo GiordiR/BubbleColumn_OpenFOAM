@@ -22,7 +22,7 @@ surfaces
     writeControl    	timeStep;
     writeInterval		100;
 
-	interpolationScheme cell;
+	interpolationScheme cellPoint;
 	surfaceFormat 		raw;
 
 	surfaces
@@ -36,6 +36,8 @@ surfaces
 	        		basePoint       (0 0.08 0);
 	        		normalVector    (0 1 0);
 	    		}
+	    		interpolate         false;
+	    		triangulate         false;
 		    }	
 		    
 		 y_63cm
@@ -47,6 +49,8 @@ surfaces
 	        		basePoint       (0 0.63 0);
 	        		normalVector    (0 1 0);
 	    		}
+	    		interpolate         false;
+	    		triangulate         false;
 		    }	
     );
 
