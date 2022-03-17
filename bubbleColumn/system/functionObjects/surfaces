@@ -33,7 +33,7 @@ surfaces
 	    		planeType       	pointAndNormal;
 	    		pointAndNormalDict
 	    		{
-	        		basePoint       (0.05 0.08 0.01);
+	        		basePoint       (0 0.08 0);
 	        		normalVector    (0 1 0);
 	    		}
 		    }	
@@ -44,7 +44,7 @@ surfaces
 	    		planeType       	pointAndNormal;
 	    		pointAndNormalDict
 	    		{
-	        		basePoint       (0.05 0.63 0.01);
+	        		basePoint       (0 0.63 0);
 	        		normalVector    (0 1 0);
 	    		}
 		    }	
