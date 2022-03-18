@@ -26,55 +26,6 @@ actions
             box (0.04 -0.001 0.005)(0.06 0.001 0.015);
         }
     }
-    
-    // Post processing planes
-        {
-        action  new;
-        name    internalfaces;
-        type    faceSet;
-
-        source  boxToFace;
-        sourceInfo
-        {
-            box (0 0.079 0) (0.1 0.081 0.02);
-        }
-    }
-
-    {
-        action  new;
-        name    internalfacepatch;
-        type    faceZoneSet;
-
-        source  setToFaceZone;
-        sourceInfo
-        {
-            faceSet internalfaces;
-        }
-    }
-
-    {
-        action  new;
-        name    internalcells;
-        type    cellSet;
-
-        source  boxToCell;
-        sourceInfo
-        {
-            box (0 0.075 0) (0.1 0.085 0.02);	//we need to capture a cell center
-        }
-    }
-
-    {
-        action  new;
-        name    internalcells;
-        type    cellZoneSet;
-
-        source  setToCellZone;
-        sourceInfo
-        {
-            set internalcells;
-        }
-    }
 );
 
 // ************************************************************************* //

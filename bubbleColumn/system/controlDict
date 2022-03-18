@@ -54,9 +54,6 @@ functions
 {
     #include	"functionObjects/readFields"
     #include	"functionObjects/fieldAverage"
-    #include	"functionObjects/surfaceFieldValue"
-    #include	"functionObjects/cuttingPlane"
-    #include	"functionObjects/volFieldValue"
     #include	"functionObjects/surfaces"
     
 }
