@@ -8,9 +8,9 @@ runApplication blockMesh
 runApplication topoSet
 runApplication createPatch -overwrite
 runApplication setFields
-runApplication decomposePar -force
+#runApplication decomposePar -force
 runApplication $(getApplication)
-runApplication reconstructPar
+#runApplication reconstructPar
 
 
 #------------------------------------------------------------------------------

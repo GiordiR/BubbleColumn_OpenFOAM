@@ -19,10 +19,11 @@ surfaces
     type            	surfaces;
     functionObjectLibs 	("libfieldFunctionObjects.so");
     enabled         	true;
-    writeControl    	timeStep;
+    writeControl    	outputTime;
     writeInterval		100;
+    startTime           10;
 
-	interpolationScheme cellPoint;
+	interpolationScheme cell;
 	surfaceFormat 		raw;
 
 	surfaces

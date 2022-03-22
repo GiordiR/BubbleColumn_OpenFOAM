@@ -14,11 +14,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../input"
+
 simulationType  RAS;
 
 RAS
 {
-    model    mixtureKEpsilon; // continuousGasKEpsilon;
+    model    $RASmodel; // continuousGasKEpsilon;
 
     turbulence      on;
     printCoeffs     on;

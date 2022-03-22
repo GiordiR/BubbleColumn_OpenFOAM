@@ -14,6 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../input"
+
 defaultFieldValues
 (
     volScalarFieldValue alpha.air 1
@@ -24,7 +26,7 @@ regions
 (
     boxToCell
     {
-        box (0 0 0) (0.2 0.8 0.02);
+        box (0 0 0) (0.2 $h0_water 0.02);
         fieldValues
         (
             volScalarFieldValue alpha.air 0

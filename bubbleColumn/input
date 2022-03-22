@@ -7,8 +7,36 @@
 \*---------------------------------------------------------------------------*/
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+//Geometry
+
+nx  20;
+ny  200;
+nz  4;
+
+// Solver settings
+
+dt 0.005;
+
+// Set fields
+
+h0_water 0.8;
+
+// RAS model
+
+RASmodel mixtureKEpsilon;
+
+// Boundary Conditions
 
 Uinlet uniform (0 0.006 0);
 
+
+
+// Force models
+
+Dbubble     3e-3;
+Dragmodel   SchillerNaumann; //SchillerNaumann - IshiiZuber - TomiyamaAnalytic - TomiyamaCorrelated
+Liftmodel   none; //none - Tomiyama
+Walllub     none; //none - Antal - Frank - Tomiyama
+Turbdisp    none; //none - Burns - LopezDeBertodano
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

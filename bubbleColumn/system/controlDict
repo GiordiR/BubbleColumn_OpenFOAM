@@ -5,6 +5,7 @@
     \\  /    A nd           | Version:  9
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
+
 FoamFile
 {
     format      ascii;
@@ -14,6 +15,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../input"
+
 application     multiphaseEulerFoam;
 
 startFrom       startTime;
@@ -22,13 +25,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         1;
+endTime         30;
 
-deltaT          0.005;
+deltaT          $dt;
 
 writeControl    runTime;
 
-writeInterval   0.5;
+writeInterval   2.5;
 
 purgeWrite      0;
 
@@ -55,7 +58,7 @@ functions
     #include	"functionObjects/readFields"
     #include	"functionObjects/fieldAverage"
     #include	"functionObjects/surfaces"
-    
+    #include    "functionObjects/residuals"
 }
 
 
