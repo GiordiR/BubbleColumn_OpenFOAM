@@ -16,6 +16,7 @@ nz  4;
 // Solver settings
 
 dt 0.005;
+endT 60;
 
 // Set fields
 
@@ -23,7 +24,7 @@ h0_water 0.8;
 
 // RAS model
 
-RASmodel mixtureKEpsilon;
+RASmodel mixtureKEpsilon; // kOmegaSSTSato
 
 // Boundary Conditions
 
