@@ -22,7 +22,7 @@ phases (air water);
 
 air
 {
-    type            purePhaseModel;
+    type            pureIsothermalPhaseModel;
     diameterModel   isothermal;
     isothermalCoeffs
     {
@@ -35,7 +35,7 @@ air
 
 water
 {
-    type            purePhaseModel;
+    type            pureIsothermalPhaseModel;
     diameterModel   constant;
     constantCoeffs
     {

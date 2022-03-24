@@ -50,7 +50,7 @@ thermoType
     //		- hConst (constant Cp and Hf)
     //		- hIcoTabulated, hPolynomial, hPower, hTabulated (Cp calculated)
     //		- janaf
-    equationOfState perfectGas;
+    equationOfState rhoConst;
     //   equationOfState:
     //		- adiabaticPerfectFluid
     //		- Boussinesq
@@ -60,7 +60,7 @@ thermoType
     //		- PenRobinsonGas
     //		- perfectFluid
     //		- perfectGas <===
-    //		- rhoConstant
+    //		- rhoConst
     //		- rhoTabulated, rPolynomial
     specie          specie;
     energy          sensibleInternalEnergy;
@@ -77,6 +77,10 @@ mixture
     {
     	// mMoles (only for combustion)
         molWeight   28.9;
+    }
+    equationOfState
+    {
+        rho 1.225;
     }
     thermodynamics
     {
