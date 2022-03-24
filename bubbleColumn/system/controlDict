@@ -31,7 +31,7 @@ deltaT          $dt;
 
 writeControl    runTime;
 
-writeInterval   2.5;
+writeInterval   $writeInt;
 
 purgeWrite      0;
 
@@ -55,10 +55,13 @@ maxDeltaT       1;
 
 functions
 {
+
+    #includeFunc    residuals(p_rgh)    
+    
     #include	"functionObjects/readFields"
     #include	"functionObjects/fieldAverage"
     #include	"functionObjects/surfaces"
-    #include    "functionObjects/residuals"
+    //#include    "functionObjects/residuals"
 }
 
 

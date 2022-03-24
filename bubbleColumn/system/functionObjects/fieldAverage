@@ -14,6 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../../input"
+
 field_average
 {
     type            fieldAverage;
@@ -21,7 +23,7 @@ field_average
     enabled         true;
     writeControl    outputTime;
     writeInterval	100;
-    startTime   10;
+    startTime   $inizioMedia;
 
     fields
     (
