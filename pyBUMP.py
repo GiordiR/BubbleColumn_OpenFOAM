@@ -1,3 +1,4 @@
+from random import sample
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -7,7 +8,7 @@ def readScalar(caseFolder, sampleType, fileName):
     
     #Find sample path
     sampleTypePath = os.path.join(caseFolder, "postProcessing", sampleType)
-    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[0], fileName)  
+    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[-1], fileName)  
     
     #Read sample file and sort                 
     varDf = pd.read_csv(samplePath, delimiter="\s+", skiprows=2, header=None)
@@ -23,13 +24,19 @@ def readScalar(caseFolder, sampleType, fileName):
     return xVars, avgVars
 
 
-def plot(xVar, yVar):
+def plot(xVar, yVar, sampleType, h):
     
     fig = plt.figure()
     ax = fig.subplots()
-    ax.plot(xVar, yVar, label = 'test')
-    ax.set_title('test')
-    ax.set_xlabel('x')
-    ax.set_ylabel('y')
+    
+    if sampleType=="surfaces":   
+        ax.plot(xVar, yVar, label = r"$J_G$")
+        ax.set_title('Gas volume fraction distribution at h = '+str(h)+' cm')
+        ax.set_xlabel('x (m)')
+        ax.set_ylabel('gas volume fraction (-)')
+        ax.legend()
+    else:
+        ax.plot(xVar, yVar, label = 'test')
+
     plt.show()
 
