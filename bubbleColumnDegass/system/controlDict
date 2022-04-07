@@ -61,7 +61,7 @@ functions
     #include	"functionObjects/readFields"
     #include	"functionObjects/fieldAverage"
     #include	"functionObjects/surfaces"
-    //#include    "functionObjects/residuals"
+    #include	"functionObjects/holdUp"
 }
 
 
