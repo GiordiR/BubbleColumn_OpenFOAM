@@ -5,31 +5,25 @@
 |   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
-FoamFile
-{
-    version     2.0;
-    format      ascii;
-    class       dictionary;
-    object      functionObject;
+FoamFile {
+  version 2.0;
+  format ascii;
+  class dictionary;
+  object functionObject;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+holdUp {
+  type volFieldValue;
+  libs ("libfieldFunctionObjects.so");
 
-holdUp
-    {
-        type            volFieldValue;
-        libs            ("libfieldFunctionObjects.so");
+  log true;
+  writeControl runTime;
+  writeInterval 0.05;
+  writeFields false;
 
-        log             true;
-        writeControl    timeStep;
-        writeInterval	10;
-        writeFields     true;
+  regionType all;
+  operation volAverage;
 
-        regionType      all;
-        operation       weightedVolAverage;
-
-        fields
-        (
-            alpha.air
-        );
-    }
+  fields (alpha.air);
+}
