@@ -1,4 +1,6 @@
 from random import sample
+import readline
+from grpc import stream_stream_rpc_method_handler
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -8,35 +10,59 @@ def readScalar(caseFolder, sampleType, fileName):
     
     #Find sample path
     sampleTypePath = os.path.join(caseFolder, "postProcessing", sampleType)
-    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[-1], fileName)  
+    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[0], fileName)  
+    
+    #Find data firs line
+    iRow = findFirstRow(samplePath)
     
     #Read sample file and sort                 
-    varDf = pd.read_csv(samplePath, delimiter="\s+", skiprows=2, header=None)
+    varDf = pd.read_csv(samplePath, delimiter="\s+", skiprows=iRow, header=None)
     vars = varDf.to_numpy(dtype=float)
-    vars = vars[np.argsort(vars[:, 0])]
     
-    #Mean over equal x values
-    avgVars = np.average(vars[:,3].reshape(-1, 4), axis=1)
+    if sampleType=="surfaces":
+        #Sort data
+        vars = vars[np.argsort(vars[:, 0])]
+        
+        #Mean over equal x values
+        yVars = np.average(vars[:,3].reshape(-1, 4), axis=1)
+        
+        #x values
+        xVars = vars[::4, 0]
+    elif sampleType=="holdUp":
+        xVars = vars[:,0]
+        yVars = vars[:,1]
+        
     
-    #x values
-    xVars = vars[::4, 0]
+    return xVars, yVars
+
+def findFirstRow(filePath):
     
-    return xVars, avgVars
+    with open(filePath) as file:
+        i = 0
+        lines = file.readlines()
+        for line in lines:
+            if not line.startswith("#"):
+                break
+            i += 1
+
+    return i
 
 
-def plot(xVar, yVar, sampleType, h):
+def plot(figID, xVars, yVars, sampleType, h):
     
-    fig = plt.figure()
+    # INSERIRE DATI SPERIMENTALI A CONFRONTO
+    
+    fig = plt.figure(figID)
     ax = fig.subplots()
     
     if sampleType=="surfaces":   
-        ax.plot(xVar, yVar, label = r"$J_G$")
+        ax.plot(xVars, yVars, label = r"$J_G$")
         ax.set_title('Gas volume fraction distribution at h = '+str(h)+' cm')
         ax.set_xlabel('x (m)')
         ax.set_ylabel('gas volume fraction (-)')
         ax.legend()
     else:
-        ax.plot(xVar, yVar, label = 'test')
+        ax.plot(xVars, yVars, label = 'test')
 
     plt.show()
 

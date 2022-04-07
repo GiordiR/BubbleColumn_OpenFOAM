@@ -35,7 +35,7 @@ inizioMedia 0;
 // Force models
 
 Dbubble 3e-3;
-Dragmodel SchillerNaumann;  // SchillerNaumann - IshiiZuber - TomiyamaAnalytic -
+Dragmodel IshiiZuber;  // SchillerNaumann - IshiiZuber - TomiyamaAnalytic -
                             // TomiyamaCorrelated
 Liftmodel none;             // none - Tomiyama
 Walllub none;               // none - Antal - Frank - Tomiyama
