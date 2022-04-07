@@ -10,7 +10,7 @@ def readScalar(caseFolder, sampleType, fileName):
     
     #Find sample path
     sampleTypePath = os.path.join(caseFolder, "postProcessing", sampleType)
-    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[0], fileName)  
+    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[-1], fileName)  
     
     #Find data firs line
     iRow = findFirstRow(samplePath)
@@ -30,7 +30,7 @@ def readScalar(caseFolder, sampleType, fileName):
         xVars = vars[::4, 0]
     elif sampleType=="holdUp":
         xVars = vars[:,0]
-        yVars = vars[:,1]
+        yVars = cum_mean(vars[:,1])
         
     
     return xVars, yVars
@@ -47,6 +47,13 @@ def findFirstRow(filePath):
 
     return i
 
+def cum_mean(arr):
+    cum_sum = np.cumsum(arr, axis=0)    
+    for i in range(cum_sum.shape[0]):       
+        if i == 0:
+            continue        
+        cum_sum[i] =  cum_sum[i] / (i + 1)
+    return cum_sum
 
 def plot(figID, xVars, yVars, sampleType, h):
     
@@ -62,7 +69,11 @@ def plot(figID, xVars, yVars, sampleType, h):
         ax.set_ylabel('gas volume fraction (-)')
         ax.legend()
     else:
-        ax.plot(xVars, yVars, label = 'test')
+        ax.plot(xVars, yVars, label = r"$J_G$")
+        ax.set_title('Global gas holdup')
+        ax.set_xlabel('Time (s)')
+        ax.set_ylabel('gas holdup (-)')
+        ax.legend()
 
     plt.show()
 
