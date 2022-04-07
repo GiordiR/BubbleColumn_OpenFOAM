@@ -14,13 +14,16 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../../input"
+
 field_average
 {
     type            fieldAverage;
     functionObjectLibs ("libfieldFunctionObjects.so");
     enabled         true;
-    writeControl    timeStep;
+    writeControl    outputTime;
     writeInterval	100;
+    startTime   $inizioMedia;
 
     fields
     (

@@ -14,15 +14,19 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../../input"
+
 surfaces
 {
     type            	surfaces;
     functionObjectLibs 	("libfieldFunctionObjects.so");
     enabled         	true;
-    writeControl    	timeStep;
-    writeInterval		100;
+    writeControl    	runTime;
+    writeInterval		$endT;
+    timeStart           $inizioMedia;
+    
 
-	interpolationScheme cellPoint;
+	interpolationScheme cell;
 	surfaceFormat 		raw;
 
 	surfaces

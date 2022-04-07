@@ -14,17 +14,19 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../input"
+
 type    basicMultiphaseSystem;
 
 phases (air water);
 
 air
 {
-    type            purePhaseModel;
+    type            pureIsothermalPhaseModel;
     diameterModel   isothermal;
     isothermalCoeffs
     {
-        d0              3e-3;
+        d0              $Dbubble;
         p0              1e5;
     }
 
@@ -33,7 +35,7 @@ air
 
 water
 {
-    type            purePhaseModel;
+    type            pureIsothermalPhaseModel;
     diameterModel   constant;
     constantCoeffs
     {
@@ -69,7 +71,7 @@ surfaceTension
     (air and water)
     {
         type            constant;
-        sigma           0.07;
+        sigma           0.072;
     }
 );
 
@@ -92,7 +94,7 @@ drag
 (
     (air in water)
     {
-        type            SchillerNaumann;
+        type            $Dragmodel;
         residualRe      1e-3;
         swarmCorrection
         {
@@ -102,7 +104,7 @@ drag
 
     (water in air)
     {
-        type            SchillerNaumann;
+        type            $Dragmodel;
         residualRe      1e-3;
         swarmCorrection
         {
@@ -156,13 +158,123 @@ phaseTransfer
 ();
 
 lift
-();
+(
+    (air in water)
+    {
+        type            $Liftmodel;
+        /*residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }*/
+    }
+
+    (water in air)
+    {
+        type            $Liftmodel;
+        /*residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }*/
+    }
+
+    /*(air and water)
+    {
+        type            segregated;
+        m               0.5;
+        n               8;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }*/
+);
 
 wallLubrication
-();
+(
+    (air in water)
+    {
+        type            $Walllub;
+        Cwd             6.8;
+        Cwc             10;
+        p               1.7;
+        Cw1            -0.01;
+        Cw2            0.05;
+        D              $Dbubble;
+        /*residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }*/
+    }
+
+    (water in air)
+    {
+        type            $Walllub;
+        Cwd             6.8;
+        Cwc             10;
+        p               1.7;
+        Cw1            -0.01;
+        Cw2            0.05;
+        D              $Dbubble;
+        /*residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }*/
+    }
+
+    /*(air and water)
+    {
+        type            segregated;
+        m               0.5;
+        n               8;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }*/
+);
 
 turbulentDispersion
-();
+(
+    (air in water)
+    {
+        type            $Turbdisp;
+        Ctd            0.8;
+        sigma          0.9;
+        //residualAlpha_ 
+        /*residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }*/
+    }
+
+    (water in air)
+    {
+        type            $Turbdisp;
+        Ctd            0.8;
+        sigma          0.9;
+        /*residualRe      1e-3;
+        swarmCorrection
+        {
+            type        none;
+        }*/
+    }
+
+    /*(air and water)
+    {
+        type            segregated;
+        m               0.5;
+        n               8;
+        swarmCorrection
+        {
+            type        none;
+        }
+    }*/
+);
 
 interfaceCompression
 ();
