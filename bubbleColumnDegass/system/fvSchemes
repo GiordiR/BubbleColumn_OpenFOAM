@@ -21,7 +21,7 @@ ddtSchemes
 
 gradSchemes
 {
-    default         leastSquares; //Gauss linear - leastSquares
+    default         Gauss linear; //Gauss linear - leastSquares
 }
 
 divSchemes
@@ -33,15 +33,15 @@ divSchemes
     div(phir,alpha.water,alpha.air) Gauss vanLeer;
     div(phir,alpha.air,alpha.water) Gauss vanLeer;
 
-    "div\(alphaRhoPhi.*,U.*\)"      Gauss linearUpwindV grad(U); //linearUpwindV grad(U) - limitedLinearV 1
-    "div\(phi.*,U.*\)"              Gauss linearUpwindV grad(U); //linearUpwindV grad(U) - limitedLinearV 1
+    "div\(alphaRhoPhi.*,U.*\)"      Gauss limitedLinearV 1; //linearUpwindV grad(U) - limitedLinearV 1
+    "div\(phi.*,U.*\)"              Gauss limitedLinearV 1; //linearUpwindV grad(U) - limitedLinearV 1
 
-    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss linearUpwind grad(U);  //linearUpwind grad(U) - limitedLinearV 1
-    "div\(alphaRhoPhi.*,K.*\)"      Gauss linearUpwind grad(U);  //linearUpwind grad(U) - limitedLinearV 1
-    "div\(alphaRhoPhi.*,\(p\|thermo:rho.*\)\)" Gauss linearUpwind grad(U);  //linearUpwind grad(U) - limitedLinearV 1
+    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    "div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    "div\(alphaRhoPhi.*,\(p\|thermo:rho.*\)\)" Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
 
-    "div\(alphaRhoPhi.*,(k|epsilon|omega).*\)"  Gauss linearUpwind grad(U);  //linearUpwind grad(U) - limitedLinearV 1
-    "div\(phim,(k|epsilon)m\)"      Gauss linearUpwind grad(U);  //linearUpwind grad(U) - limitedLinearV 1
+    "div\(alphaRhoPhi.*,(k|epsilon|omega).*\)"  Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    "div\(phim,(k|epsilon)m\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
 
     "div\(\(\(\(alpha.*\*thermo:rho.*\)*nuEff.*\)\*dev2\(T\(grad\(U.*\)\)\)\)\)" Gauss linear;
 }
