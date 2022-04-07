@@ -20,11 +20,21 @@ internalField   uniform (0 1e-4 0);
 
 boundaryField
 {
-    inlet
+    /*inlet
     {
         type               fixedValue;
         value              $Uinlet;
+    }*/
+    
+    inlet
+    {
+        type               flowRateInletVelocity;
+        massFlowRate       $massFlowIn;
+        rhoInlet           1.185;
+        rho                rho;
+        value              uniform (0 0 0);
     }
+    
     outlet
     {
         type               pressureInletOutletVelocity;

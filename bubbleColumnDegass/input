@@ -30,6 +30,7 @@ RASmodel kOmegaSSTSato;  // mixtureKEpsilon;  // kOmegaSSTSato
 // Boundary Conditions
 
 Uinlet uniform (0 0.01 0);
+massFlowIn 2.37e-5;
 inizioMedia 0;
 
 // Force models
