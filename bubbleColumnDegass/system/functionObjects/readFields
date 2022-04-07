@@ -26,5 +26,6 @@ calcualtedFields
         alphaMean.air
         alphaMean.water
         pMean
+        degassingMassSourceCoeff
     );
 }
