@@ -5,47 +5,35 @@
     \\  /    A nd           | Version:  9
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
-FoamFile
-{
-    format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      thermophysicalProperties.water;
+FoamFile {
+  format ascii;
+  class dictionary;
+  location "constant";
+  object thermophysicalProperties.water;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-thermoType
-{
-    type            heRhoThermo;
-    mixture         pureMixture;
-    transport       const;
-    thermo          eConst;
-    equationOfState rhoConst;
-    specie          specie;
-    energy          sensibleInternalEnergy;
+thermoType {
+  type heRhoThermo;
+  mixture pureMixture;
+  transport const;
+  thermo eConst;
+  equationOfState rhoConst;
+  specie specie;
+  energy sensibleInternalEnergy;
 }
 
-mixture
-{
-    specie
-    {
-        molWeight   18;
-    }
-    equationOfState
-    {
-        rho 997;
-    }
-    thermodynamics
-    {
-        Cv          4195;
-        Hf          0;
-    }
-    transport
-    {
-        mu          3.645e-4;
-        Pr          2.289;
-    }
+mixture {
+  specie { molWeight 18; }
+  equationOfState { rho 998; }
+  thermodynamics {
+    Cv 4195;
+    Hf 0;
+  }
+  transport {
+    mu 3.645e-4;
+    Pr 2.289;
+  }
 }
-
 
 // ************************************************************************* //

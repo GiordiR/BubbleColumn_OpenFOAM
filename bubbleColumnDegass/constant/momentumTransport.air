@@ -5,25 +5,23 @@
     \\  /    A nd           | Version:  9
      \\/     M anipulation  |
 \*---------------------------------------------------------------------------*/
-FoamFile
-{
-    format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      momentumTransport.air;
+FoamFile {
+  format ascii;
+  class dictionary;
+  location "constant";
+  object momentumTransport.air;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 #include "../input"
 
-simulationType  RAS;
+simulationType laminar;
 
-RAS
-{
-    model    $RASmodel; // continuousGasKEpsilon;
+RAS {
+  model $RASmodel;  // continuousGasKEpsilon;
 
-    turbulence      on;
-    printCoeffs     on;
+  turbulence on;
+  printCoeffs on;
 }
 
 // ************************************************************************* //

@@ -25,11 +25,11 @@ h0_water 1;
 
 // RAS model
 
-RASmodel mixtureKEpsilon;  // kOmegaSSTSato
+RASmodel kOmegaSSTSato;  // mixtureKEpsilon;  // kOmegaSSTSato
 
 // Boundary Conditions
 
-Uinlet uniform(0 0.006 0);
+Uinlet uniform (0 0.006 0);
 inizioMedia 0;
 
 // Force models
@@ -37,8 +37,8 @@ inizioMedia 0;
 Dbubble 3e-3;
 Dragmodel SchillerNaumann;  // SchillerNaumann - IshiiZuber - TomiyamaAnalytic -
                             // TomiyamaCorrelated
-Liftmodel none;  // none - Tomiyama
-Walllub none;    // none - Antal - Frank - Tomiyama
-Turbdisp none;   // none - Burns - LopezDeBertodano
+Liftmodel none;             // none - Tomiyama
+Walllub none;               // none - Antal - Frank - Tomiyama
+Turbdisp none;              // none - Burns - LopezDeBertodano
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

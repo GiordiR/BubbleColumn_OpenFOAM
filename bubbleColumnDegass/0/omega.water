@@ -15,31 +15,33 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-internalField   uniform 0.001;
+internalField   uniform 1.89e-3;
 
 boundaryField
 {
-    #includeEtc "caseDicts/setConstraintTypes"
-
     inlet
     {
-        type            mapped;
-        field           omega.water;
-        setAverage      no;
-        average         0;
-        interpolationScheme cell;
+        type            fixedValue;
         value           $internalField;
     }
 
     outlet
     {
-        type            zeroGradient;
+        type            inletOutlet;
+        phi             phi.water;
+        inletValue      $internalField;
+        value           $internalField;
     }
 
     walls
     {
         type            omegaWallFunction;
         value           $internalField;
+    }
+
+    defaultFaces
+    {
+        type            empty;
     }
 }
 
