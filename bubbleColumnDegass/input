@@ -19,6 +19,9 @@ dt 0.005;
 endT 30;
 writeInt 1;
 
+URF_p 0.3;
+URF_all 0.5;
+
 // Set fields
 
 h0_water 1;
@@ -36,10 +39,9 @@ inizioMedia 0;
 // Force models
 
 Dbubble 3e-3;
-Dragmodel IshiiZuber;  // SchillerNaumann - IshiiZuber - TomiyamaAnalytic -
-                            // TomiyamaCorrelated
-Liftmodel Tomiyama;             // none - Tomiyama
-Walllub Antal;               // none - Antal - Frank - Tomiyama
-Turbdisp Burns;              // none - Burns - LopezDeBertodano
+Dragmodel IshiiZuber;       // SchillerNaumann - IshiiZuber - TomiyamaAnalytic - TomiyamaCorrelated
+Liftmodel Tomiyama;         // none - Tomiyama
+Walllub none;              // none - Antal - Frank - Tomiyama
+Turbdisp none;             // none - Burns - LopezDeBertodano
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -14,6 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+#include "../input"
+
 solvers
 {
     "alpha.*"
@@ -67,7 +69,7 @@ solvers
 PIMPLE
 {
     nOuterCorrectors 3;
-    nCorrectors      1;
+    nCorrectors      2;
     nNonOrthogonalCorrectors 0;
 
 }
@@ -76,11 +78,11 @@ relaxationFactors
 {
     fields
     {
-        p               0.3;
+        p               $URF_p;
     }
     equations
     {
-        ".*"            0.7;
+        ".*"            $URF_all;
     }
         
     
