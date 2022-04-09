@@ -7,7 +7,7 @@ def readScalar(caseFolder, sampleType, fileName):
     
     #Find sample path
     sampleTypePath = os.path.join(caseFolder, "postProcessing", sampleType)
-    samplePath = os.path.join(sampleTypePath, os.listdir(sampleTypePath)[-1], fileName)  
+    samplePath = os.path.join(sampleTypePath, findMaxTimeFolder(sampleTypePath), fileName)  
     
     #Find data firs line
     iRow = findFirstRow(samplePath)
@@ -32,6 +32,21 @@ def readScalar(caseFolder, sampleType, fileName):
     
     return xVars, yVars
 
+def readExpData(fileName):
+    
+    dataDf = pd.read_excel(fileName, engine='openpyxl', skiprows=4)
+    data = {'J6h8': dataDf.to_numpy(dtype=float)[:,:3],
+            'J8h8' : dataDf.to_numpy(dtype=float)[:,3:6],
+            'J10h8' : dataDf.to_numpy(dtype=float)[:-1,6:9],
+            'J6h63' : dataDf.to_numpy(dtype=float)[:,10:13],
+            'J8h63' : dataDf.to_numpy(dtype=float)[:,13:16],
+            'J10h63' : dataDf.to_numpy(dtype=float)[:,16:19]}
+    
+    return data
+
+def findExpData(J,h):
+    pass
+
 def findFirstRow(filePath):
     
     with open(filePath) as file:
@@ -44,6 +59,13 @@ def findFirstRow(filePath):
 
     return i
 
+def findMaxTimeFolder(folderPath):
+    
+    folderList = os.listdir(folderPath)
+    folderArray = [int(x) for x in folderList]
+       
+    return str(max(folderArray))
+
 def cum_mean(arr):
     cum_sum = np.cumsum(arr, axis=0)    
     for i in range(cum_sum.shape[0]):       
@@ -52,25 +74,32 @@ def cum_mean(arr):
         cum_sum[i] =  cum_sum[i] / (i + 1)
     return cum_sum
 
-def plot(figID, xVars, yVars, sampleType, h):
+def plot(figID, xVars, yVars, sampleType, J, h, lastCompare=True):
     
-    # INSERIRE DATI SPERIMENTALI A CONFRONTO
+    # Import experimental data
+    expDataDict = readExpData("Krepper_expData.xlsx")
+    expData = expDataDict['J'+str(J)+'h'+str(h)]
     
+    # Create figure
     fig = plt.figure(figID)
     ax = fig.subplots()
     
     if sampleType=="surfaces":   
-        ax.plot(xVars, yVars, label = r"$J_G$")
-        ax.set_title('Gas volume fraction distribution at h = '+str(h)+' cm')
-        ax.set_xlabel('x (m)')
-        ax.set_ylabel('gas volume fraction (-)')
-        ax.legend()
+        xNorm = xVars/max(xVars)
+        ax.plot(xNorm, yVars, label = r"simulation - $J_G$="+str(J))
+        ax.plot(expData[:,1], expData[:,2], label=r"experimental - $J_G$="+str(J))
+        if lastCompare==True:
+            ax.set_title('Gas volume fraction distribution at h = '+str(h)+' cm')
+            ax.set_xlabel('x/L (-)')
+            ax.set_ylabel('gas volume fraction (-)')
+            ax.legend()
+            plt.savefig('surfacesJ'+str(J)+'h'+str(h)+'.png')
     else:
         ax.plot(xVars, yVars, label = r"$J_G$")
-        ax.set_title('Global gas holdup')
-        ax.set_xlabel('Time (s)')
-        ax.set_ylabel('gas holdup (-)')
-        ax.legend()
-
-    plt.show()
+        if lastCompare==True:
+            ax.set_title('Global gas holdup')
+            ax.set_xlabel('Time (s)')
+            ax.set_ylabel('gas holdup (-)')
+            ax.legend()
+            plt.savefig('holdup'+str(J)+'.png')
 
