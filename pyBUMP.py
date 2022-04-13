@@ -86,20 +86,25 @@ def plot(figID, xVars, yVars, sampleType, J, h, lastCompare=True):
     
     if sampleType=="surfaces":   
         xNorm = xVars/max(xVars)
-        ax.plot(xNorm, yVars, label = r"simulation - $J_G$="+str(J))
-        ax.plot(expData[:,1], expData[:,2], label=r"experimental - $J_G$="+str(J))
+        ax.plot(xNorm, yVars, 'o', label = r"simulation - $J_G$ = "+str(J)+" mm/s", linestyle="--")
+        ax.plot(expData[:,1], expData[:,2], 'o', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--")
         if lastCompare==True:
             ax.set_title('Gas volume fraction distribution at h = '+str(h)+' cm')
             ax.set_xlabel('x/L (-)')
             ax.set_ylabel('gas volume fraction (-)')
             ax.legend()
+            ax.grid(which='both', alpha=0.3)
+            ax.set_xlim(0,1.025)
+            ax.set_ylim(0.03,0.055)
+            ax.set_xticks(np.arange(0,1.025,0.1))
             plt.savefig('surfacesJ'+str(J)+'h'+str(h)+'.png')
     else:
-        ax.plot(xVars, yVars, label = r"$J_G$")
+        ax.plot(xVars, yVars, label = r"$J_G$ = "+str(J)+" mm/s")
         if lastCompare==True:
             ax.set_title('Global gas holdup')
             ax.set_xlabel('Time (s)')
             ax.set_ylabel('gas holdup (-)')
+            ax.grid(which='both', alpha=0.3)
             ax.legend()
             plt.savefig('holdup'+str(J)+'.png')
 
