@@ -16,8 +16,8 @@ nz 4;
 // Solver settings
 
 dt 0.005;
-endT 30;
-writeInt 1;
+endT 60;
+writeInt 5;
 
 URF_p 0.3;
 URF_all 0.5;
@@ -34,14 +34,14 @@ RASmodel kOmegaSSTSato;  // mixtureKEpsilon;  // kOmegaSSTSato
 
 Uinlet uniform (0 0.01 0);
 massFlowIn 2.37e-5;
-inizioMedia 0;
+inizioMedia 30;
 
 // Force models
 
 Dbubble 3e-3;
 Dragmodel IshiiZuber;       // SchillerNaumann - IshiiZuber - TomiyamaAnalytic - TomiyamaCorrelated
 Liftmodel Tomiyama;         // none - Tomiyama
-Walllub none;              // none - Antal - Frank - Tomiyama
+Walllub Antal;              // none - Antal - Frank - Tomiyama
 Turbdisp none;             // none - Burns - LopezDeBertodano
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import os
 
-def readScalar(caseFolder, sampleType, fileName):
+def readScalar(caseFolder, sampleType, fileName, instantaneous=False):
     
     #Find sample path
     sampleTypePath = os.path.join(caseFolder, "postProcessing", sampleType)
@@ -25,10 +25,14 @@ def readScalar(caseFolder, sampleType, fileName):
         
         #x values
         xVars = vars[::4, 0]
-    elif sampleType=="holdUp":
-        xVars = vars[:,0]
-        yVars = cum_mean(vars[:,1])
         
+    elif sampleType=="holdUp":
+        if instantaneous==True:
+            xVars = vars[:,0]
+            yVars = vars[:,1]
+        else:
+            xVars = vars[:,0]
+            yVars = cum_mean(vars[:,1])
     
     return xVars, yVars
 
@@ -72,7 +76,9 @@ def cum_mean(arr):
         if i == 0:
             continue        
         cum_sum[i] =  cum_sum[i] / (i + 1)
+    
     return cum_sum
+
 
 def plot(figID, xVars, yVars, sampleType, J, h, lastCompare=True):
     
@@ -81,30 +87,44 @@ def plot(figID, xVars, yVars, sampleType, J, h, lastCompare=True):
     expData = expDataDict['J'+str(J)+'h'+str(h)]
     
     # Create figure
-    fig = plt.figure(figID)
-    ax = fig.subplots()
+    plt.figure(figID, figsize=[20,10])
     
     if sampleType=="surfaces":   
         xNorm = xVars/max(xVars)
-        ax.plot(xNorm, yVars, 'o', label = r"simulation - $J_G$ = "+str(J)+" mm/s", linestyle="--")
-        ax.plot(expData[:,1], expData[:,2], 'o', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--")
+        plt.plot(xNorm, yVars, 'o', label = r"simulation - $J_G$ = "+str(J)+" mm/s", linestyle="--")
+        plt.title('Gas volume fraction distribution at h = '+str(h)+' cm')
+        plt.xlabel('x/L (-)')
+        plt.ylabel('gas volume fraction (-)')
+        plt.grid(which='both', alpha=0.3)
+        plt.xlim(0,1.025)
+        plt.ylim(0.03,0.055)
+        plt.xticks(np.arange(0,1.025,0.1))
         if lastCompare==True:
-            ax.set_title('Gas volume fraction distribution at h = '+str(h)+' cm')
-            ax.set_xlabel('x/L (-)')
-            ax.set_ylabel('gas volume fraction (-)')
-            ax.legend()
-            ax.grid(which='both', alpha=0.3)
-            ax.set_xlim(0,1.025)
-            ax.set_ylim(0.03,0.055)
-            ax.set_xticks(np.arange(0,1.025,0.1))
+            plt.plot(expData[:,1], expData[:,2], 'o', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--")
+            plt.legend()
             plt.savefig('surfacesJ'+str(J)+'h'+str(h)+'.png')
-    else:
-        ax.plot(xVars, yVars, label = r"$J_G$ = "+str(J)+" mm/s")
+        
+    elif sampleType=="holdUp":
+        plt.plot(xVars, yVars, label = r"$J_G$ = "+str(J)+" mm/s")
         if lastCompare==True:
-            ax.set_title('Global gas holdup')
-            ax.set_xlabel('Time (s)')
-            ax.set_ylabel('gas holdup (-)')
-            ax.grid(which='both', alpha=0.3)
-            ax.legend()
-            plt.savefig('holdup'+str(J)+'.png')
+            plt.legend()
+            plt.title('Global gas holdup')
+            plt.xlabel('Time (s)')
+            plt.ylabel('gas holdup (-)')
+            plt.grid(which='both', alpha=0.3)   
+        plt.savefig('holdUp'+str(J)+'.png')
+        
+    elif sampleType=="holdUpInstantaneous":
+        plt.plot(xVars, yVars, label = r"$J_G$ = "+str(J)+" mm/s")
+        if lastCompare==True:
+            plt.legend()
+            plt.title('Instantaneous global gas holdup')
+            plt.xlabel('Time (s)')
+            plt.ylabel('gas holdup (-)')
+            plt.grid(which='both', alpha=0.3)   
+        plt.savefig('holdUpInstantaneous'+str(J)+'.png')
+        
+    else:
+        print("Error! no such sample type!")
+
 
