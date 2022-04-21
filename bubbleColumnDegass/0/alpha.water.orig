@@ -26,7 +26,7 @@ boundaryField
     }
     outlet
     {
-        type            inletOutlet;
+        type            zeroGradient;//inletOutlet;
         phi             phi.water;
         inletValue      uniform 1;
         value           uniform 1;

@@ -16,8 +16,8 @@ nz 4;
 // Solver settings
 
 dt 0.005;
-endT 60;
-writeInt 5;
+endT 30;
+writeInt 1;
 
 URF_p 0.3;
 URF_all 0.5;
@@ -34,7 +34,7 @@ RASmodel kOmegaSSTSato;  // mixtureKEpsilon;  // kOmegaSSTSato
 
 Uinlet uniform (0 0.01 0);
 massFlowIn 2.37e-5;
-inizioMedia 30;
+inizioMedia 15;
 
 // Force models
 

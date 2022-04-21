@@ -27,7 +27,7 @@ boundaryField
     }
     outlet
     {
-        type            inletOutlet;
+        type            zeroGradient;//inletOutlet;
         phi             phi.air;
         inletValue      uniform 0;
         value           uniform 0;
