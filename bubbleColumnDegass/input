@@ -42,6 +42,6 @@ Dbubble 3e-3;
 Dragmodel IshiiZuber;       // SchillerNaumann - IshiiZuber - TomiyamaAnalytic - TomiyamaCorrelated
 Liftmodel Tomiyama;         // none - Tomiyama
 Walllub Antal;              // none - Antal - Frank - Tomiyama
-Turbdisp none;             // none - Burns - LopezDeBertodano
+Turbdisp Burns;             // none - Burns - LopezDeBertodano
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

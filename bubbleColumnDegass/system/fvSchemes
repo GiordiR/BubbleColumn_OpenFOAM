@@ -21,7 +21,7 @@ ddtSchemes
 
 gradSchemes
 {
-    default         Gauss linear; //Gauss linear - leastSquares
+    default         cellLimited Gauss linear 1; //Gauss linear - leastSquares
 }
 
 divSchemes
@@ -33,22 +33,22 @@ divSchemes
     div(phir,alpha.water,alpha.air) Gauss vanLeer;
     div(phir,alpha.air,alpha.water) Gauss vanLeer;
 
-    "div\(alphaRhoPhi.*,U.*\)"      Gauss limitedLinearV 1; //linearUpwindV grad(U) - limitedLinearV 1
-    "div\(phi.*,U.*\)"              Gauss limitedLinearV 1; //linearUpwindV grad(U) - limitedLinearV 1
+    "div\(alphaRhoPhi.*,U.*\)"      Gauss linearUpwindV default; //linearUpwindV grad(U) - limitedLinearV 1
+    "div\(phi.*,U.*\)"              Gauss linearUpwindV default; //linearUpwindV grad(U) - limitedLinearV 1
 
-    "div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
-    "div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
-    "div\(alphaRhoPhi.*,\(p\|thermo:rho.*\)\)" Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    //"div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    //"div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    //"div\(alphaRhoPhi.*,\(p\|thermo:rho.*\)\)" Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
 
-    "div\(alphaRhoPhi.*,(k|epsilon|omega).*\)"  Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
-    "div\(phim,(k|epsilon)m\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    "div\(alphaRhoPhi.*,(k|epsilon|omega).*\)"  Gauss linearUpwind default;  //linearUpwind grad(U) - limitedLinear 1
+    //"div\(phim,(k|epsilon)m\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
 
     "div\(\(\(\(alpha.*\*thermo:rho.*\)*nuEff.*\)\*dev2\(T\(grad\(U.*\)\)\)\)\)" Gauss linear;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear uncorrected;
+    default         Gauss linear limited 1; //uncorrected;
 }
 
 interpolationSchemes
@@ -58,7 +58,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         uncorrected;
+    default         limited 1; //uncorrected;
 }
 
  wallDist
