@@ -1,0 +1,63 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  6                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      functionObject;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include "../../input"
+
+field_average
+{
+    type            fieldAverage;
+    functionObjectLibs ("libfieldFunctionObjects.so");
+    enabled         true;
+    writeControl    outputTime;
+    writeInterval	100;
+    startTime   $inizioMedia;
+
+    fields
+    (
+        U.air
+        {
+            mean        on;
+            prime2Mean  off;
+            base        time;
+        }
+        U.water
+        {
+            mean        on;
+            prime2Mean  off;
+            base        time;
+        }
+        
+        alpha.air
+        {
+            mean        on;
+            prime2Mean  off;
+            base        time;
+        }
+        alpha.water
+        {
+            mean        on;
+            prime2Mean  off;
+            base        time;
+        }
+
+        p
+        {
+            mean        on;
+            prime2Mean  off;
+            base        time;
+        }
+    );
+}
