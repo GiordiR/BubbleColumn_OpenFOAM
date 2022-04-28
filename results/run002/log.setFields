@@ -1,0 +1,38 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9-2b1d7d67c4b0
+Exec   : setFields
+Date   : Apr 27 2022
+Time   : 18:18:38
+Host   : "node-e-2"
+PID    : 421660
+I/O    : uncollated
+Case   : /global-scratch/bulk_pool/spassoni/OFproject/run002
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading "setFieldsDict"
+
+Setting field default values
+    Setting internal values of volScalarField alpha.air
+    Setting internal values of volScalarField alpha.water
+
+Setting field region values
+    Adding cells with center within boxes 1((0 0 0) (0.2 1 0.02))
+    Setting internal values of volScalarField alpha.air
+    Setting internal values of volScalarField alpha.water
+
+End
+

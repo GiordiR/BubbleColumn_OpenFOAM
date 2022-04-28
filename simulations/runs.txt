@@ -1,4 +1,4 @@
-run         mesh        timestep        turbModel       Drag        Lift        turbDisp        WallLub
+RUN         MESH        TIMESTEP        TURBMODEL       DRAG        LIFT        TURBDISP        WALLLUB
 run001      A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
 run002      B           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
 run003      C           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
@@ -22,7 +22,7 @@ run020
 
 
 
-mesh    A    20x200x4
+mesh    A       20x200x4
 mesh    B       20x200x8
 mesh    C       40x200x8
 mesh    D       40x400x8
