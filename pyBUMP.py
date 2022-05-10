@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 import os
 
-def readScalar(caseFolder, sampleType, fileName, nz=4, instantaneous=False, dt=0.05):
+def readScalar(caseFolder, sampleType, fileName, nz=4, instantaneous=False):
     
     #Find sample path
     sampleTypePath = os.path.join(caseFolder, "postProcessing", sampleType)
@@ -31,21 +31,24 @@ def readScalar(caseFolder, sampleType, fileName, nz=4, instantaneous=False, dt=0
             xVars = vars[:,0]
             yVars = vars[:,1]
         else:
-            xVars = vars[int(30/dt)::,0]
-            yVars = cum_mean(vars[int(30/dt)::,1])          
+            xVars = vars[int(30/0.05)::,0]
+            yVars = cum_mean(vars[int(30/0.05)::,1])          
             #print("Time-averaged gas holdup = " + str(yVars[-1]))
+
     return xVars, yVars
 
-def readExpData(fileName):
-    
-    dataDf = pd.read_excel(fileName, engine='openpyxl', skiprows=4)
-    data = {'J6h8': dataDf.to_numpy(dtype=float)[:,:3],
-            'J8h8' : dataDf.to_numpy(dtype=float)[:,3:6],
-            'J10h8' : dataDf.to_numpy(dtype=float)[:-1,6:9],
-            'J6h63' : dataDf.to_numpy(dtype=float)[:,10:13],
-            'J8h63' : dataDf.to_numpy(dtype=float)[:,13:16],
-            'J10h63' : dataDf.to_numpy(dtype=float)[:,16:19]}
-    
+def readExpData(fileName,exptype):
+    if exptype=='surfaces':
+        dataDf = pd.read_excel(fileName, engine='openpyxl', skiprows=4)
+        data = {'J6h8': dataDf.to_numpy(dtype=float)[:,:3],
+                'J8h8' : dataDf.to_numpy(dtype=float)[:,3:6],
+                'J10h8' : dataDf.to_numpy(dtype=float)[:-1,6:9],
+                'J6h63' : dataDf.to_numpy(dtype=float)[:,10:13],
+                'J8h63' : dataDf.to_numpy(dtype=float)[:,13:16],
+                'J10h63' : dataDf.to_numpy(dtype=float)[:,16:19]}
+    elif exptype=='holdUp':
+        data={'J6':[0.02042,0.02042], 'J8':[0.02808,0.02808], 'J10':[0.03501,0.03501]}
+           
     return data
 
 def findExpData(J,h):
@@ -89,14 +92,15 @@ def plot(figID, xVars, yVars, sampleType, J, h, label, caso="mesh", lastCompare=
     save_path=os.path.join("./graphs", caso)
     if not os.path.isdir(save_path):
         os.makedirs(save_path)
-    # Import experimental data
-    expDataDict = readExpData("Krepper_expData.xlsx")
-    expData = expDataDict['J'+str(J)+'h'+str(h)]
+    
     
     # Create figure
     plt.figure(figID, figsize=[20,10])
     
-    if sampleType=="surfaces":   
+    if sampleType=="surfaces":  
+        # Import experimental data
+        expDataDict = readExpData("Krepper_expData.xlsx",sampleType)
+        expData = expDataDict['J'+str(J)+'h'+str(h)] 
         xNorm = xVars/max(xVars)
         plt.plot(xNorm, yVars, 'o', label = label + r" - $J_G$ = "+str(J)+" mm/s", linestyle="--")
         plt.title('Gas volume fraction distribution at h = '+str(h)+' cm')
@@ -117,8 +121,12 @@ def plot(figID, xVars, yVars, sampleType, J, h, label, caso="mesh", lastCompare=
             plt.close() 
         
     elif sampleType=="holdUp":
+        # Import experimental data
+        expDataDict = readExpData("Krepper_expData.xlsx",sampleType)
+        expData = expDataDict['J'+str(J)] 
         plt.plot(xVars, yVars, label = label + r" - $J_G$ = "+str(J)+" mm/s")
-        if lastCompare==True:
+        if lastCompare==True:   
+            plt.plot([30,90], expData,label='Exp. value',linestyle="--",color="r")
             plt.legend()
             plt.title('Global gas holdup')
             plt.xlabel('Time (s)')
