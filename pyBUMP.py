@@ -87,35 +87,39 @@ def write_holdup(yVars,save_path):
         pass
     
 
-def plot(figID, xVars, yVars, sampleType, J, h, label, caso="mesh", lastCompare=True):
+def plot(figID, xVars, yVars, sampleType, J, h, label, colorID=None, caso="mesh", lastCompare=True, comparisonJ=False):
     
     save_path=os.path.join("./graphs", caso)
     if not os.path.isdir(save_path):
         os.makedirs(save_path)
     
+    colors={1:"darkorange", 2:"g", 3:"dodgerblue", 4:"r", 5:"blueviolet"}
     
     # Create figure
-    plt.figure(figID, figsize=[20,10])
+    plt.figure(figID, figsize=[10,8])
     
     if sampleType=="surfaces":  
         # Import experimental data
         expDataDict = readExpData("Krepper_expData.xlsx",sampleType)
         expData = expDataDict['J'+str(J)+'h'+str(h)] 
         xNorm = xVars/max(xVars)
-        plt.plot(xNorm, yVars, 'o', label = label + r" - $J_G$ = "+str(J)+" mm/s", linestyle="--")
+        plt.plot(xNorm, yVars, 'o', label = label + r" - $J_G$ = "+str(J)+" mm/s", linestyle="-", color=colors[colorID])
         plt.title('Gas volume fraction distribution at h = '+str(h)+' cm')
         plt.xlabel('x/L (-)')
         plt.ylabel('gas volume fraction (-)')
         plt.grid(which='both', alpha=0.3)
         if h==8:
             plt.xlim(0,1.025)
-            plt.ylim(0,0.06)
+            plt.ylim(0,0.08)
         if h==63:
             plt.xlim(0,1.025)
-            plt.ylim(0.03,0.055)
+            plt.ylim(0,0.08)
         plt.xticks(np.arange(0,1.025,0.1))
+        if comparisonJ==True:
+            plt.plot(expData[:,1], expData[:,2], 'd', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--", color=colors[colorID],alpha=0.7)
         if lastCompare==True:
-            plt.plot(expData[:,1], expData[:,2], 'o', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--")
+            if comparisonJ==False:
+                plt.plot(expData[:,1], expData[:,2], 'o', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--", color=colors[4])
             plt.legend()
             plt.savefig(save_path+'/surfacesJ'+str(J)+'h'+str(h)+'.png')
             plt.close() 
@@ -124,25 +128,25 @@ def plot(figID, xVars, yVars, sampleType, J, h, label, caso="mesh", lastCompare=
         # Import experimental data
         expDataDict = readExpData("Krepper_expData.xlsx",sampleType)
         expData = expDataDict['J'+str(J)] 
-        plt.plot(xVars, yVars, label = label + r" - $J_G$ = "+str(J)+" mm/s")
+        plt.plot(xVars, yVars, label = label + r" - $J_G$ = "+str(J)+" mm/s",color=colors[colorID])
         if lastCompare==True:   
-            plt.plot([30,90], expData,label='Exp. value',linestyle="--",color="r")
-            plt.legend()
+            plt.plot([30,90], expData,label='Exp. value',linestyle="--",color=colors[4])
+            plt.legend(loc="best")
             plt.title('Global gas holdup')
             plt.xlabel('Time (s)')
             plt.ylabel('gas holdup (-)')
             plt.grid(which='both', alpha=0.3)  
-        plt.savefig(save_path+'/holdUp'+str(J)+'.png')
+            plt.savefig(save_path+'/holdUp'+str(J)+'.png')
         
     elif sampleType=="holdUpInstantaneous":
-        plt.plot(xVars, yVars, label = label + r" - $J_G$ = "+str(J)+" mm/s")
+        plt.plot(xVars, yVars, label = label + r" - $J_G$ = "+str(J)+" mm/s",color=colors[colorID])
         if lastCompare==True:
             plt.legend()
             plt.title('Instantaneous global gas holdup')
             plt.xlabel('Time (s)')
             plt.ylabel('gas holdup (-)')
             plt.grid(which='both', alpha=0.3)   
-        plt.savefig(save_path+'/holdUpInstantaneous'+str(J)+'.png')
+            plt.savefig(save_path+'/holdUpInstantaneous'+str(J)+'.png')
         
     else:
         print("Error! no such sample type!")

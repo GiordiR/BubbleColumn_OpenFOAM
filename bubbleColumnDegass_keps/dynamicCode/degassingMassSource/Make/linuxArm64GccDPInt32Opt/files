@@ -1,6 +1,0 @@
-# dynamicCode:
-# SHA1 = 960c29cddea75cf6f5b35e827dcdaee5ff3dcf64
-
-SOURCE += codedFvModelTemplate.C
-
-LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libdegassingMassSource_960c29cddea75cf6f5b35e827dcdaee5ff3dcf64

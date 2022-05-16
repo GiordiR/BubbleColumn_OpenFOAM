@@ -1,6 +1,0 @@
-# dynamicCode:
-# SHA1 = 4bd3fe1d896dfa2d0533e1403e34537849a04154
-
-SOURCE += codedFvModelTemplate.C
-
-LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libdegassingForce_4bd3fe1d896dfa2d0533e1403e34537849a04154

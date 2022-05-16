@@ -1,24 +1,24 @@
-RUN         MESH        TIMESTEP        TURBMODEL       DRAG        LIFT        TURBDISP        WALLLUB
-run001      A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
-run002      B           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
-run003      C           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
-run004      D           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
-run005      ?           0.010           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
-run006      ?           0.0025          kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
-run007      ?           ?               LaheyKEpsilon   IshiiZuber  Tomiyama    none            none
-run008      ?           ?               mixtureKEpsilon IshiiZuber  Tomiyama    none            none
-run009      ?           ?               kOmegaSSTSato   IshiiZuber  none        none            none
-run010
-run011
-run012
-run013
-run014
-run015
-run016
-tun017
-run018
-run019
-run020
+RUN      Jin        MESH        TIMESTEP        TURBMODEL       DRAG        LIFT        TURBDISP        WALLLUB
+run001   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
+run002   10         B           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
+run003   10         C           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
+run004   10         D           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
+run005   10         A           0.010           kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
+run006   10         A           0.0025          kOmegaSSTSato   IshiiZuber  Tomiyama    none            none
+run007   10         A           0.005           LaheyKEpsilon   IshiiZuber  Tomiyama    none            none
+run008   10         A           0.005           mixtureKEpsilon IshiiZuber  Tomiyama    none            none
+run009   10         A           0.005           kOmegaSSTSato   IshiiZuber  none        none            none
+run010   10         A           0.005           kOmegaSSTSato   IshiiZuber  Moraga      none            none
+run0xx   10         A           0.005           kOmegaSSTSato   Tomiyama    Tomiyama    none            none        DIVERGE
+run011   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           none        abbassati URF
+run012X   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    LopezDeBertodanonone        Abbassati URF+ e +iter step correzione pimple
+run013   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       più stabile, no modifiche necessarie
+run014X   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Frank       abbassati URF
+run015   08         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       abbassati URF
+tun016   06         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       Abbassati URF e +iter step correzione pimple
+run017              A           0.005
+run018              A           0.005
+run019              A           0.005
 
 
 
