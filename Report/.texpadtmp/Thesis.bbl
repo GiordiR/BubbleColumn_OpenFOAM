@@ -1,0 +1,26 @@
+\begin{thebibliography}{1}
+
+\bibitem{bibtex}
+CTAN.
+\newblock {B}i{B}{T}e{X} documentation.
+
+\bibitem{tikz}
+CTAN.
+\newblock pgf – create {P}ost{S}cript and {PDF} graphics in {TEX}.
+
+\bibitem{knuth74}
+Donald~E. Knuth.
+\newblock Computer programming as an art.
+\newblock {\em Commun. ACM}, pages 667--673, 1974.
+
+\bibitem{knuth92}
+Donald~E. Knuth.
+\newblock Two notes on notation.
+\newblock {\em Amer. Math. Monthly}, 99:403--422, 1992.
+
+\bibitem{lamport94}
+Leslie Lamport.
+\newblock {\em LaTeX: A Document Preparation System}.
+\newblock Pearson Education India, 1994.
+
+\end{thebibliography}
