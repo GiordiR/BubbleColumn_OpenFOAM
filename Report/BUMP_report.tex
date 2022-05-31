@@ -34,6 +34,8 @@
 \usepackage{tabularx}
 \usepackage{longtable} % tables that can span several pages
 \usepackage{colortbl}
+\usepackage{array}
+\usepackage{rotating}
 
 % PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
 \usepackage{algorithm}
@@ -93,6 +95,9 @@
 
 % -> key-words (only in English)
 \newcommand{\keywords}{here, the keywords, of your thesis}
+
+\newcommand{\thead}[2][.95in]{%
+  \vbox{\hsize#1\baselineskip11pt\centering\vspace*{3pt}#2\par}}
 
 %-------------------------------------------------------------------------
 %	BEGIN OF YOUR DOCUMENT
@@ -183,5 +188,175 @@ The list of boundary conditions applied to the domain is summarized in table XX.
 
 \subsection{CFD methodology}
 \label{sub:methodology}
+
+\begin{sidewaystable}
+    \centering 
+    \begin{tabular}{|p{3em} c c c c c c c c|}
+    \hline
+    \rowcolor{bluePoli!40}
+     & \thead{\textbf{$J_{in}$}} & \thead{\textbf{Mesh}} & \thead{\textbf{Time step}} &  \thead{\textbf{Turbulence model}}  & \thead{\textbf{Drag model}}  & \thead{\textbf{Lift model}} &  \thead{\textbf{Turbulent dispersion model}} & \thead{\textbf{Wall lubrication model}}\T\B \\
+    \hline \hline
+    \textbf{run001} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run002} & 10 & B & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run003} & 10 & C & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run004} & 10 & D & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run005} & 10 & A & 0.010  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run006} & 10 & A & 0.0025 & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run007} & 10 & A & 0.005  & LaheyKEpsilon   & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run008} & 10 & A & 0.005  & mixtureKEpsilon & IshiiZuber & Tomiyama & None & None \T\B \\
+    \textbf{run009} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & None     & None & None \T\B \\
+    \textbf{run010} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Moraga   & None & None \T\B \\
+    \textbf{run011} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & None \T\B \\
+    \textbf{run012} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & LopezDeBertodanonone & None \T\B \\
+    \textbf{run013} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Antal \T\B \\
+    \textbf{run014} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Frank \T\B \\
+    \textbf{run015} & 8  & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Antal \T\B \\
+    \textbf{run016} & 6  & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Antal \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Runs performed}
+    \label{table:example}
+\end{sidewaystable}
+
+\subsection{Mesh sensitivity}
+\label{sub:mesh_sensitivity}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{5em} c c c |}
+    \hline
+    \rowcolor{bluePoli!40}
+     & \textbf{$N_x$} & \textbf{$N_y$} & \textbf{$N_z$} \T\B \\
+    \hline \hline
+    \textbf{Mesh A} & 20 & 200 & 4 \T\B \\
+    \textbf{Mesh B} & 20 & 200 & 8 \T\B \\
+    \textbf{Mesh C} & 40 & 200 & 8 \T\B \\
+    \textbf{Mesh D} & 40 & 400 & 8 \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Meshes}
+    \label{table:meshes}
+\end{table}
+
+\subsection{Time sensitivity}
+\label{sub:time_sensitivity}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+     & \textbf{$\Delta t$} \T\B \\
+    \hline \hline
+    \textbf{run006} & 0.0025 \T\B \\
+    \textbf{run001} & 0.005 \T\B \\
+    \textbf{run005} & 0.010 \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Time steps}
+    \label{table:time_steps}
+\end{table}
+
+
+\subsection{Turbulence models}
+\label{sub:turbulence_models}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \textbf{Turbulence model} \T\B \\
+    \hline \hline
+    \textbf{run001} & kOmegaSSTSato \T\B \\
+    \textbf{run007} & LaheyKEpsilon \T\B \\
+    \textbf{run008} & mixtureKEpsilon \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Turbulence models}
+    \label{table:turbulence_models}
+\end{table}
+
+\subsection{Drag models}
+\label{sub:drag_models}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \textbf{Drag model} \T\B \\
+    \hline \hline
+    \textbf{all runs} & IshiiZuber \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Drag models}
+    \label{table:drag_models}
+\end{table}
+
+\subsection{Lift models}
+\label{sub:lift_models}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \textbf{Lift model} \T\B \\
+    \hline \hline
+    \textbf{run009} & None \T\B \\
+    \textbf{run001} & Tomiyama \T\B \\
+    \textbf{run010} & Moraga \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Lift models}
+    \label{table:lift_models}
+\end{table}
+
+\subsection{Turbulent dispersion models}
+\label{sub:turbulent_dispersion_models}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \textbf{Turbulent dispersion model} \T\B \\
+    \hline \hline
+    \textbf{run001} & None \T\B \\
+    \textbf{run011} & Burns \T\B \\
+    \textbf{run012} & LopezDeBertodanonone \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Turbulent dispersion models}
+    \label{table:turbulent_dispersion_models}
+\end{table}
+
+\subsection{Wall lubrication models}
+\label{sub:wall_lubrication_models}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \textbf{Wall lubrication model} \T\B \\
+    \hline \hline
+    \textbf{run001} & None \T\B \\
+    \textbf{run013} & Antal \T\B \\
+    \textbf{run014} & Frank \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Wall lubrication models}
+    \label{table:wall_lubrication_models}
+\end{table}
 
 \end{document}

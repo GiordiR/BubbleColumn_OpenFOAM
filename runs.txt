@@ -15,7 +15,7 @@ run012X   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tom
 run013   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       più stabile, no modifiche necessarie
 run014X   10         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Frank       abbassati URF
 run015   08         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       abbassati URF
-tun016   06         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       Abbassati URF e +iter step correzione pimple
+Run016   06         A           0.005           kOmegaSSTSato   IshiiZuber  Tomiyama    Burns           Antal       Abbassati URF e +iter step correzione pimple
 run017              A           0.005
 run018              A           0.005
 run019              A           0.005
