@@ -36,6 +36,7 @@
 \usepackage{colortbl}
 \usepackage{array}
 \usepackage{rotating}
+\usepackage{afterpage}
 
 % PACKAGES FOR ALGORITHMS (PSEUDO-CODE)
 \usepackage{algorithm}
@@ -189,12 +190,15 @@ The list of boundary conditions applied to the domain is summarized in table XX.
 \subsection{CFD methodology}
 \label{sub:methodology}
 
+
+%\afterpage{
+%\clearpage
 \begin{sidewaystable}
     \centering 
     \begin{tabular}{|p{3em} c c c c c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-     & \thead{\textbf{$J_{in}$}} & \thead{\textbf{Mesh}} & \thead{\textbf{Time step}} &  \thead{\textbf{Turbulence model}}  & \thead{\textbf{Drag model}}  & \thead{\textbf{Lift model}} &  \thead{\textbf{Turbulent dispersion model}} & \thead{\textbf{Wall lubrication model}}\T\B \\
+     & \thead{\textbf{$J_{in} [mm/s]$}} & \thead{\textbf{Mesh}} & \thead{\textbf{Time step}} &  \thead{\textbf{Turbulence model}}  & \thead{\textbf{Drag model}}  & \thead{\textbf{Lift model}} &  \thead{\textbf{Turbulent dispersion model}} & \thead{\textbf{Wall lubrication model}}\T\B \\
     \hline \hline
     \textbf{run001} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
     \textbf{run002} & 10 & B & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
@@ -218,27 +222,47 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \caption{Runs performed}
     \label{table:example}
 \end{sidewaystable}
+%}
 
 \subsection{Mesh sensitivity}
 \label{sub:mesh_sensitivity}
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{5em} c c c |}
+    \begin{tabular}{|p{5em} c c c c |}
     \hline
     \rowcolor{bluePoli!40}
-     & \textbf{$N_x$} & \textbf{$N_y$} & \textbf{$N_z$} \T\B \\
+    & & \textbf{$N_x$} & \textbf{$N_y$} & \textbf{$N_z$} \T\B \\
     \hline \hline
-    \textbf{Mesh A} & 20 & 200 & 4 \T\B \\
-    \textbf{Mesh B} & 20 & 200 & 8 \T\B \\
-    \textbf{Mesh C} & 40 & 200 & 8 \T\B \\
-    \textbf{Mesh D} & 40 & 400 & 8 \T\B \\
+    \textbf{run001} & \textbf{Mesh A} & 20 & 200 & 4 \T\B \\
+    \textbf{run002} &\textbf{Mesh B} & 20 & 200 & 8 \T\B \\
+    \textbf{run003} &\textbf{Mesh C} & 40 & 200 & 8 \T\B \\
+    \textbf{run004} &\textbf{Mesh D} & 40 & 400 & 8 \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
     \caption{Meshes}
     \label{table:meshes}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/mesh/holdUp10.png}
+    \caption{Averaged holdup for different meshes}
+    \label{fig:holdup_mesh}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/mesh/surfacesJ10h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/mesh/surfacesJ10h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different meshes}
+    \label{fig:alpha_mesh}
+\end{figure}
 
 \subsection{Time sensitivity}
 \label{sub:time_sensitivity}
@@ -260,9 +284,33 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \label{table:time_steps}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/time/holdUp10.png}
+    \caption{Averaged holdup for different time steps}
+    \label{fig:holdup_time}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/time/surfacesJ10h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/time/surfacesJ10h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different time steps}
+    \label{fig:alpha_time}
+\end{figure}
 
 \subsection{Turbulence models}
 \label{sub:turbulence_models}
+
+\subsubsection{$k-Omega SST$ Sato}
+
+\subsubsection{Lahey $k-Epsilon$}
+
+\subsubsection{Mixture $k-Epsilon$}
 
 \begin{table}[H]
     \centering 
@@ -281,8 +329,30 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \label{table:turbulence_models}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/turbmodel/holdUp10.png}
+    \caption{Averaged holdup for different turbulence models}
+    \label{fig:holdup_turbmodel}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/turbmodel/surfacesJ10h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/turbmodel/surfacesJ10h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different turbulence models}
+    \label{fig:alpha_turbmodel}
+\end{figure}
+
 \subsection{Drag models}
 \label{sub:drag_models}
+
+\subsubsection{IshiiZuber}
+
 
 \begin{table}[H]
     \centering 
@@ -291,7 +361,7 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \rowcolor{bluePoli!40}
     & \textbf{Drag model} \T\B \\
     \hline \hline
-    \textbf{all runs} & IshiiZuber \T\B \\
+    \textbf{all runs} &  \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -301,6 +371,10 @@ The list of boundary conditions applied to the domain is summarized in table XX.
 
 \subsection{Lift models}
 \label{sub:lift_models}
+
+\subsubsection{Tomiyama}
+
+\subsubsection{Moraga}
 
 \begin{table}[H]
     \centering 
@@ -319,8 +393,31 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \label{table:lift_models}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/lift/holdUp10.png}
+    \caption{Averaged holdup for different lift models}
+    \label{fig:holdup_lift}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/lift/surfacesJ10h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/lift/surfacesJ10h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different lift models}
+    \label{fig:alpha_lift}
+\end{figure}
+
 \subsection{Turbulent dispersion models}
 \label{sub:turbulent_dispersion_models}
+
+\subsubsection{Burns}
+
+\subsubsection{LopezDeBertodanonone}
 
 \begin{table}[H]
     \centering 
@@ -339,8 +436,31 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \label{table:turbulent_dispersion_models}
 \end{table}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/turbdisp/holdUp10.png}
+    \caption{Averaged holdup for different turbulent dispersion models}
+    \label{fig:holdup_turbdisp}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/turbdisp/surfacesJ10h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/turbdisp/surfacesJ10h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different turbulent dispersion models}
+    \label{fig:alpha_turbdisp}
+\end{figure}
+
 \subsection{Wall lubrication models}
 \label{sub:wall_lubrication_models}
+
+\subsubsection{Antal}
+
+\subsubsection{Frank}
 
 \begin{table}[H]
     \centering 
@@ -358,5 +478,63 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \caption{Wall lubrication models}
     \label{table:wall_lubrication_models}
 \end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/walllub/holdUp10.png}
+    \caption{Averaged holdup for different wall lubrication models}
+    \label{fig:holdup_walllub}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/walllub/surfacesJ10h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/walllub/surfacesJ10h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different wall lubrication models}
+    \label{fig:alpha_walllub}
+\end{figure}
+
+\subsection{Inflow velocity}
+\label{sub:inflow_velocity}
+
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{8em} c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \textbf{$J_{in} [mm/s]$} \T\B \\
+    \hline \hline
+    \textbf{run013} & 10  \T\B \\
+    \textbf{run015} & 8  \T\B \\
+    \textbf{run016} & 6 \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Inflow velocities}
+    \label{table:inflow_velocities}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Images/graphs/allj/holdUp6.png}
+    \caption{Averaged holdup for different inflow velocities}
+    \label{fig:holdup_inflow_velocities}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \subfloat[h = 8 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/allj/surfacesJ6h8.png}
+    }
+    \subfloat[h = 63 cm]{
+        \includegraphics[scale=0.35]{Images/graphs/allj/surfacesJ6h63.png}
+    }
+    \caption[]{Gas volume fraction horizontal distribution at different heights for different inflow velocities}
+    \label{fig:alpha_inflow_velocities}
+\end{figure}
 
 \end{document}
