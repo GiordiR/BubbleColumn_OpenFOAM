@@ -45,8 +45,9 @@
 % PACKAGES FOR REFERENCES & BIBLIOGRAPHY
 \usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=black,filecolor=black,menucolor=black,runcolor=black,urlcolor=black]{hyperref} % Adds clickable links at references
 \usepackage{cleveref}
-\usepackage[square, numbers, sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
-\bibliographystyle{plain} % You may use a different style adapted to your field
+\usepackage[sort&compress]{natbib} % Square brackets, citing references with numbers, citations sorted by appearance in the text and compressed
+\bibliographystyle{abbrvnat} % You may use a different style adapted to your field
+\setcitestyle{authoryear, square}
 
 % PACKAGES FOR THE APPENDIX
 \usepackage{appendix}
@@ -121,7 +122,7 @@ Numerous industrial designs have been based on empirical correlations, but such 
 In the present work, bubble column is numerically simulated by using the open source CFD tool OpenFOAM []. More in detail, the objective of the present work is the validation of the already existing \textit{multiphaseEulerFoam} solver working for the case of \textit{mono-dispersed homogeneous} bubble column. For the case study we have considered a multiphase mixture of air and water without taking into account the heat transfer phenomena. \\
 The \textit{multiphaseEulerFoam} is used for simulation of incompressible multiphase flows in vertical pipelines. This model combines the Eulerian-Eulerian (two-fluid).
 \\ 
-The structure of the report is as follows. In Section 2, the experimental benchmark taken as reference is illustrated. In Section 3, \cite{knuth74}
+The structure of the report is as follows. In Section 2, the experimental benchmark taken as reference is illustrated. In Section 3,
 
 
 
@@ -306,7 +307,49 @@ The list of boundary conditions applied to the domain is summarized in table XX.
 \subsection{Turbulence models}
 \label{sub:turbulence_models}
 
-\subsubsection{$k-Omega SST$ Sato}
+\subsubsection{\boldmath$k-\omega$ SST Sato}
+The \textit{$k-\omega$ SST Sato} model \citep{SSTSato} has originally developed to tackle the problem of heat transfer for boundary layer flows. It combines eddy-viscosity models for the momentum equations and eddy-diffusivity model for heat transer. \\
+The idea behind SST model is to combine the best elements of the $k-\epsilon$ model and the $k-\omega$ model with the help of a blending function. Indeed, the $k-\epsilon$ model presents deficiencies near the wall, where fine meshes and specific near-wall treatments are required. Whereas, the $k-\omega$ model is strongly dependent of the solution to free stream values of $\omega$ outside the boundary layer.
+
+\begin{flalign}
+   \hspace{2cm}	&\frac{\partial \rho k}{\partial t} + \frac{\partial \rho U_j k}{\partial x_j} 	= \tilde{P_k} - \beta^\star \rho \omega k + \frac{\partial}{\partial x_j}			\left(\Gamma_k \frac{\partial k}{\partial x_j}\right) \label{eq:k-equation_kOmegaSSTSato} & \\
+   	&\frac{\partial \rho \omega}{\partial t} + \frac{\partial \rho U_j \omega}{\partial x_j} = \frac{\gamma}{\nu_t}P_k - \beta \rho \omega^2 + \frac{\partial}{\partial x_j}\left(\Gamma_\omega \frac{\partial \omega}{\partial x_j}\right) + (1-F_1)2\rho\sigma_{\omega 2}\frac{1}{\omega}\frac{\partial k}{\partial x_j}\frac{\partial \omega}{\partial x_j} \label{eq:omega-equation_kOmegaSSTSato}&
+\end{flalign}
+with
+\begin{flalign}
+   \hspace{2cm}	& \Gamma_k = \mu + \frac{\mu_t}{\sigma_k}, \hspace{0.1cm} \Gamma_\omega = \mu + \frac{\mu_t}{\sigma_\omega}, \hspace{0.1cm} P_k = \tau_{ij}\frac{\partial U_i}{\partial x_j}, \hspace{0.1cm} \tilde{P_k} = \min(P_k;c_l\epsilon), \hspace{0.1cm} \mu_t = \rho\frac{a_1k}{\max(a_1\omega; S \cdot F_2)} &
+\end{flalign}
+The coefficients, $\phi$ of the model are function of $F_1$: $\phi = F_1 \phi_1 + (1-F_1)\phi_2$, where $\phi_1$ and $\phi_2$ stand for the coefficients fo the $k-\omega$ and the $k-\epsilon$ model rispectively:
+\begin{flalign}
+   \hspace{2cm}	& \sigma_{k1}=1.176, \hspace{0.1cm} \sigma_{\omega 1}=2.000, \hspace{0.1cm} \kappa = 0.41, \hspace{0.1cm} \gamma_1 = 0.5532, \hspace{0.1cm} \beta_1 = 0.0750, \hspace{0.1cm} \beta^\star = 0.09, \hspace{0.1cm} c_1 = 10 & \\
+   & \sigma_{k2}=1.00, \hspace{0.1cm} \sigma_{\omega 2}=1.168, \hspace{0.1cm} \kappa = 0.41, \hspace{0.1cm} \gamma_2 = 0.4403, \hspace{0.1cm} \beta_2 = 0.0828, \hspace{0.1cm} \beta^\star = 0.09&
+\end{flalign}
+with
+\begin{flalign}
+   \hspace{2cm}	& F_1 = \tanh &
+\end{flalign}
+Here, the absolute value of the strain rate, S, is used in the definition of the eddy viscosity instead of the vorticity in order to increase the generality of the method beyond aerodynamic applications.\\
+The turbulent heat flux vector is modelled with the help of a turbulent diffusivity:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsubsection{Lahey $k-Epsilon$}
 
@@ -536,5 +579,10 @@ The list of boundary conditions applied to the domain is summarized in table XX.
     \caption[]{Gas volume fraction horizontal distribution at different heights for different inflow velocities}
     \label{fig:alpha_inflow_velocities}
 \end{figure}
+
+%-----------------------------------------------------------------------------
+% BIBLIOGRAPHY
+%-----------------------------------------------------------------------------
+\bibliography{bibliography.bib}
 
 \end{document}
