@@ -116,7 +116,7 @@
 
 
 \section{Introduction}
-\label{sec:1}
+\label{sec:intro}
 Bubble columns are multiphase reactors where the dispersed phase (gas) is introduced into a stationary or flowing liquid (continuous phase) and provide a good experimental setup to study the turbulent phenomena in dense bubbly flows. The functioning is apparently simple, as the ascending gas-phase creates a buoyancy-driven flow inducing the recirculation of the liquid phase. The local and the global fluid dynamic properties are related to the prevailing flow regime which may be homogeneous (bubbly flow condition at low superficial gas velocity, tipically $U_G<$ 0.03 $m/s$) or heterogeneous (churn-turbulent flow condition, $U_G>$ 0.1 $m/s$, $\alpha_G \geq$ 0.3). The homogeneous flow regime can be classified into the \textit{mono-dispersed homogeneous} flow regime, characterized by a mono-dispersed bubble size distribution (BSD), and the \textit{pseudo-homogeneous} flow regime, characterized by a poly-dispersed BSD. The distinction between mono-dispersed and poly-dispersed BSDs is based upon the change in the sign of the lift force coefficient. \\
 Numerous industrial designs have been based on empirical correlations, but such approaches remain somewhat limited when increasing the reactor performance is sought. To improve the description of the physical phenomenon occurring in bubble columns a promising numerical method is the Computational Fluid Dynamics (CFD). CFD helps to understand the complex two-phase fluid dynamics in the bubble column through details of mean flows (fields of three components of mean velocities and mean gas hold-up), interphase rates of mass, energy and momentum transfer and turbulence parameters (such as turbulent kinetic energy, energy dissipation rate, Reynolds stresses, etc.). \\
 In the present work, bubble column is numerically simulated by using the open source CFD tool OpenFOAM []. More in detail, the objective of the present work is the validation of the already existing \textit{multiphaseEulerFoam} solver working for the case of \textit{mono-dispersed homogeneous} bubble column. For the case study we have considered a multiphase mixture of air and water without taking into account the heat transfer phenomena. \\
@@ -127,7 +127,7 @@ The structure of the report is as follows. In Section 2, the experimental benchm
 
 
 \section{Experimental Benchmark}
-\label{sec:2}
+\label{sec:expbench}
 The  experimental benchmark taken as reference for the validation comes from the literature, in particular from the study of Krepper et al. []. The experimental setup consists of three rectangular channels 20cm$^2$ in cross-section (0.1 × 0.02 $m$) bolted together at the flanges resulting in a bubble column of 1-meter height (fig 1.). The test facility is initially filled with water up to a specified (..) height. In the bottom of the test section is present a rectangular porous stone adopted as gas sparger 0.02$m$ wide, 0.01$m$ depth and 0.01$m$ height.This sparger produced a \textit{mono-dispersed homogeneous} bubble size distribution with a bubble diameter of 3-5 $mm$. The superficial gas flow rate, $U_G$, is varied between three different value, 0.006 $m/s$, 0.008 $m/s$ and 0.010 $m/s$, in the \textit{mono-dispersed homogenous} flow regime. The superficial velocity is calculated from the measured volume flow rates using: 
 \begin{equation}
     U_G=\frac{Q_G}{A_{CS}}
@@ -150,16 +150,53 @@ In this section all the details related to the numerical setup will be presented
 
 \subsection{Domain and Mesh}
 \label{sub:domain}
-The numerical domain has been modeled and meshed with the utility \texttt{blockMesh}.
+The numerical domain has been modeled and meshed with the utility \texttt{blockMesh} according to the size of the experimental facility reported in section \ref{sec:expbench}. The resulting mesh is structured and made of only regular hexahedral elements. Four different refinement levels were analyzed for the purpure of a grid sensitivity analysis. Figure \ref{fig:mesh} displays a section of the generated meshes and their details are instead summarized in table \ref{tab:meshes}. According to \cite{krepper}, the mesh size should be 1.5 times the size of the bubbles. Therefore, given the size distribution found in the experiments (see section \ref{sec:expbench},  the coarsest mesh should be the most adequate since it has a cell size of 5mm in each direction. The grid refinement study has the purpose of verify if such a corse mesh has  negative influence on the fluid-dynamic phenomena inside the bubble column.
+
+Speaking about the inlet section, the porous stone used as gas sparger in the experiments has been modeled as a zero-thickness surface having the size of the sparger itself, namely a 0.02x0.01 m\textsuperscript{2} cross-section.
 
 
+\begin{figure}[H]
+    \centering
+    \subfloat[Mesh A]{
+        \includegraphics[width=.25\textwidth, trim={250 0 250 0}, clip]{Images/mesh1.png}
+    }
+    \subfloat[Mesh B]{
+        \includegraphics[width=.25\textwidth, trim={250 0 250 0}, clip]{Images/mesh2.png}
+    }
+    \subfloat[Mesh C]{
+        \includegraphics[width=.25\textwidth, trim={250 0 250 0}, clip]{Images/mesh3.png}
+    }
+    \subfloat[Mesh D]{
+        \includegraphics[width=.25\textwidth, trim={250 0 250 0}, clip]{Images/mesh4.png}
+    }
+    \caption[]{Different mesh densities considered in the analysis}
+    \label{fig:mesh} 
+\end{figure}
 
+\begin{table}[H]
+    \centering 
+    \begin{tabular}{|p{5em} c c c c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    & \boldmath{$N_x$} & \boldmath{$N_y$} & \boldmath{$N_z$} & \textbf{Total no. of elements} \T\B \\
+    \hline \hline
+   \textbf{Mesh A} & 20 & 200 & 4 & 16000 \T\B \\
+   \textbf{Mesh B} & 20 & 200 & 8 & 32000 \T\B \\
+   \textbf{Mesh C} & 40 & 200 & 8 & 64000 \T\B \\
+   \textbf{Mesh D} & 40 & 400 & 8 & 128000 \T\B \\
+    \hline
+    \end{tabular}
+    \\[10pt]
+    \caption{Mesh size details}
+    \label{tab:meshes}
+\end{table}
 
 
 
 \subsection{Boundary Conditions}
 \label{sub:bc}
 The list of boundary conditions applied to the domain is summarized in table XX. At the inlet, three different mass flow rates were applied corresponding to the gas superficial velocities studied, respectively 6, 8 and 10 mm/s. These superficial velocities are an experimental input and were calculated as the volumetric flow rate of gas injected in the column divided by its volume. In OpenFOAM, this boundary condition was applied
+
 
 
 

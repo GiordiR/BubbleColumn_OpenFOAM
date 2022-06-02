@@ -1,26 +1,23 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{bibtex}
-CTAN.
-\newblock {B}i{B}{T}e{X} documentation.
+\bibitem[Krepper et~al.(2007)Krepper, Vanga, Zaruba, Prasser, and
+  de~Bertodano]{krepper}
+E.~Krepper, B.~N.~R. Vanga, A.~Zaruba, H.-M. Prasser, and M.~A.~L.
+  de~Bertodano.
+\newblock Experimental and numerical studies of void fraction distribution in
+  rectangular bubble columns.
+\newblock \emph{Nuclear engineering and design}, 237\penalty0 (4):\penalty0
+  399--408, 2007.
 
-\bibitem{tikz}
-CTAN.
-\newblock pgf – create {P}ost{S}cript and {PDF} graphics in {TEX}.
-
-\bibitem{knuth74}
-Donald~E. Knuth.
-\newblock Computer programming as an art.
-\newblock {\em Commun. ACM}, pages 667--673, 1974.
-
-\bibitem{knuth92}
-Donald~E. Knuth.
-\newblock Two notes on notation.
-\newblock {\em Amer. Math. Monthly}, 99:403--422, 1992.
-
-\bibitem{lamport94}
-Leslie Lamport.
-\newblock {\em LaTeX: A Document Preparation System}.
-\newblock Pearson Education India, 1994.
+\bibitem[Menter and Esch(2001)]{SSTSato}
+F.~Menter and T.~Esch.
+\newblock Elements of industrial heat transfer predictions.
+\newblock \emph{16th Brazilian Congress of Mechanical Engineering (COBEM)},
+  20:\penalty0 117--127, 2001.
 
 \end{thebibliography}

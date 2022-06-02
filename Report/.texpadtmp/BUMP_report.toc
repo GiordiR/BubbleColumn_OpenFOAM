@@ -1,0 +1,28 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
+\contentsline {section}{\numberline {2}Experimental Benchmark}{2}{section.2}%
+\contentsline {section}{\numberline {3}Numerical Setup}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Domain and Mesh}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Boundary Conditions}{3}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Solver}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Multiphase Forces}{3}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Results and Discussion}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}CFD methodology}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Mesh sensitivity}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Time sensitivity}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Turbulence models}{7}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}\boldmath $k-\omega $ SST Sato}{7}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Lahey $k-Epsilon$}{7}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Mixture $k-Epsilon$}{7}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Drag models}{8}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}IshiiZuber}{8}{subsubsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.6}Lift models}{9}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Tomiyama}{9}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Moraga}{9}{subsubsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.7}Turbulent dispersion models}{10}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Burns}{10}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}LopezDeBertodanonone}{10}{subsubsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.8}Wall lubrication models}{11}{subsection.4.8}%
+\contentsline {subsubsection}{\numberline {4.8.1}Antal}{11}{subsubsection.4.8.1}%
+\contentsline {subsubsection}{\numberline {4.8.2}Frank}{11}{subsubsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.9}Inflow velocity}{12}{subsection.4.9}%
