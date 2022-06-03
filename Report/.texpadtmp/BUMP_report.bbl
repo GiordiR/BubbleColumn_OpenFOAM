@@ -1,4 +1,4 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{3}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -7,15 +7,20 @@
 
 \bibitem[Krepper et~al.(2007)Krepper, Vanga, Zaruba, Prasser, and
   de~Bertodano]{krepper}
-E.~Krepper, B.~N.~R. Vanga, A.~Zaruba, H.-M. Prasser, and M.~A.~L.
-  de~Bertodano.
+Eckhard Krepper, Brahma Nanda~Reddy Vanga, Alexandr Zaruba, Horst-Michael
+  Prasser, and Martin A~Lopez de~Bertodano.
 \newblock Experimental and numerical studies of void fraction distribution in
   rectangular bubble columns.
 \newblock \emph{Nuclear engineering and design}, 237\penalty0 (4):\penalty0
   399--408, 2007.
 
+\bibitem[Fluent(2021)]{fluentuserguide}
+ANSYS Fluent.
+\newblock Fluent 2021 {R}2 user’s guide.
+\newblock \emph{Ansys Fluent Inc}, 2021.
+
 \bibitem[Menter and Esch(2001)]{SSTSato}
-F.~Menter and T.~Esch.
+Florian Menter and Thomas Esch.
 \newblock Elements of industrial heat transfer predictions.
 \newblock \emph{16th Brazilian Congress of Mechanical Engineering (COBEM)},
   20:\penalty0 117--127, 2001.
