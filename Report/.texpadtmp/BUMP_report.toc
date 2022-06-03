@@ -4,27 +4,28 @@
 \contentsline {section}{\numberline {3}Numerical Setup}{2}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Domain and Mesh}{3}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Boundary Conditions}{3}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Turbulence modeling}{4}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Solver}{4}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Multiphase Forces}{4}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Results and Discussion}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}CFD methodology}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Mesh sensitivity}{4}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Time sensitivity}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Turbulence models}{7}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}\boldmath $k-\omega $ SST Sato}{7}{subsubsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.2}Lahey $k-Epsilon$}{8}{subsubsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.3}Mixture $k-Epsilon$}{8}{subsubsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.5}Drag models}{9}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}IshiiZuber}{9}{subsubsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.6}Lift models}{9}{subsection.4.6}%
-\contentsline {subsubsection}{\numberline {4.6.1}Tomiyama}{9}{subsubsection.4.6.1}%
-\contentsline {subsubsection}{\numberline {4.6.2}Moraga}{9}{subsubsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.7}Turbulent dispersion models}{10}{subsection.4.7}%
-\contentsline {subsubsection}{\numberline {4.7.1}Burns}{10}{subsubsection.4.7.1}%
-\contentsline {subsubsection}{\numberline {4.7.2}LopezDeBertodanonone}{10}{subsubsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.8}Wall lubrication models}{11}{subsection.4.8}%
-\contentsline {subsubsection}{\numberline {4.8.1}Antal}{11}{subsubsection.4.8.1}%
-\contentsline {subsubsection}{\numberline {4.8.2}Frank}{11}{subsubsection.4.8.2}%
-\contentsline {subsection}{\numberline {4.9}Inflow velocity}{12}{subsection.4.9}%
-\contentsline {section}{\numberline {A}Appendix A: fvModels source code for degassing boundary conditions}{14}{appendix.A}%
+\contentsline {subsection}{\numberline {3.3}Working fluids and operating conditions}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Turbulence modeling}{4}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Solver settings}{5}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Multiphase forces}{5}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Results and Discussion}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}CFD methodology}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Mesh sensitivity}{5}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Time sensitivity}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Turbulence models}{8}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}\boldmath $k-\omega $ SST Sato}{8}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}Lahey $k-Epsilon$}{9}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Mixture $k-Epsilon$}{9}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}Drag models}{10}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}IshiiZuber}{10}{subsubsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.6}Lift models}{10}{subsection.4.6}%
+\contentsline {subsubsection}{\numberline {4.6.1}Tomiyama}{10}{subsubsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.2}Moraga}{10}{subsubsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.7}Turbulent dispersion models}{11}{subsection.4.7}%
+\contentsline {subsubsection}{\numberline {4.7.1}Burns}{11}{subsubsection.4.7.1}%
+\contentsline {subsubsection}{\numberline {4.7.2}LopezDeBertodanonone}{11}{subsubsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.8}Wall lubrication models}{12}{subsection.4.8}%
+\contentsline {subsubsection}{\numberline {4.8.1}Antal}{12}{subsubsection.4.8.1}%
+\contentsline {subsubsection}{\numberline {4.8.2}Frank}{12}{subsubsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.9}Inflow velocity}{13}{subsection.4.9}%
+\contentsline {section}{\numberline {A}Appendix A: fvModels source code for degassing boundary conditions}{15}{appendix.A}%
