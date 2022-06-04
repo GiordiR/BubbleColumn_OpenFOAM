@@ -267,17 +267,121 @@ In order to model the bubble column, a two-phase mixture made of air and water w
 
 
 
-\subsection{Multiphase forces}
+\subsection{Phase interaction modeling}
 \label{sub:forces}
 
-Interfacial forces between bubbles and liquid are of fundamental importance when modeling a multiphase system. They are responsible of momentum transfer between phases in the Eulerian framework. Therefore, their accurate modeling is directly linked to the accuracy of the results. 
+Interfacial forces between bubbles and liquid are of fundamental importance when modeling a multiphase system. They are responsible of momentum transfer between phases in the Eulerian framework. Therefore, their careful modeling is directly linked to the accuracy of the results. Several forces are acting on a bubble in a multiphase system. They are:  virtual mass force, drag, lift, turbulent dispersion and wall lubrication forces. In the next paragraphs as brief description fo each force is given.
+
+
+\subsubsection{Virtual mass force}
+The virtual mass force describes resistance to relative acceleration. It occurs when a secondary phase accelerates relative to the primary phase. The inertia of the primary-phase mass encountered by the accelerating particles (or droplets or bubbles) exerts a "virtual mass force" on the particles. Its formulation is fairly simple and it is given in equation \ref{eq:virtual}
+
+\begin{equation}
+\begin{array}{l}
+\vec{F}_{VM}=C_{VM} \alpha_{p} \rho_{q}\left(\frac{d_{q} \vec{v}_{q}}{d t}-\frac{d_{p} \vec{v}_{p}}{d t}\right)\\ \\
+C_{VM}=0.5
+\end{array}
+\label{eq:virtual}
+\end{equation}
+
+
+\subsubsection{Drag force}
+
+This force models is used to describe the resistance acting on the bubble due to relative motion in the fluid (primary phase). In this work the simulations were performed using the drag model developed by \citeauthor{ishiizuber} in \cite{ishiizuber}. This a very complete drag model that accounts for bubble deformation. In fact, depending on E{ö}tv{ö}s number, a rising bubble can have a spherical shape, an elliptic one or deforming to a spherical cap. \citeauthor{ishiizuber}'s model models the drag coefficient as:
+\begin{equation}
+\begin{array}{l}
+C_{D}=\max \left(C_{D, \text { sphere }}, \min \left(C_{D, \text { ellipse }}; C_{D, c a p}\right)\right) \\ \\
+C_{D, \text { sphere }}=\frac{24}{R e_{P}}\left(1+0.1 R e_{P}^{0.75}\right) \\ \\
+C_{D, \text { ellipse }}=\frac{2}{3} \sqrt{E o} \\ \\
+C_{D, \text { cap }}=\frac{8}{3}
+\end{array}
+\label{eq:drag}
+\end{equation}
+
+\subsubsection{Lift force}
+The lift force describe migration of bubble in shear flow act on a particle mainly due to velocity gradients in the primary phase flow field. The expression of the lift force on a secondary phase \textit{p} in a primary phase \textit{q} is given by:
+
+\begin{equation}
+\vec{F}_{l i f t}=-C_{l} \rho_{q} \alpha_{p}\left(\vec{v}_{q}-\vec{V}_{p}\right) \times\left(\nabla \times \vec{V}_{q}\right)
+\end{equation}
+
+
+In this work two main lift model were tested: Moraga's \cite{moragalift} and Tomiyama's \cite{tomiyamalift}.
+
+The first one was developed for solid spherical particles but can be employed also for spherical bubbles. In this model two contribution to the lift force are accounted for: the classical aerodynamic one and the vorticity-induced lift. Its formulation is given in equation \ref{eq:moraga}.
+
+\begin{equation}
+\begin{array}{l}
+C_{l}=-\left(0.12-0.2 e^{\left.-(\varphi / 3.6) \times 10^{-5}\right)}\right) e^{(\varphi / 3) \times 10^{-7}} \quad 6000<\varphi<5 \times 10^{7}\\ \\
+\text{where} \quad \varphi=\operatorname{Re}_{p} \mathrm{Re}_{\omega} \quad \text{and}	\\ \\
+\mathrm{Re}_{p}=\frac{\rho_{q}\left|\vec{V}_{q}-\vec{V}_{p}\right| d_{p}}{\mu_{q}} \\ \\
+\operatorname{Re}_{\omega}=\frac{\rho_{q}\left|\nabla \times \vec{V}_{q}\right| d_{p}^{2}}{\mu_{q}}
+\end{array}
+\label{eq:moraga}	
+\end{equation}
+
+Tomiyama's models, instead, can be applied also to deformed bubbles. Its main feature is prediction of the cross-over point in bubble size at which particle distortion causes a reversal in the sign of the lift force. Bubbles with a diameter larger than about 5.8mm have negative lift coefficient and move towards the center of the column while small ones move towards the walls. Equation \ref{eq:tomiyama} shows the fundamental equations of this model.
+
+
+\begin{equation}
+\begin{array}{l}
+C_{L}=\left\{\begin{array}{llr}
+\min \left[0.288 \tanh \left(0.121 R e_{P}\right), f\left(E o_{\perp}\right)\right] &  \quad\quad\quad E o_{\perp}< 4 \\
+f\left(E o_{\perp}\right) & \text { for } \quad 4<E o_{\perp}<10 \\
+-0.27 & \quad\quad\quad 10<E o_{\perp}
+\end{array}\right.\\ \\
+f\left(E o_{\perp}\right)=0.00105 E o_{\perp}^{3}-0.0159 E o_{\perp}^{2}-0.0204 E o_{\perp}+0.474\\ \\
+E o_{\perp}=\frac{g\left(\rho_{C}-\rho_{D}\right) d_{\perp}^{2}}{\sigma}
+\end{array}
+\label{eq:tomiyama}
+\end{equation}
 
 
 
 
 
+\subsubsection{Turbulent dispersion}
+This force accounts for the interphase turbulent momentum transfer. The turbulent dispersion force acts as a turbulent diffusion in dispersed flows. The model considered in this report and the ones by Lopez de Bertodano \cite{debertodano} and Burns \cite{burns}. Thir formulation is reported in equations \ref{eq:lopez} and \ref{eq:burns} respectively.
+
+\begin{equation}
+\vec{F}_{t d, q}=-\vec{F}_{t d, p}=C_{T D} \rho_{q} k_{q} \nabla \alpha_{p}
+\label{eq:lopez}
+\end{equation}
 
 
+
+
+\begin{equation}
+\vec{F}_{t d, q}=-\vec{F}_{t d, p}=C_{T D} K_{p q} \frac{D_{q}}{\sigma_{p q}}\left(\frac{\nabla \alpha_{p}}{\alpha_{p}}-\frac{\nabla \alpha_{q}}{\alpha_{q}}\right)
+\label{eq:burns}
+\end{equation}
+
+
+
+\subsubsection{Wall lubrication}
+It describes migration of bubble away from the walls due to the presence of the walls themselves. This results in the dispersed phase concentrating in a region near but not adjacent to the walls. The general expression of the wall lubrication force acting on a secondari phase \textit{p} in a primary phase \textit{q} is given by:
+\begin{equation}
+\vec{F}_{w l}=C_{w l} \rho_{q} \alpha_{p}\left|\left(\vec{v}_{q}-\vec{v}_{p}\right)_{\|}\right|^{2} \vec{n}_{w}
+\end{equation}
+
+where $C_{w l}$ is the wall lubrication coefficient and $\vec{n}_{w}$ the unit normal to the wall.
+
+In this work tow different models between the ones already available in openFOAM were considered: Antal's \cite{antal} and Frank's one \cite{frank}.\\
+
+The first one computes the wall lubricaton coefficient as
+
+\begin{equation}
+C_{w l}=\max \left(0, \frac{C_{w 1}}{d_{b}}+\frac{C_{w 2}}{y_{w}}\right)
+\end{equation}
+
+where $C_{w 1}$ and $C_{w 2}$ are non-dimensional coefficients and $y_{w}$ is the distance to the nearest wall.
+
+Frank's model, instead, computes $C_{w l}$ as
+
+\begin{equation}
+C_{w l}=C_{w} \max \left(0, \frac{1}{C_{w d}} \cdot \frac{1-\frac{y_{w}}{C_{w d} d_{b}}}{y_{w}\left(\frac{y_{w}}{C_{w} d_{b}}\right)^{m-1}}\right)
+\end{equation}
+where $C_{w d}$, $C_{w c}$ and $m$ are calibration coefficients.
 
 
 
@@ -314,7 +418,7 @@ Interfacial forces between bubbles and liquid are of fundamental importance when
     \textbf{run009} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & None     & None & None \T\B \\
     \textbf{run010} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Moraga   & None & None \T\B \\
     \textbf{run011} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & None \T\B \\
-    \textbf{run012} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & LopezDeBertodanonone & None \T\B \\
+    \textbf{run012} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & LopezDeBertodano & None \T\B \\
     \textbf{run013} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Antal \T\B \\
     \textbf{run014} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Frank \T\B \\
     \textbf{run015} & 8  & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & Burns & Antal \T\B \\

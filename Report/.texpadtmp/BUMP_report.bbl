@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,51 @@ Eckhard Krepper, Brahma Nanda~Reddy Vanga, Alexandr Zaruba, Horst-Michael
 ANSYS Fluent.
 \newblock Fluent 2021 {R}2 user’s guide.
 \newblock \emph{Ansys Fluent Inc}, 2021.
+
+\bibitem[Ishii and Zuber(1979)]{ishiizuber}
+Mamoru Ishii and Novak Zuber.
+\newblock Drag coefficient and relative velocity in bubbly, droplet or
+  particulate flows.
+\newblock \emph{AIChE journal}, 25\penalty0 (5):\penalty0 843--855, 1979.
+
+\bibitem[Moraga et~al.(1999)Moraga, Bonetto, and Lahey]{moragalift}
+FJ~Moraga, FJ~Bonetto, and RT~Lahey.
+\newblock Lateral forces on spheres in turbulent uniform shear flow.
+\newblock \emph{International Journal of Multiphase Flow}, 25\penalty0
+  (6-7):\penalty0 1321--1372, 1999.
+
+\bibitem[Tomiyama et~al.(2002)Tomiyama, Tamai, Zun, and Hosokawa]{tomiyamalift}
+Akio Tomiyama, Hidesada Tamai, Iztok Zun, and Shigeo Hosokawa.
+\newblock Transverse migration of single bubbles in simple shear flows.
+\newblock \emph{Chemical Engineering Science}, 57\penalty0 (11):\penalty0
+  1849--1858, 2002.
+
+\bibitem[de~Bertodano(1992)]{debertodano}
+Martin Aurelio~Lopez de~Bertodano.
+\newblock \emph{Turbulent bubbly two-phase flow in a triangular duct}.
+\newblock PhD thesis, Rensselaer Polytechnic Institute, 1992.
+
+\bibitem[Burns et~al.(2004)Burns, Frank, Hamill, Shi, et~al.]{burns}
+Alan~D Burns, Thomas Frank, Ian Hamill, Jun-Mei Shi, et~al.
+\newblock The favre averaged drag model for turbulent dispersion in eulerian
+  multi-phase flows.
+\newblock In \emph{5th international conference on multiphase flow, ICMF},
+  volume~4, pages 1--17. ICMF, 2004.
+
+\bibitem[Antal et~al.(1991)Antal, Lahey~Jr, and Flaherty]{antal}
+SP~Antal, RT~Lahey~Jr, and JE~Flaherty.
+\newblock Analysis of phase distribution in fully developed laminar bubbly
+  two-phase flow.
+\newblock \emph{International journal of multiphase flow}, 17\penalty0
+  (5):\penalty0 635--652, 1991.
+
+\bibitem[Frank(2005)]{frank}
+Thomas Frank.
+\newblock Advances in computational fluid dynamics (cfd) of 3-dimensional
+  gas-liquid multiphase flows.
+\newblock In \emph{NAFEMS Seminar: Simulation of Complex Flows
+  (CFD)--Applications and Trends, Wiesbaden, Germany, Citeseer}, pages 1--18,
+  2005.
 
 \bibitem[Menter and Esch(2001)]{SSTSato}
 Florian Menter and Thomas Esch.
