@@ -144,19 +144,17 @@
 
 
 \section{Introduction}
-\label{sec:intro}
+\label{sec:1}
 Bubble columns are multiphase reactors where the dispersed phase (gas) is introduced into a stationary or flowing liquid (continuous phase) and provide a good experimental setup to study the turbulent phenomena in dense bubbly flows. The functioning is apparently simple, as the ascending gas-phase creates a buoyancy-driven flow inducing the recirculation of the liquid phase. The local and the global fluid dynamic properties are related to the prevailing flow regime which may be homogeneous (bubbly flow condition at low superficial gas velocity, tipically $U_G<$ 0.03 $m/s$) or heterogeneous (churn-turbulent flow condition, $U_G>$ 0.1 $m/s$, $\alpha_G \geq$ 0.3). The homogeneous flow regime can be classified into the \textit{mono-dispersed homogeneous} flow regime, characterized by a mono-dispersed bubble size distribution (BSD), and the \textit{pseudo-homogeneous} flow regime, characterized by a poly-dispersed BSD. The distinction between mono-dispersed and poly-dispersed BSDs is based upon the change in the sign of the lift force coefficient. \\
 Numerous industrial designs have been based on empirical correlations, but such approaches remain somewhat limited when increasing the reactor performance is sought. To improve the description of the physical phenomenon occurring in bubble columns a promising numerical method is the Computational Fluid Dynamics (CFD). CFD helps to understand the complex two-phase fluid dynamics in the bubble column through details of mean flows (fields of three components of mean velocities and mean gas hold-up), interphase rates of mass, energy and momentum transfer and turbulence parameters (such as turbulent kinetic energy, energy dissipation rate, Reynolds stresses, etc.). \\
-In the present work, bubble column is numerically simulated by using the open source CFD tool OpenFOAM []. More in detail, the objective of the present work is the validation of the already existing \textit{multiphaseEulerFoam} solver working for the case of \textit{mono-dispersed homogeneous} bubble column. For the case study we have considered a multiphase mixture of air and water without taking into account the heat transfer phenomena. \\
-The \textit{multiphaseEulerFoam} is used for simulation of incompressible multiphase flows in vertical pipelines. This model combines the Eulerian-Eulerian (two-fluid).
-\\ 
-The structure of the report is as follows. In Section 2, the experimental benchmark taken as reference is illustrated. In Section 3,
+In the present work, bubble column is numerically simulated by using the open source CFD tool OpenFOAM \cite{OF}. More in detail, the objective of this work is the validation of the already existing \textit{multiphaseEulerFoam} solver working for the case of \textit{mono-dispersed homogeneous} bubble column. For the case study we have considered a multiphase mixture of air and water without taking into account the heat transfer phenomena. \\
+The structure of the report is as follows. In Section 2, the experimental benchmark taken as reference is illustrated. In Section 3, all details related to the numerical setup are delineated. In Section 4, the results are discussed. Conclusions and further development are outlined in Section 5.
 
 
 
 \section{Experimental Benchmark}
-\label{sec:expbench}
-The  experimental benchmark taken as reference for the validation comes from the literature, in particular from the study of Krepper et al. []. The experimental setup consists of three rectangular channels 20cm$^2$ in cross-section (0.1 × 0.02 $m$) bolted together at the flanges resulting in a bubble column of 1-meter height (fig 1.). The test facility is initially filled with water up to a specified (..) height. In the bottom of the test section is present a rectangular porous stone adopted as gas sparger 0.02$m$ wide, 0.01$m$ depth and 0.01$m$ height.This sparger produced a \textit{mono-dispersed homogeneous} bubble size distribution with a bubble diameter of 3 $mm$. The superficial gas flow rate, $U_G$, is varied between three different value, 0.006 $m/s$, 0.008 $m/s$ and 0.010 $m/s$, in the \textit{mono-dispersed homogenous} flow regime. The superficial velocity is calculated from the measured volume flow rates using: 
+\label{sec:2}
+The  experimental benchmark taken as reference for the validation comes from the literature, in particular from the study of Krepper et al. \cite{krepper}. The experimental setup consists of three rectangular channels 20cm$^2$ in cross-section (0.1 × 0.02 $m$) bolted together at the flanges resulting in a bubble column of 1-meter height (Figure \ref{fig:facility}). The test facility is initially filled with water up to a specified (..) height. In the bottom of the test section is present a rectangular porous stone adopted as gas sparger 0.02$m$ wide, 0.01$m$ depth and 0.01$m$ height.This sparger produced a \textit{mono-dispersed homogeneous} bubble size distribution with a bubble diameter of 3-5 $mm$. The superficial gas flow rate, $U_G$, is varied between three different value, 0.006 $m/s$, 0.008 $m/s$ and 0.010 $m/s$, in the \textit{mono-dispersed homogenous} flow regime. The superficial velocity is calculated from the measured volume flow rates using: 
 \begin{equation}
     U_G=\frac{Q_G}{A_{CS}}
 \end{equation}
@@ -165,6 +163,12 @@ where $Q_G$ is the measured volume flow rate of the gas and $A_{CS}$ is the cros
     \alpha_V=\frac{h_{final}-h_{initial}}{h_{final}}
 \end{equation}
 where $h_{final}$ is the heigth of the liquid column after the column has been aerated and $h_{initial}$ is the stationary height of the liquid column before aeration. The experimental data consist of wire-mesh local void fraction measurements performed at two different axial heights y = 0.08 $m$ and y = 0.63 $m$ above the gas sparger). The wire mesh sensor is placed in the cross-section by bolting it to two flanged rectangular channels. The wire-mesh sensor data was recorded at a frequency of 2500 Hz for a time period of 60 s. 
+\begin{figure*}[!ht]
+\centering
+\includegraphics[width=4cm]{Report/Images/test facility.png}%
+\caption{Dimensions and geometry of the experimental test facility.}
+\label{fig:facility}
+\end{figure*}
 
 %-----------------------------------------------------------------------------
 % NUMERICAL SETUP
@@ -228,29 +232,56 @@ The list of boundary conditions applied to the domain is summarized in table \re
 
 Moreover, a custom \texttt{fvModels} boundary condition was developed to implement a degassing boundary condition. The complete listing of the source code is provided in Appendix \ref{app:A}. Typically, a this type boundary condition is used to model a free surface through which dispersed gas bubbles are allowed to escape, but the continuous phase is not. A typical application is a bubble column in which the user want to reduce computational cost by not including the freeboard region in the simulation \cite{fluentuserguide}.  This boundary conditions offers also an improvement in terms of numerical stability since the water-air interface is not modeled. When the degassing boundary condition is specified for an outlet, the continuous liquid phase sees the boundary as a free-slip wall and does not leave the domain. The dispersed gas phase sees the boundary as an outlet. The code provided calculates an implicit mass source term to remove gas phase from the cells adjacent to the outlet boundary and also computes a degassing force to account for the effect of gas removal on the continuous phase.
 
-% Table generated by Excel2LaTeX from sheet 'Foglio1'\begin{table}[H]  \centering    \begin{tabular}{|p{5em} c c c|}
+% Table generated by Excel2LaTeX from sheet 'Foglio1'
+\begin{table}[H]
+  \centering
+    \begin{tabular}{|p{5em} c c c|}
     \hline
-    \rowcolor{bluePoli!40}    \textbf{Variable} & \textbf{Inlet} & \textbf{Outlet} & \textbf{Walls} \T\B \\
-     \hline \hline    alpha.air & fixedValue & zeroGradient & zeroGradient \T\B \\    alpha.water & fixedValue & zeroGradient & zeroGradient \T\B \\    k.water & fixedValue & inletOutlet & kqRWallFunction \T\B \\    epsilon.water & fixedValue & inletOutlet & epsilonWallFunction \T\B \\    omega.water & fixedValue & inletOutlet & omegaWallFunction \T\B \\    km    & fixedValue & inletOutlet & kqRWallFunction \T\B \\    epsilonm & fixedValue & inletOutlet & epsilonWallFunction \T\B \\    nut.water & calculated & calculated & nutkWallFunction \T\B \\    p     & calculated & calculated & calculated \T\B \\    U.air & flowRateInletVelocity & pressureInletOutletVelocity & fixedValue \T\B \\    U.water & fixedValue & slip  & fixedValue \T\B \\
-    \hline    \end{tabular}%
-  \caption{List of boundary conditions applied to the three different boundaries}  \label{tab:bc}%\end{table}%
+    \rowcolor{bluePoli!40}
+    \textbf{Variable} & \textbf{Inlet} & \textbf{Outlet} & \textbf{Walls} \T\B \\
+     \hline \hline
+    alpha.air & fixedValue & zeroGradient & zeroGradient \T\B \\
+    alpha.water & fixedValue & zeroGradient & zeroGradient \T\B \\
+    k.water & fixedValue & inletOutlet & kqRWallFunction \T\B \\
+    epsilon.water & fixedValue & inletOutlet & epsilonWallFunction \T\B \\
+    omega.water & fixedValue & inletOutlet & omegaWallFunction \T\B \\
+    km    & fixedValue & inletOutlet & kqRWallFunction \T\B \\
+    epsilonm & fixedValue & inletOutlet & epsilonWallFunction \T\B \\
+    nut.water & calculated & calculated & nutkWallFunction \T\B \\
+    p     & calculated & calculated & calculated \T\B \\
+    U.air & flowRateInletVelocity & pressureInletOutletVelocity & fixedValue \T\B \\
+    U.water & fixedValue & slip  & fixedValue \T\B \\
+    \hline
+    \end{tabular}%
+  \caption{List of boundary conditions applied to the three different boundaries}
+  \label{tab:bc}%
+\end{table}%
 
 
 \subsection{Working fluids and operating conditions}
 \label{sub:fluids}
 In order to model the bubble column, a two-phase mixture made of air and water was considered. As reported in section \ref{sec:expbench}, the experimental setup provided a monodispersed bubble size distribution with a mean equivalent diameter of 3mm. The dispersed phase is therefore modeled by using a single gas phase considering only small bubbles. Despite the air phase having a slightly varying density from the bottom to the top of the column, both fluids are considered incompressible. Table \ref{tab:materials} summarizes material properties of both phases. The column was simulated at ambient pressure of $10^5$ Pa with gravitational acceleration acting along Z coordinate. The system was considered isothermal and no thermophysical property was dependent on temperature. No heat nor mass transfer was considered between phases.
 
-% Table generated by Excel2LaTeX from sheet 'Foglio1'\begin{table}[H]  \centering    \begin{tabular}{|p{7em} c c c|}
+% Table generated by Excel2LaTeX from sheet 'Foglio1'
+\begin{table}[H]
+  \centering
+    \begin{tabular}{|p{7em} c c c|}
     \hline
-    \rowcolor{bluePoli!40}    \textbf{Phase} & \textbf{Property} & \textbf{Type} & \textbf{Value} \T\B \\
-     \hline \hline    Air & Density & Constant & 1.185 [kg/m\textsuperscript{3}] \T\B \\    Water & Density & Constant & 998.0 [kg/m\textsuperscript{3}] \T\B \\
+    \rowcolor{bluePoli!40}
+    \textbf{Phase} & \textbf{Property} & \textbf{Type} & \textbf{Value} \T\B \\
+     \hline \hline
+    Air & Density & Constant & 1.185 [kg/m\textsuperscript{3}] \T\B \\
+    Water & Density & Constant & 998.0 [kg/m\textsuperscript{3}] \T\B \\
     Air & Bubble diameter & Constant & 3 [mm] \T\B \\  
     Air and water & Surface Tension & Constant & 0.072 [N/m] \T\B \\   
     Air & E{ö}tv{ö}s number & Constant & 1    \T\B \\ 
     Air & Dynamic viscosity & Constant & 1.84e-05 [Pa/s]    \T\B \\ 
     Water & Dynamic viscosity & Constant & 3.65e-04 [Pa/s]    \T\B \\ 
-    \hline    \end{tabular}%
-  \caption{List of boundary conditions applied to the three different boundaries}  \label{tab:materials}%\end{table}%
+    \hline
+    \end{tabular}%
+  \caption{List of boundary conditions applied to the three different boundaries}
+  \label{tab:materials}%
+\end{table}%
 
 
 
