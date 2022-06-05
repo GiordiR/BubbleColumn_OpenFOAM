@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.28)  4 JUN 2022 18:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.28)  5 JUN 2022 21:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -886,343 +886,365 @@ Package pdftex.def Info: Images//raggiera_polimi-eps-converted-to.pdf  used on i
 (pdftex.def)             Requested size: 262.90492pt x 262.90266pt.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Images//raggiera_polimi-eps-converted-to.pdf> <./Images//logo_polimi_ing_indinf-eps-converted-to.pdf>]) [2]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 181.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Images//raggiera_polimi-eps-converted-to.pdf> <./Images//logo_polimi_ing_indinf-eps-converted-to.pdf>])
+
+LaTeX Warning: File `Report/Images/test facility.png' not found on input line 168.
+
+
+./BUMP_report.tex:168: Package pdftex.def Error: File `Report/Images/test facility.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.168 ...dth=4cm]{Report/Images/test facility.png}
+                                                  %
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 168.
+(/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-<Images/mesh1.png, id=231, 1505.625pt x 1405.25pt>
+) [2]
+
+LaTeX Warning: Reference `sec:expbench' on page 3 undefined on input line 185.
+
+<Images/mesh1.png, id=236, 1505.625pt x 1405.25pt>
 File: Images/mesh1.png Graphic file (type png)
 <use Images/mesh1.png>
-Package pdftex.def Info: Images/mesh1.png  used on input line 190.
+Package pdftex.def Info: Images/mesh1.png  used on input line 194.
 (pdftex.def)             Requested size: 120.92421pt x 169.28743pt.
-<Images/mesh2.png, id=234, 1505.625pt x 1405.25pt>
+<Images/mesh2.png, id=239, 1505.625pt x 1405.25pt>
 File: Images/mesh2.png Graphic file (type png)
 <use Images/mesh2.png>
-Package pdftex.def Info: Images/mesh2.png  used on input line 193.
+Package pdftex.def Info: Images/mesh2.png  used on input line 197.
 (pdftex.def)             Requested size: 120.92421pt x 169.28743pt.
-<Images/mesh3.png, id=236, 1505.625pt x 1405.25pt>
+<Images/mesh3.png, id=241, 1505.625pt x 1405.25pt>
 File: Images/mesh3.png Graphic file (type png)
 <use Images/mesh3.png>
-Package pdftex.def Info: Images/mesh3.png  used on input line 196.
+Package pdftex.def Info: Images/mesh3.png  used on input line 200.
 (pdftex.def)             Requested size: 120.92421pt x 169.28743pt.
-<Images/mesh4.png, id=238, 1505.625pt x 1405.25pt>
+<Images/mesh4.png, id=243, 1505.625pt x 1405.25pt>
 File: Images/mesh4.png Graphic file (type png)
 <use Images/mesh4.png>
-Package pdftex.def Info: Images/mesh4.png  used on input line 199.
+Package pdftex.def Info: Images/mesh4.png  used on input line 203.
 (pdftex.def)             Requested size: 120.92421pt x 169.28743pt.
 
-Overfull \hbox (29.04428pt too wide) in paragraph at lines 190--200
+Overfull \hbox (29.04428pt too wide) in paragraph at lines 194--204
  [][][][][][][][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 226--227
+[3 <./Images/mesh1.png> <./Images/mesh2.png> <./Images/mesh3.png> <./Images/mesh4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
-[3 <./Images/mesh1.png> <./Images/mesh2.png> <./Images/mesh3.png> <./Images/mesh4.png>]
-Overfull \hbox (0.91045pt too wide) in paragraph at lines 240--240
+
+Overfull \hbox (0.91045pt too wide) in paragraph at lines 244--244
 []|\T1/cmr/m/n/10.95 alpha.water| 
  []
 
 
-Overfull \hbox (7.62755pt too wide) in paragraph at lines 242--242
+Overfull \hbox (7.62755pt too wide) in paragraph at lines 246--246
 []|\T1/cmr/m/n/10.95 epsilon.water| 
  []
 
 
-Overfull \hbox (5.14172pt too wide) in paragraph at lines 243--243
+Overfull \hbox (5.14172pt too wide) in paragraph at lines 247--247
 []|\T1/cmr/m/n/10.95 omega.water| 
  []
 
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 396--397
+[4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
 
- []
-
-[6]
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 437--437
-[]|\T1/cmr/bx/n/10.95 run001| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 438--438
-[]|\T1/cmr/bx/n/10.95 run002| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 439--439
-[]|\T1/cmr/bx/n/10.95 run003| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 440--440
-[]|\T1/cmr/bx/n/10.95 run004| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 441--441
-[]|\T1/cmr/bx/n/10.95 run005| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 442--442
-[]|\T1/cmr/bx/n/10.95 run006| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 443--443
-[]|\T1/cmr/bx/n/10.95 run007| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 444--444
-[]|\T1/cmr/bx/n/10.95 run008| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 445--445
-[]|\T1/cmr/bx/n/10.95 run009| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 446--446
-[]|\T1/cmr/bx/n/10.95 run010| 
- []
-
-
-Overfull \hbox (5.12389pt too wide) in paragraph at lines 447--447
-[]|\T1/cmr/bx/n/10.95 run011| 
  []
 
 
 Overfull \hbox (5.12389pt too wide) in paragraph at lines 448--448
-[]|\T1/cmr/bx/n/10.95 run012| 
+[]|\T1/cmr/bx/n/10.95 run001| 
  []
 
 
 Overfull \hbox (5.12389pt too wide) in paragraph at lines 449--449
-[]|\T1/cmr/bx/n/10.95 run013| 
+[]|\T1/cmr/bx/n/10.95 run002| 
  []
 
 
 Overfull \hbox (5.12389pt too wide) in paragraph at lines 450--450
-[]|\T1/cmr/bx/n/10.95 run014| 
+[]|\T1/cmr/bx/n/10.95 run003| 
  []
 
 
 Overfull \hbox (5.12389pt too wide) in paragraph at lines 451--451
-[]|\T1/cmr/bx/n/10.95 run015| 
+[]|\T1/cmr/bx/n/10.95 run004| 
  []
 
 
 Overfull \hbox (5.12389pt too wide) in paragraph at lines 452--452
+[]|\T1/cmr/bx/n/10.95 run005| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 453--453
+[]|\T1/cmr/bx/n/10.95 run006| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 454--454
+[]|\T1/cmr/bx/n/10.95 run007| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 455--455
+[]|\T1/cmr/bx/n/10.95 run008| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 456--456
+[]|\T1/cmr/bx/n/10.95 run009| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 457--457
+[]|\T1/cmr/bx/n/10.95 run010| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 458--458
+[]|\T1/cmr/bx/n/10.95 run011| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 459--459
+[]|\T1/cmr/bx/n/10.95 run012| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 460--460
+[]|\T1/cmr/bx/n/10.95 run013| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 461--461
+[]|\T1/cmr/bx/n/10.95 run014| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 462--462
+[]|\T1/cmr/bx/n/10.95 run015| 
+ []
+
+
+Overfull \hbox (5.12389pt too wide) in paragraph at lines 463--463
 []|\T1/cmr/bx/n/10.95 run016| 
  []
 
-<Images/graphs/mesh/holdUp10.png, id=334, 722.7pt x 578.16pt>
+<Images/graphs/mesh/holdUp10.png, id=335, 722.7pt x 578.16pt>
 File: Images/graphs/mesh/holdUp10.png Graphic file (type png)
 <use Images/graphs/mesh/holdUp10.png>
-Package pdftex.def Info: Images/graphs/mesh/holdUp10.png  used on input line 484.
+Package pdftex.def Info: Images/graphs/mesh/holdUp10.png  used on input line 495.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/mesh/surfacesJ10h8.png, id=335, 722.7pt x 578.16pt>
+[7] [8]
+<Images/graphs/mesh/surfacesJ10h8.png, id=356, 722.7pt x 578.16pt>
 File: Images/graphs/mesh/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/mesh/surfacesJ10h8.png>
-Package pdftex.def Info: Images/graphs/mesh/surfacesJ10h8.png  used on input line 493.
+Package pdftex.def Info: Images/graphs/mesh/surfacesJ10h8.png  used on input line 504.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/mesh/surfacesJ10h63.png, id=336, 722.7pt x 578.16pt>
+<Images/graphs/mesh/surfacesJ10h63.png, id=357, 722.7pt x 578.16pt>
 File: Images/graphs/mesh/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/mesh/surfacesJ10h63.png>
-Package pdftex.def Info: Images/graphs/mesh/surfacesJ10h63.png  used on input line 496.
+Package pdftex.def Info: Images/graphs/mesh/surfacesJ10h63.png  used on input line 507.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 493--497
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 504--508
  [][][][] 
  []
 
-[7 <./Images/graphs/mesh/holdUp10.png>] [8]
-<Images/graphs/time/holdUp10.png, id=351, 722.7pt x 578.16pt>
+<Images/graphs/time/holdUp10.png, id=358, 722.7pt x 578.16pt>
 File: Images/graphs/time/holdUp10.png Graphic file (type png)
 <use Images/graphs/time/holdUp10.png>
-Package pdftex.def Info: Images/graphs/time/holdUp10.png  used on input line 523.
+Package pdftex.def Info: Images/graphs/time/holdUp10.png  used on input line 534.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/time/surfacesJ10h8.png, id=352, 722.7pt x 578.16pt>
+[9 <./Images/graphs/mesh/holdUp10.png> <./Images/graphs/mesh/surfacesJ10h8.png> <./Images/graphs/mesh/surfacesJ10h63.png>]
+<Images/graphs/time/surfacesJ10h8.png, id=371, 722.7pt x 578.16pt>
 File: Images/graphs/time/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/time/surfacesJ10h8.png>
-Package pdftex.def Info: Images/graphs/time/surfacesJ10h8.png  used on input line 532.
+Package pdftex.def Info: Images/graphs/time/surfacesJ10h8.png  used on input line 543.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/time/surfacesJ10h63.png, id=353, 722.7pt x 578.16pt>
+<Images/graphs/time/surfacesJ10h63.png, id=372, 722.7pt x 578.16pt>
 File: Images/graphs/time/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/time/surfacesJ10h63.png>
-Package pdftex.def Info: Images/graphs/time/surfacesJ10h63.png  used on input line 535.
+Package pdftex.def Info: Images/graphs/time/surfacesJ10h63.png  used on input line 546.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 532--536
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 543--547
  [][][][] 
  []
 
-[9 <./Images/graphs/mesh/surfacesJ10h8.png> <./Images/graphs/mesh/surfacesJ10h63.png> <./Images/graphs/time/holdUp10.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 543.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\omega' on input line 543.
+(hyperref)                removing `math shift' on input line 554.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 543.
+(hyperref)                removing `\omega' on input line 554.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 587.
+(hyperref)                removing `math shift' on input line 554.
+
+[10 <./Images/graphs/time/holdUp10.png> <./Images/graphs/time/surfacesJ10h8.png> <./Images/graphs/time/surfacesJ10h63.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 587.
+(hyperref)                removing `math shift' on input line 598.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 589.
+(hyperref)                removing `math shift' on input line 600.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 589.
+(hyperref)                removing `math shift' on input line 600.
 
-[10 <./Images/graphs/time/surfacesJ10h8.png> <./Images/graphs/time/surfacesJ10h63.png>]
-<Images/graphs/turbmodel/holdUp10.png, id=387, 722.7pt x 578.16pt>
+<Images/graphs/turbmodel/holdUp10.png, id=391, 722.7pt x 578.16pt>
 File: Images/graphs/turbmodel/holdUp10.png Graphic file (type png)
 <use Images/graphs/turbmodel/holdUp10.png>
-Package pdftex.def Info: Images/graphs/turbmodel/holdUp10.png  used on input line 610.
+Package pdftex.def Info: Images/graphs/turbmodel/holdUp10.png  used on input line 621.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/turbmodel/surfacesJ10h8.png, id=388, 722.7pt x 578.16pt>
+<Images/graphs/turbmodel/surfacesJ10h8.png, id=392, 722.7pt x 578.16pt>
 File: Images/graphs/turbmodel/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/turbmodel/surfacesJ10h8.png>
-Package pdftex.def Info: Images/graphs/turbmodel/surfacesJ10h8.png  used on input line 619.
+Package pdftex.def Info: Images/graphs/turbmodel/surfacesJ10h8.png  used on input line 630.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/turbmodel/surfacesJ10h63.png, id=389, 722.7pt x 578.16pt>
+<Images/graphs/turbmodel/surfacesJ10h63.png, id=393, 722.7pt x 578.16pt>
 File: Images/graphs/turbmodel/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/turbmodel/surfacesJ10h63.png>
-Package pdftex.def Info: Images/graphs/turbmodel/surfacesJ10h63.png  used on input line 622.
+Package pdftex.def Info: Images/graphs/turbmodel/surfacesJ10h63.png  used on input line 633.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 619--623
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 630--634
  [][][][] 
  []
 
-[11 <./Images/graphs/turbmodel/holdUp10.png> <./Images/graphs/turbmodel/surfacesJ10h8.png> <./Images/graphs/turbmodel/surfacesJ10h63.png>]
-<Images/graphs/lift/holdUp10.png, id=402, 722.7pt x 578.16pt>
+[11 <./Images/graphs/turbmodel/holdUp10.png>]
+<Images/graphs/lift/holdUp10.png, id=406, 722.7pt x 578.16pt>
 File: Images/graphs/lift/holdUp10.png Graphic file (type png)
 <use Images/graphs/lift/holdUp10.png>
-Package pdftex.def Info: Images/graphs/lift/holdUp10.png  used on input line 674.
+Package pdftex.def Info: Images/graphs/lift/holdUp10.png  used on input line 685.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/lift/surfacesJ10h8.png, id=403, 722.7pt x 578.16pt>
+ [12 <./Images/graphs/turbmodel/surfacesJ10h8.png> <./Images/graphs/turbmodel/surfacesJ10h63.png>]
+<Images/graphs/lift/surfacesJ10h8.png, id=418, 722.7pt x 578.16pt>
 File: Images/graphs/lift/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/lift/surfacesJ10h8.png>
-Package pdftex.def Info: Images/graphs/lift/surfacesJ10h8.png  used on input line 683.
+Package pdftex.def Info: Images/graphs/lift/surfacesJ10h8.png  used on input line 694.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/lift/surfacesJ10h63.png, id=404, 722.7pt x 578.16pt>
+<Images/graphs/lift/surfacesJ10h63.png, id=419, 722.7pt x 578.16pt>
 File: Images/graphs/lift/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/lift/surfacesJ10h63.png>
-Package pdftex.def Info: Images/graphs/lift/surfacesJ10h63.png  used on input line 686.
+Package pdftex.def Info: Images/graphs/lift/surfacesJ10h63.png  used on input line 697.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 683--687
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 694--698
  [][][][] 
  []
 
-[12 <./Images/graphs/lift/holdUp10.png>]
-<Images/graphs/turbdisp/holdUp10.png, id=413, 722.7pt x 578.16pt>
+<Images/graphs/turbdisp/holdUp10.png, id=420, 722.7pt x 578.16pt>
 File: Images/graphs/turbdisp/holdUp10.png Graphic file (type png)
 <use Images/graphs/turbdisp/holdUp10.png>
-Package pdftex.def Info: Images/graphs/turbdisp/holdUp10.png  used on input line 717.
+Package pdftex.def Info: Images/graphs/turbdisp/holdUp10.png  used on input line 728.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/turbdisp/surfacesJ10h8.png, id=414, 722.7pt x 578.16pt>
+[13 <./Images/graphs/lift/holdUp10.png> <./Images/graphs/lift/surfacesJ10h8.png> <./Images/graphs/lift/surfacesJ10h63.png>]
+<Images/graphs/turbdisp/surfacesJ10h8.png, id=434, 722.7pt x 578.16pt>
 File: Images/graphs/turbdisp/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/turbdisp/surfacesJ10h8.png>
-Package pdftex.def Info: Images/graphs/turbdisp/surfacesJ10h8.png  used on input line 726.
+Package pdftex.def Info: Images/graphs/turbdisp/surfacesJ10h8.png  used on input line 737.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/turbdisp/surfacesJ10h63.png, id=415, 722.7pt x 578.16pt>
+<Images/graphs/turbdisp/surfacesJ10h63.png, id=435, 722.7pt x 578.16pt>
 File: Images/graphs/turbdisp/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/turbdisp/surfacesJ10h63.png>
-Package pdftex.def Info: Images/graphs/turbdisp/surfacesJ10h63.png  used on input line 729.
+Package pdftex.def Info: Images/graphs/turbdisp/surfacesJ10h63.png  used on input line 740.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 726--730
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 737--741
  [][][][] 
  []
 
-[13 <./Images/graphs/lift/surfacesJ10h8.png> <./Images/graphs/lift/surfacesJ10h63.png> <./Images/graphs/turbdisp/holdUp10.png>]
-<Images/graphs/walllub/holdUp10.png, id=429, 722.7pt x 578.16pt>
+<Images/graphs/walllub/holdUp10.png, id=436, 722.7pt x 578.16pt>
 File: Images/graphs/walllub/holdUp10.png Graphic file (type png)
 <use Images/graphs/walllub/holdUp10.png>
-Package pdftex.def Info: Images/graphs/walllub/holdUp10.png  used on input line 760.
+Package pdftex.def Info: Images/graphs/walllub/holdUp10.png  used on input line 771.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/walllub/surfacesJ10h8.png, id=430, 722.7pt x 578.16pt>
+[14 <./Images/graphs/turbdisp/holdUp10.png> <./Images/graphs/turbdisp/surfacesJ10h8.png> <./Images/graphs/turbdisp/surfacesJ10h63.png>]
+<Images/graphs/walllub/surfacesJ10h8.png, id=450, 722.7pt x 578.16pt>
 File: Images/graphs/walllub/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/walllub/surfacesJ10h8.png>
-Package pdftex.def Info: Images/graphs/walllub/surfacesJ10h8.png  used on input line 769.
+Package pdftex.def Info: Images/graphs/walllub/surfacesJ10h8.png  used on input line 780.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/walllub/surfacesJ10h63.png, id=431, 722.7pt x 578.16pt>
+<Images/graphs/walllub/surfacesJ10h63.png, id=451, 722.7pt x 578.16pt>
 File: Images/graphs/walllub/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/walllub/surfacesJ10h63.png>
-Package pdftex.def Info: Images/graphs/walllub/surfacesJ10h63.png  used on input line 772.
+Package pdftex.def Info: Images/graphs/walllub/surfacesJ10h63.png  used on input line 783.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 769--773
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 780--784
  [][][][] 
  []
 
-[14 <./Images/graphs/turbdisp/surfacesJ10h8.png> <./Images/graphs/turbdisp/surfacesJ10h63.png> <./Images/graphs/walllub/holdUp10.png>]
-<Images/graphs/allj/holdUp6.png, id=444, 722.7pt x 578.16pt>
+<Images/graphs/allj/holdUp6.png, id=452, 722.7pt x 578.16pt>
 File: Images/graphs/allj/holdUp6.png Graphic file (type png)
 <use Images/graphs/allj/holdUp6.png>
-Package pdftex.def Info: Images/graphs/allj/holdUp6.png  used on input line 799.
+Package pdftex.def Info: Images/graphs/allj/holdUp6.png  used on input line 810.
 (pdftex.def)             Requested size: 241.84843pt x 193.47527pt.
-<Images/graphs/allj/surfacesJ6h8.png, id=445, 722.7pt x 578.16pt>
+[15 <./Images/graphs/walllub/holdUp10.png> <./Images/graphs/walllub/surfacesJ10h8.png> <./Images/graphs/walllub/surfacesJ10h63.png>]
+<Images/graphs/allj/surfacesJ6h8.png, id=465, 722.7pt x 578.16pt>
 File: Images/graphs/allj/surfacesJ6h8.png Graphic file (type png)
 <use Images/graphs/allj/surfacesJ6h8.png>
-Package pdftex.def Info: Images/graphs/allj/surfacesJ6h8.png  used on input line 808.
+Package pdftex.def Info: Images/graphs/allj/surfacesJ6h8.png  used on input line 819.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
-<Images/graphs/allj/surfacesJ6h63.png, id=446, 722.7pt x 578.16pt>
+<Images/graphs/allj/surfacesJ6h63.png, id=466, 722.7pt x 578.16pt>
 File: Images/graphs/allj/surfacesJ6h63.png Graphic file (type png)
 <use Images/graphs/allj/surfacesJ6h63.png>
-Package pdftex.def Info: Images/graphs/allj/surfacesJ6h63.png  used on input line 811.
+Package pdftex.def Info: Images/graphs/allj/surfacesJ6h63.png  used on input line 822.
 (pdftex.def)             Requested size: 252.94878pt x 202.35902pt.
 
-Overfull \hbox (36.72284pt too wide) in paragraph at lines 808--812
+Overfull \hbox (36.72284pt too wide) in paragraph at lines 819--823
  [][][][] 
  []
 
-[15 <./Images/graphs/walllub/surfacesJ10h8.png> <./Images/graphs/walllub/surfacesJ10h63.png> <./Images/graphs/allj/holdUp6.png>] (/Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.bbl) [16 <./Images/graphs/allj/surfacesJ6h8.png> <./Images/graphs/allj/surfacesJ6h63.png>]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 831.
- (./Code/fvModels [17
+(/Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.bbl [16 <./Images/graphs/allj/holdUp6.png> <./Images/graphs/allj/surfacesJ6h8.png> <./Images/graphs/allj/surfacesJ6h63.png>]) [17]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 842.
+ (./Code/fvModels [18
 
-] [18]) [19]
+] [19]) [20]
 
 Package caption Warning: Unused \captionsetup[algorithm] on input line 16.
 See the caption package documentation for explanation.
 
 (/Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `BUMP_report.out' has not changed.
 (rerunfilecheck)             Checksum: 918E25C1D78FA0E7F523CF701A4243D5;5219.
  ) 
 Here is how much of TeX's memory you used:
- 30396 strings out of 478353
- 567042 string characters out of 5848085
+ 30455 strings out of 478353
+ 568538 string characters out of 5848085
  1716989 words of memory out of 5000000
- 47657 multiletter control sequences out of 15000+600000
+ 47694 multiletter control sequences out of 15000+600000
  423709 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  83i,25n,80p,1153b,2078s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2021/texmf-d
-ist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on /Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.pdf (19 pages, 2537968 bytes).
+ist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on /Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.pdf (20 pages, 2569859 bytes).
 PDF statistics:
- 832 PDF objects out of 1000 (max. 8388607)
- 693 compressed objects within 7 object streams
- 317 named destinations out of 1000 (max. 500000)
+ 852 PDF objects out of 1000 (max. 8388607)
+ 709 compressed objects within 8 object streams
+ 324 named destinations out of 1000 (max. 500000)
  452 words of extra memory for PDF output out of 10000 (max. 10000000)
 
