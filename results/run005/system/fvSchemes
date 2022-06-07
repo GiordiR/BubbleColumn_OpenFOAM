@@ -1,0 +1,78 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default         backward;
+}
+
+gradSchemes
+{
+    default         cellLimited Gauss linear 1; //Gauss linear - leastSquares
+}
+
+divSchemes
+{
+    default                         none;
+
+    div(phi,alpha.air)              Gauss vanLeer;
+    div(phi,alpha.water)            Gauss vanLeer;
+    div(phir,alpha.water,alpha.air) Gauss vanLeer;
+    div(phir,alpha.air,alpha.water) Gauss vanLeer;
+
+    "div\(alphaRhoPhi.*,U.*\)"      Gauss linearUpwindV default; //linearUpwindV grad(U) - limitedLinearV 1
+    "div\(phi.*,U.*\)"              Gauss linearUpwindV default; //linearUpwindV grad(U) - limitedLinearV 1
+
+    //"div\(alphaRhoPhi.*,(h|e).*\)"  Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    //"div\(alphaRhoPhi.*,K.*\)"      Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+    //"div\(alphaRhoPhi.*,\(p\|thermo:rho.*\)\)" Gauss limitedLinear 1;  //linearUpwind grad(U) - limitedLinear 1
+
+    "div\(alphaRhoPhi.*,(k|epsilon|omega).*\)"  Gauss linearUpwind default;  //linearUpwind grad(U) - limitedLinear 1
+    "div\(phim,(k|epsilon)m\)"      Gauss linearUpwind default;  //linearUpwind grad(U) - limitedLinear 1
+
+    "div\(\(\(\(alpha.*\*thermo:rho.*\)*nuEff.*\)\*dev2\(T\(grad\(U.*\)\)\)\)\)" Gauss linear;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear limited 1; //uncorrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         limited 1; //uncorrected;
+}
+
+ wallDist
+    {
+        method meshWave;
+/*
+        // Optional entry enabling the calculation
+        // of the normal-to-wall field
+        nRequired false;
+
+        // Optional entry delaying wall distance update to every n steps
+        // Default is 1 (update every step)
+        updateInterval 5;
+        */
+    }
+
+// ************************************************************************* //

@@ -1,0 +1,38 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : setFields
+Date   : May 10 2022
+Time   : 15:19:39
+Host   : "ubuntu-linux-20-04-desktop"
+PID    : 16785
+I/O    : uncollated
+Case   : /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run013
+nProcs : 1
+sigFpe : Floating point exception trapping - not supported on this platform
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+Reading "setFieldsDict"
+
+Setting field default values
+    Setting internal values of volScalarField alpha.air
+    Setting internal values of volScalarField alpha.water
+
+Setting field region values
+    Adding cells with center within boxes 1((0 0 0) (0.2 1 0.02))
+    Setting internal values of volScalarField alpha.air
+    Setting internal values of volScalarField alpha.water
+
+End
+

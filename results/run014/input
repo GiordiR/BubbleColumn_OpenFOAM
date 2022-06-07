@@ -1,0 +1,47 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Geometry
+
+nx 20;   // 20x200x4 - 20x200x8 - 40x200x8 - 40x400x8
+ny 200;
+nz 4;
+
+// Solver settings
+
+dt 0.005;   // 0.01 - 0.005 - 0.0025
+endT 90;
+writeInt 10;
+
+URF_p 0.3;
+URF_all 0.3;
+
+// Set fields
+
+h0_water 1;
+
+// RAS model
+
+RASmodel kOmegaSSTSato;  // mixtureKEpsilon - kOmegaSSTSato - LaheyKEpsilon
+
+// Boundary Conditions
+
+//Uinlet uniform (0 0.01 0);
+massFlowIn 2.37e-5;   // 2.37e-5 1.896e-05 1.422e-05 kg/s
+inizioMedia 30;
+
+// Force models
+
+Dbubble 3e-3;
+Dragmodel IshiiZuber;       // SchillerNaumann - IshiiZuber - TomiyamaAnalytic - TomiyamaCorrelated
+Liftmodel Tomiyama;         // none - Tomiyama
+Walllub Frank;              // none - Antal - Frank - Tomiyama
+Turbdisp Burns;             // none - Burns - LopezDeBertodano
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //

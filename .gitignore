@@ -3,7 +3,7 @@
 */log.*
 */constant/polyMesh/
 __pycache__/
-/results
+/results/run013_video
 /simulations
 .DS*
 articles/

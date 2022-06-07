@@ -1,0 +1,524 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 9
+Exec   : multiphaseEulerFoam
+Date   : May 10 2022
+Time   : 14:34:55
+Host   : "ubuntu-linux-20-04-desktop"
+PID    : 7211
+I/O    : uncollated
+Case   : /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011
+nProcs : 1
+sigFpe : Floating point exception trapping - not supported on this platform
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Create mesh for time = 0
+
+
+PIMPLE: No convergence criteria found
+
+
+PIMPLE: No corrector convergence criteria found
+        Calculations will do 3 corrections
+
+
+PIMPLE: Operating solver in transient mode with 3 outer correctors
+
+
+
+Reading g
+
+Reading hRef
+Creating phaseSystem
+
+Selecting phaseSystem basicMultiphaseSystem
+Selecting phaseModel for air: pureIsothermalPhaseModel
+Selecting diameterModel for phase air: isothermal
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+Calculating face flux field phi.air
+Selecting turbulence model type laminar
+Selecting laminar stress model Stokes
+Selecting thermophysical transport type laminar
+Selecting default laminar thermophysical transport model unityLewisFourier
+Selecting phaseModel for water: pureIsothermalPhaseModel
+Selecting diameterModel for phase water: constant
+Selecting thermodynamics package 
+{
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          eConst;
+    equationOfState rhoConst;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+Calculating face flux field phi.water
+Selecting turbulence model type RAS
+Selecting RAS turbulence model kOmegaSSTSato
+Selecting patchDistMethod meshWave
+RAS
+{
+    model           kOmegaSSTSato;
+    turbulence      on;
+    printCoeffs     on;
+    alphaK1         0.85;
+    alphaK2         1;
+    alphaOmega1     0.5;
+    alphaOmega2     0.856;
+    gamma1          0.555556;
+    gamma2          0.44;
+    beta1           0.075;
+    beta2           0.0828;
+    betaStar        0.09;
+    a1              0.31;
+    b1              1;
+    c1              10;
+    F3              false;
+    Cmub            0.6;
+}
+
+Selecting thermophysical transport type RAS
+Selecting default RAS thermophysical transport model unityLewisEddyDiffusivity
+No MRF models present
+
+Selecting default blending method: linear
+Selecting drag blending method: linear
+Selecting surfaceTensionModel for (air and water): constant
+Selecting aspectRatioModel for (air in water): constant
+Selecting aspectRatioModel for (water in air): constant
+Selecting dragModel for (air and water): segregated
+Selecting swarmCorrection for (air and water): none
+Selecting dragModel for (air in water): TomiyamaAnalytic
+Selecting swarmCorrection for (air in water): none
+Selecting dragModel for (water in air): TomiyamaAnalytic
+Selecting swarmCorrection for (water in air): none
+Selecting virtualMassModel for (air in water): constantCoefficient
+Selecting virtualMassModel for (water in air): constantCoefficient
+Selecting liftModel for (air in water): Tomiyama
+Selecting liftModel for (water in air): Tomiyama
+Selecting wallLubricationModel for (air in water): none
+Selecting wallLubricationModel for (water in air): none
+Selecting turbulentDispersionModel for (air in water): none
+Selecting turbulentDispersionModel for (water in air): none
+Selecting heatTransferModel for (air in water): RanzMarshall
+Selecting heatTransferModel for (water in air): RanzMarshall
+Calculating field g.h
+
+Reading field p_rgh
+
+Creating fvModels from "constant/fvModels"
+
+Selecting finite volume model type coded
+    Name: degassingMassSource
+    - selecting all cells
+    - selected 16000 cell(s) with volume 0.002
+Using dynamicCode for fvModel:: degassingMassSource at line 20 in "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/constant/fvModels/degassingMassSource"
+Creating new library in "dynamicCode/degassingMassSource/platforms/linuxArm64GccDPInt32Opt/lib/libdegassingMassSource_960c29cddea75cf6f5b35e827dcdaee5ff3dcf64.so"
+"/home/parallels/OpenFOAM/OpenFOAM-9/etc/codeTemplates/dynamicCode/codedFvModelTemplate.C" "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingMassSource/codedFvModelTemplate.C"
+"/home/parallels/OpenFOAM/OpenFOAM-9/etc/codeTemplates/dynamicCode/codedFvModelTemplate.H" "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingMassSource/codedFvModelTemplate.H"
+Invoking "wmake -s libso /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingMassSource"
+wmake libso /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingMassSource
+    ln: ./lnInclude
+    wmkdep: codedFvModelTemplate.C
+    Ctoo: codedFvModelTemplate.C
+    ld: /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingMassSource/../platforms/linuxArm64GccDPInt32Opt/lib/libdegassingMassSource_960c29cddea75cf6f5b35e827dcdaee5ff3dcf64.so
+Selecting finite volume model type coded
+    Name: degassingForce
+    - selecting all cells
+    - selected 16000 cell(s) with volume 0.002
+Using dynamicCode for fvModel:: degassingForce at line 98 in "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/constant/fvModels/degassingForce"
+Creating new library in "dynamicCode/degassingForce/platforms/linuxArm64GccDPInt32Opt/lib/libdegassingForce_4bd3fe1d896dfa2d0533e1403e34537849a04154.so"
+"/home/parallels/OpenFOAM/OpenFOAM-9/etc/codeTemplates/dynamicCode/codedFvModelTemplate.C" "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingForce/codedFvModelTemplate.C"
+"/home/parallels/OpenFOAM/OpenFOAM-9/etc/codeTemplates/dynamicCode/codedFvModelTemplate.H" "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingForce/codedFvModelTemplate.H"
+Invoking "wmake -s libso /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingForce"
+wmake libso /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingForce
+    ln: ./lnInclude
+    wmkdep: codedFvModelTemplate.C
+    Ctoo: codedFvModelTemplate.C
+    ld: /home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/dynamicCode/degassingForce/../platforms/linuxArm64GccDPInt32Opt/lib/libdegassingForce_4bd3fe1d896dfa2d0533e1403e34537849a04154.so
+Creating fvConstraints from "system/fvConstraints"
+
+Selecting finite volume constraint type limitPressure
+    Name: limitp
+    min 10000
+
+Courant Number mean: 9.9775e-05 max: 0.0001
+
+Starting time loop
+
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry nx is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry ny is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry nz is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry dt is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry endT is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry writeInt is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry URF_p is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry URF_all is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry h0_water is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry RASmodel is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry massFlowIn is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry inizioMedia is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry Dbubble is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry Dragmodel is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry Liftmodel is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry Walllub is not a dictionary
+--> FOAM Warning : 
+    From function bool Foam::functionObjectList::read()
+    in file db/functionObjects/functionObjectList/functionObjectList.C at line 789
+    Reading "/home/parallels/OpenFOAM/parallels-9/run/finalProject/results/run011/system/controlDict" from line 12 to line 28
+    Entry Turbdisp is not a dictionary
+Reading surface description:
+    y_8cm
+    y_63cm
+
+
+
+volFieldValue holdUp write:
+    volAverage() of alpha.air = 0
+
+Courant Number mean: 9.9775e-05 max: 0.0001
+Time = 0.005
+
+PIMPLE: Iteration 1
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 0 0 1
+water fraction, min, max = 1 0 1
+Phase-sum volume fraction, min, max = 1 1 1
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 0 0 1
+water fraction, min, max = 1 0 1
+Phase-sum volume fraction, min, max = 1 1 1
+Selecting finite volume model type degassingMassSource
+    Name: degassingMassSource
+    - selecting all cells
+    - selected 16000 cell(s) with volume 0.002
+**codeAddSup**
+Constructing momentum equations
+Selecting finite volume model type degassingForce
+    Name: degassingForce
+    - selecting all cells
+    - selected 16000 cell(s) with volume 0.002
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 1, Final residual = 5.71721e-09, No Iterations 14
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 9.00023e-07, Final residual = 9.20672e-09, No Iterations 6
+PIMPLE: Iteration 2
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 2.5e-05 0 1
+water fraction, min, max = 1 0 1.005
+Phase-sum volume fraction, min, max = 1.00003 1 1.005
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 5e-05 0 1
+water fraction, min, max = 0.999975 0 1.005
+Phase-sum volume fraction, min, max = 1.00003 1 1.005
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.320425, Final residual = 6.05061e-09, No Iterations 14
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.387061, Final residual = 6.53871e-09, No Iterations 11
+PIMPLE: Iteration 3
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 2.5e-05 -12.3725 12.6671
+water fraction, min, max = 1 -11.6671 13.3725
+Phase-sum volume fraction, min, max = 1.00002 1 1.005
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 5e-05 -231.597 111.05
+water fraction, min, max = 0.999975 -110.05 232.597
+Phase-sum volume fraction, min, max = 1.00002 1 1.005
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.79176, Final residual = 6.56368e-09, No Iterations 14
+limitPressure: p min -1.18016e+06
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.759983, Final residual = 3.50799e-09, No Iterations 15
+limitPressure: p min -5.02874e+06
+smoothSolver:  Solving for omega.water, Initial residual = 0.00303036, Final residual = 9.89379e-08, No Iterations 1
+smoothSolver:  Solving for k.water, Initial residual = 1, Final residual = 4.46467e-09, No Iterations 2
+ExecutionTime = 0.52 s
+
+
+Courant Number mean: 12283.1 max: 2.426e+06
+Time = 0.01
+
+PIMPLE: Iteration 1
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 0.0012452 -1880.95 891.92
+water fraction, min, max = 0.99878 -890.92 1881.95
+Phase-sum volume fraction, min, max = 1.00002 1 1.005
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 0.0012702 -5.87404e+06 3.91309e+06
+water fraction, min, max = 0.998755 -3.91309e+06 5.87405e+06
+Phase-sum volume fraction, min, max = 1.00002 1 1.005
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.999966, Final residual = 7.05376e-09, No Iterations 14
+limitPressure: p min -1.12939e+11
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.914014, Final residual = 4.02666e-09, No Iterations 14
+limitPressure: p min -3.37321e+11
+PIMPLE: Iteration 2
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 0.00124513 -2.47265e+06 2.45178e+06
+water fraction, min, max = 0.998779 -2.45178e+06 2.47265e+06
+Phase-sum volume fraction, min, max = 1.00002 1 1.00968
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 0.00127006 -1.12743e+13 1.16924e+13
+water fraction, min, max = 0.998757 -1.16924e+13 1.12743e+13
+Phase-sum volume fraction, min, max = 1.00002 0.996094 1.00968
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.999987, Final residual = 8.61188e-09, No Iterations 59
+limitPressure: p min -3.06053e+23
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.29993, Final residual = 9.02502e-09, No Iterations 86
+limitPressure: p min -2.42416e+26
+PIMPLE: Iteration 3
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -989.899 -3.72696e+15 3.16058e+15
+water fraction, min, max = 988.213 -3.16058e+15 3.72696e+15
+Phase-sum volume fraction, min, max = -1.68453 -2673.11 1.5
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = 1.02341e+12 -3.13409e+31 3.32456e+31
+water fraction, min, max = -5.15899e+11 -3.32456e+31 3.13409e+31
+Phase-sum volume fraction, min, max = -5.50099e+10 -4.5036e+15 2.2518e+15
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 0.999975, Final residual = 13.2538, No Iterations 1000
+limitPressure: p min -5.41934e+53
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = 2.73589e-09, Final residual = 2.73589e-09, No Iterations 0
+limitPressure: p min 10000
+smoothSolver:  Solving for omega.water, Initial residual = 0.0300351, Final residual = 4.41002e-15, No Iterations 2
+smoothSolver:  Solving for k.water, Initial residual = 0.0436766, Final residual = 5.91101e-14, No Iterations 2
+ExecutionTime = 3.27 s
+
+
+Courant Number mean: 2.25108e+34 max: 9.46606e+36
+Time = 0.015
+
+PIMPLE: Iteration 1
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -5.86804e+31 -2.2377e+36 2.2377e+36
+water fraction, min, max = 5.86804e+31 -2.2377e+36 2.2377e+36
+Phase-sum volume fraction, min, max = 1.7544e+18 -4.42722e+20 2.04397e+21
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = nan nan nan
+water fraction, min, max = nan nan nan
+Phase-sum volume fraction, min, max = nan nan nan
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+PIMPLE: Iteration 2
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+PIMPLE: Iteration 3
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+smoothSolver:  Solving for omega.water, Initial residual = nan, Final residual = nan, No Iterations 1000
+smoothSolver:  Solving for k.water, Initial residual = nan, Final residual = nan, No Iterations 1000
+ExecutionTime = 19.04 s
+
+
+Courant Number mean: nan max: nan
+Time = 0.02
+
+PIMPLE: Iteration 1
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+PIMPLE: Iteration 2
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+MULES: Solving for alpha.air
+MULES: Solving for alpha.water
+air fraction, min, max = -nan -nan -nan
+water fraction, min, max = -nan -nan -nan
+Phase-sum volume fraction, min, max = -nan -nan -nan
+**codeAddSup**
+Constructing momentum equations
+**codeAddSup**
+air min/max T 300 - 300
+water min/max T 300 - 300
+**codeAddSup**
+GAMG:  Solving for p_rgh, Initial residual = nan, Final residual = nan, No Iterations 1000
+**codeAddSup**
