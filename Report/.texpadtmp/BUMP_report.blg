@@ -1,13 +1,13 @@
-This is BibTeX, Version 0.99d (TeX Live 2021)
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: /Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.aux
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: /Users/marty/Desktop/PHD/Corsi/CFD-STEN/OF_project/finalProject/Report/.texpadtmp/BUMP_report.aux
 The style file: unsrtnat.bst
 Database file #1: ../bibliography.bib
 Warning--entry type for "OF" isn't style-file defined
 --line 126 of file ../bibliography.bib
 You've used 13 entries,
             2481 wiz_defined-function locations,
-            639 strings with 6702 characters,
+            639 strings with 6738 characters,
 and the built_in function-call counts, 5004 in all, are:
 = -- 434
 > -- 221
