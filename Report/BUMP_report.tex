@@ -169,7 +169,7 @@ where $Q_G$ is the measured volume flow rate of the gas and $A_{CS}$ is the cros
 where $h_{final}$ is the heigth of the liquid column after the column has been aerated and $h_{initial}$ is the stationary height of the liquid column before aeration. The experimental data consist of wire-mesh local void fraction measurements performed at two different axial heights y = 0.08 $m$ and y = 0.63 $m$ above the gas sparger). The wire mesh sensor is placed in the cross-section by bolting it to two flanged rectangular channels. The wire-mesh sensor data was recorded at a frequency of 2500 Hz for a time period of 60 s. 
 \begin{figure*}[!ht]
 	\centering
-	\includegraphics[width=4cm]{Images/test_facility.png}
+	\includegraphics[width=3.5cm]{Images/test_facility.png}
 	\caption{Dimensions and geometry of the experimental test facility.}
 	\label{fig:facility}
 \end{figure*}
@@ -186,7 +186,7 @@ In this section all the details related to the numerical setup will be presented
 
 \subsection{Domain and Mesh}
 \label{sub:domain}
-The numerical domain has been modeled and meshed with the utility \texttt{blockMesh} according to the size of the experimental facility reported in section \ref{sec:expbench}. The resulting mesh is structured and made of only regular hexahedral elements. Four different refinement levels were analyzed for the purpure of a grid sensitivity analysis. Figure \ref{fig:mesh} displays a section of the generated meshes and their details are instead summarized in table \ref{tab:meshes}. According to \cite{krepper}, the mesh size should be 1.5 times the size of the bubbles. Therefore, given the size distribution found in the experiments (see section \ref{sec:2}),  the coarsest mesh should be the most adequate since it has a cell size of 5mm in each direction. The grid refinement study has the purpose of verify if such a corse mesh has  negative influence on the fluid-dynamic phenomena inside the bubble column.
+The numerical domain has been modeled and meshed with the utility \texttt{blockMesh} according to the size of the experimental facility reported in section \ref{sec:expbench}. The resulting mesh is structured and made of only regular hexahedral elements. Four different refinement levels were analyzed for the purpure of a grid sensitivity analysis. Figure \ref{fig:mesh} displays a section of the generated meshes and their details are instead summarized in table \ref{tab:meshes}. According to \cite{krepper}, the mesh size should be 1.5 times the size of the bubbles. Therefore, given the size distribution found in the experiments (see section \ref{sec:expbench}),  the coarsest mesh should be the most adequate since it has a cell size of 5mm in each direction. The grid refinement study has the purpose of verify if such a corse mesh has  negative influence on the fluid-dynamic phenomena inside the bubble column.
  
 Speaking about the inlet section, the porous stone used as gas sparger in the experiments has been modeled as a zero-thickness surface having the size of the sparger itself, namely a 0.02x0.01 m\textsuperscript{2} cross-section.
 
