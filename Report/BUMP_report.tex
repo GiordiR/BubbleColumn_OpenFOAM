@@ -373,15 +373,34 @@ The mixture properties can be related to those of the continuous and dispersed a
 
 \subsection{Solver settings}
 \label{sub:solver}
-The \textit{multiphaseEulerFoam} solver enables simultaneous modelling of complex multiphase flows with different flow regimes. Usually the VOF interface capturing method is used to model the large fluid-fluid interfaces, whereas in our case the Euler multi-fluid approach is used for modelling the dispersed flow. In the Euler multi-fluid approach each phase is represented by separate set of flow equations. The multi-fluid model governing equations for incompressible, isothermal flow are given by a set of mass and momentum equations for each phase $i$:
+The \textit{multiphaseEulerFoam} solver enables simultaneous modelling of complex multiphase flows with different flow regimes. Usually the VOF interface capturing method is used to model the large fluid-fluid interfaces, whereas in our case the Euler multi-fluid approach is used for modelling the dispersed flow. In the Euler multi-fluid approach each phase is represented by separate set of flow equations. 
+The multi-fluid model governing equations for compressible, isothermal flow are given by a set of mass and momentum equations for each phase $i$:
 \begin{equation}
     \frac{\partial \alpha_i}{\partial t}+u_i\cdot \nabla (\alpha_i)=0
 \end{equation}
 \begin{equation}
     \frac{\partial \rho_i\alpha_iu_i}{\partial t}+\rho_i\alpha_iu_i\cdot \nabla u_i=-\alpha_i\nabla p+\nabla \cdot (\mu_i\alpha_i\nabla u_i)+F_g+F_{D,i}+F_{st,i}
 \end{equation}
-where $\alpha_i$ is the phase fraction, $\rho_i$ the density, $u_i$ the velocity each for the respective phase $i$ and $F_g$ is the gravitational force. The two interfacial forces are the drag force $F_{D,i}$ and the surface tension force $F_{st,i}$. This flow equations are solved through the use of the PIMPLE (Semi-Implicit Method for Pressure-Linked Equations) algorithm. 
-
+where $\alpha_i$ is the phase fraction, $\rho_i$ the density, $u_i$ the velocity each for the respective phase $i$ and $F_g$ is the gravitational force. The two interfacial forces are the drag force $F_{D,i}$ and the surface tension force $F_{st,i}$. \\
+The first step is to define the properties of each compressible fluid phases with common pressure. Subsequently, the phase transport equations are solved for each individual phases and are calculated the interface properties of different phase pairs. The flow equations are solved through the use of the PIMPLE (Semi-Implicit Method for Pressure-Linked Equations) algorithm. Different sub-models are used for defining interfacial properties between each individual phase pairs for example the \verb!dragModel!.
+\begin{table}[H]
+  \centering
+    \begin{tabular}{|p{10em} c|}
+    \hline
+    \rowcolor{bluePoli!40}
+    \textbf{Mathematical term} & \textbf{Numerical scheme}\\
+     \hline \hline
+    ddtSchemes & backward\\
+    gradSchemes & cellLimited Gauss linear 1\\
+    divSchemes & Gauss vanLeer\\
+    laplacianSchemes & Gauss linear limited 1\\
+    interpolationSchemes & linear\\
+    snGradSchemes & limited 1\\
+    \hline
+    \end{tabular}%
+  \caption{fvSchemes}
+  \label{tab:fvSchemes}%
+\end{table}%
 
 
 \subsection{Phase interaction modeling}
