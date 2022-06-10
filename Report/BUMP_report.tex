@@ -569,7 +569,7 @@ where $C_{w d}$, $C_{w c}$ and $m$ are calibration coefficients.
 %-----------------------------------------------------------------------------
 \section{Results and Discussion}
 \label{sec:results}
-In this section the results of the present work are presented and commented. Each subsection represents the sensitivity analysis on some parameters which may or may not influence the numerical results. The analysis performed aim at evaluating the sensitivity of the cfd results on the mesh, timestep and each multiphase force in this order.
+In this section the results of the present work are presented and commented. Each subsection represents the sensitivity analysis on some parameters which may or may not influence the numerical results. The analysis performed aim at evaluating the sensitivity of the CFD results on the mesh, timestep and each multiphase force in this order.
 
 \subsection{CFD methodology}
 \label{sub:methodology}
@@ -621,10 +621,10 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
     & & \textbf{$N_x$} & \textbf{$N_y$} & \textbf{$N_z$} & \thead{Experimental holdup} & \thead{Numerical hold up}\T\B \\
     \hline \hline
-    \textbf{run001} & \textbf{Mesh A} & 20 & 200 & 4 & 0.03501 & \T\B \\
-    \textbf{run002} &\textbf{Mesh B} & 20 & 200 & 8 & 0.03501 & \T\B \\
-    \textbf{run003} &\textbf{Mesh C} & 40 & 200 & 8 & 0.03501 & \T\B \\
-    \textbf{run004} &\textbf{Mesh D} & 40 & 400 & 8 & 0.03501 & \T\B \\
+    \textbf{run001} & \textbf{Mesh A} & 20 & 200 & 4 & 0.03501 & 0.0404937\T\B \\
+    \textbf{run002} &\textbf{Mesh B} & 20 & 200 & 8 & 0.03501 & 0.0411561\T\B \\
+    \textbf{run003} &\textbf{Mesh C} & 40 & 200 & 8 & 0.03501 & 0.0406377\T\B \\
+    \textbf{run004} &\textbf{Mesh D} & 40 & 400 & 8 & 0.03501 & 0.0407799\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -655,9 +655,9 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
      & \textbf{$\Delta t$} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
     \hline \hline
-    \textbf{run006} & 0.0025 & 0.03501 & \T\B \\
-    \textbf{run001} & 0.005  & 0.03501 & \T\B \\
-    \textbf{run005} & 0.010  & 0.03501 & \T\B \\
+    \textbf{run006} & 0.0025 & 0.03501 & 0.0401548\T\B \\
+    \textbf{run001} & 0.005  & 0.03501 & 0.0404937\T\B \\
+    \textbf{run005} & 0.010  & 0.03501 & 0.0398255\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -687,9 +687,9 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
     & \textbf{Turbulence model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
     \hline \hline
-    \textbf{run001} & kOmegaSSTSato & 0.03501 & \T\B \\
-    \textbf{run007} & LaheyKEpsilon  & 0.03501 & \T\B \\
-    \textbf{run008} & mixtureKEpsilon & 0.03501 & \T\B \\
+    \textbf{run001} & kOmegaSSTSato & 0.03501 & 0.0404937\T\B \\
+    \textbf{run007} & LaheyKEpsilon  & 0.03501 & 0.0388271\T\B \\
+    \textbf{run008} & mixtureKEpsilon & 0.03501 & 0.039857\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -714,12 +714,12 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c|}
+    \begin{tabular}{|p{8em} c |}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Drag model} & \thead{Experimental holdup} & \thead{Numerical hold up}\T\B \\
+    & \textbf{Drag model} \T\B \\
     \hline \hline
-    \textbf{all runs} & & 0.03501 & \T\B \\
+    \textbf{all runs} &  IshiiZuber \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -737,9 +737,9 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
     & \textbf{Lift model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
     \hline \hline
-    \textbf{run009} & None & 0.03501 & \T\B \\
-    \textbf{run001} & Tomiyama & 0.03501 & \T\B \\
-    \textbf{run010} & Moraga & 0.03501 & \T\B \\
+    \textbf{run009} & None & 0.03501 & 0.0311115\T\B \\
+    \textbf{run001} & Tomiyama & 0.03501 & 0.0404937\T\B \\
+    \textbf{run010} & Moraga & 0.03501 & 0.0394963\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -769,9 +769,9 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
     & \textbf{Turbulent dispersion model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
     \hline \hline
-    \textbf{run001} & None & 0.03501 & \T\B \\
-    \textbf{run011} & Burns & 0.03501 & \T\B \\
-    \textbf{run012} & LopezDeBertodanonone & 0.03501 & \T\B \\
+    \textbf{run001} & None & 0.03501 & 0.0404937\T\B \\
+    \textbf{run011} & Burns & 0.03501 & 0.0428537\T\B \\
+    \textbf{run012} & LopezDeBertodano & 0.03501 & 0.045886\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -801,9 +801,9 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
     & \textbf{Wall lubrication model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
     \hline \hline
-    \textbf{run001} & None & 0.03501 &  \T\B \\
-    \textbf{run013} & Antal  & 0.03501 & \T\B \\
-    \textbf{run014} & Frank & 0.03501 & \T\B \\
+    \textbf{run001} & None & 0.03501 &  0.0404937\T\B \\
+    \textbf{run013} & Antal  & 0.03501 & 0.0401398\T\B \\
+    \textbf{run014} & Frank & 0.03501 & 0.0306111\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -833,9 +833,9 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \rowcolor{bluePoli!40}
     & \textbf{$J_{in} [mm/s]$}  & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
     \hline \hline
-    \textbf{run013} & 10 & 0.03501 & \T\B \\
-    \textbf{run015} & 8  & 0.02808 &\T\B \\
-    \textbf{run016} & 6  & 0.02042 & \T\B \\
+    \textbf{run013} & 10 & 0.03501 & 0.0401398\T\B \\
+    \textbf{run015} & 8  & 0.02808 & 0.0309794\T\B \\
+    \textbf{run016} & 6  & 0.02042 & 0.0227286\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
