@@ -130,7 +130,7 @@
 \newcommand{\thead}[2][.95in]{%
   \vbox{\hsize#1\baselineskip11pt\centering\vspace*{3pt}#2\par}}
   
-\newcommand{\tthead}[2][.95in]{%
+\newcommand{\tthead}[2][.75in]{%
   \vbox{\hsize#1\baselineskip11pt\centering\vspace*{3pt}#2\par}}
 
 %-------------------------------------------------------------------------
@@ -158,7 +158,7 @@ The structure of the report is as follows. In Section 2, the experimental benchm
 
 \section{Experimental Benchmark}
 \label{sec:expbench}
-The  experimental benchmark taken as reference for the validation comes from the literature, in particular from the study of Krepper et al. \cite{krepper}. The experimental setup consists of three rectangular channels 20cm$^2$ in cross-section (0.1 $\times$ 0.02 $m$) bolted together at the flanges resulting in a bubble column of 1-meter height (Figure \ref{fig:facility}). The test facility is initially filled with water up to a specified (..) height. In the bottom of the test section is present a rectangular porous stone adopted as gas sparger 0.02$m$ wide, 0.01$m$ depth and 0.01$m$ height.This sparger produced a \textit{mono-dispersed homogeneous} bubble size distribution with a bubble diameter of 3-5 $mm$. The superficial gas flow rate, $U_G$, is varied between three different value, 0.006 $m/s$, 0.008 $m/s$ and 0.010 $m/s$, in the \textit{mono-dispersed homogenous} flow regime. The superficial velocity is calculated from the measured volume flow rates using: 
+The  experimental benchmark taken as reference for the validation comes from the literature, in particular from the study of Krepper et al. \cite{krepper}. The experimental setup consists of three rectangular channels 20cm$^2$ in cross-section (0.1 $\times$ 0.02 $m$) bolted together at the flanges resulting in a bubble column of 1-meter height (Figure \ref{fig:facility}). The test facility is initially filled with water up to a specified (..) height. In the bottom of the test section is present a rectangular porous stone adopted as gas sparger 0.02$m$ wide, 0.01$m$ depth and 0.01$m$ height.This sparger produced a \textit{mono-dispersed homogeneous} bubble size distribution with a bubble diameter of 3 $mm$. The superficial gas flow rate, $U_G$, is varied between three different value, 0.006 $m/s$, 0.008 $m/s$ and 0.010 $m/s$, in the \textit{mono-dispersed homogenous} flow regime. The superficial velocity is calculated from the measured volume flow rates using: 
 \begin{equation}
     U_G=\frac{Q_G}{A_{CS}}
 \end{equation}
@@ -167,12 +167,14 @@ where $Q_G$ is the measured volume flow rate of the gas and $A_{CS}$ is the cros
     \alpha_V=\frac{h_{final}-h_{initial}}{h_{final}}
 \end{equation}
 where $h_{final}$ is the heigth of the liquid column after the column has been aerated and $h_{initial}$ is the stationary height of the liquid column before aeration. The experimental data consist of wire-mesh local void fraction measurements performed at two different axial heights y = 0.08 $m$ and y = 0.63 $m$ above the gas sparger). The wire mesh sensor is placed in the cross-section by bolting it to two flanged rectangular channels. The wire-mesh sensor data was recorded at a frequency of 2500 Hz for a time period of 60 s. 
+\clearpage
 \begin{figure*}[!ht]
 	\centering
-	\includegraphics[width=3.5cm]{Images/test_facility.png}
+	\includegraphics[width=3cm]{Images/test_facility.png}
 	\caption{Dimensions and geometry of the experimental test facility.}
 	\label{fig:facility}
 \end{figure*}
+
 
 %-----------------------------------------------------------------------------
 % NUMERICAL SETUP
@@ -292,88 +294,88 @@ In order to model the bubble column, a two-phase mixture made of air and water w
 \subsection{Turbulence modeling}
 \label{sub:turbmodels}
 \subsubsection{$k-\omega$ SST Sato}
-The \textit{$k-\omega$ SST Sato} model \citep{SSTSato} has originally developed to tackle the problem of heat transfer for boundary layer flows. It combines eddy-viscosity models for the momentum equations and eddy-diffusivity model for heat transer. \\
-The idea behind SST model is to combine the best elements of the $k-\epsilon$ model and the $k-\omega$ model with the help of a blending function. Indeed, the $k-\epsilon$ model presents deficiencies near the wall, where fine meshes and specific near-wall treatments are required. Whereas, the $k-\omega$ model is strongly dependent of the solution to free stream values of $\omega$ outside the boundary layer.\\
-The turbulent model equations reads:
-
-\begin{flalign}
-   \hspace{2cm}	&\frac{\partial \rho k}{\partial t} + \frac{\partial \rho U_j k}{\partial x_j} 	= \tilde{P_k} - \beta^\star \rho \omega k + \frac{\partial}{\partial x_j}			\left(\Gamma_k \frac{\partial k}{\partial x_j}\right) \label{eq:k-equation_kOmegaSSTSato} & \\
-   	&\frac{\partial \rho \omega}{\partial t} + \frac{\partial \rho U_j \omega}{\partial x_j} = \frac{\gamma}{\nu_t}P_k - \beta \rho \omega^2 + \frac{\partial}{\partial x_j}\left(\Gamma_\omega \frac{\partial \omega}{\partial x_j}\right) + (1-F_1)2\rho\sigma_{\omega 2}\frac{1}{\omega}\frac{\partial k}{\partial x_j}\frac{\partial \omega}{\partial x_j} \label{eq:omega-equation_kOmegaSSTSato}&
-\end{flalign}
-with
-\begin{flalign}
-   \hspace{2cm}	& \Gamma_k = \mu + \frac{\mu_t}{\sigma_k}, \hspace{0.1cm} \Gamma_\omega = \mu + \frac{\mu_t}{\sigma_\omega}, \hspace{0.1cm} P_k = \tau_{ij}\frac{\partial U_i}{\partial x_j}, \hspace{0.1cm} \tilde{P_k} = \min(P_k;c_l\epsilon), \hspace{0.1cm} \mu_t = \rho\frac{a_1k}{\max(a_1\omega; S \cdot F_2)} &
-\end{flalign}
-The coefficients, $\phi$ of the model are function of $F_1$: $\phi = F_1 \phi_1 + (1-F_1)\phi_2$, where $\phi_1$ and $\phi_2$ stand for the coefficients fo the $k-\omega$ and the $k-\epsilon$ model rispectively:
-\begin{flalign}
-   \hspace{2cm}	& \sigma_{k1}=1.176, \hspace{0.1cm} \sigma_{\omega 1}=2.000, \hspace{0.1cm} \kappa = 0.41, \hspace{0.1cm} \gamma_1 = 0.5532, \hspace{0.1cm} \beta_1 = 0.0750, \hspace{0.1cm} \beta^\star = 0.09, \hspace{0.1cm} c_1 = 10 & \\
-   & \sigma_{k2}=1.00, \hspace{0.1cm} \sigma_{\omega 2}=1.168, \hspace{0.1cm} \kappa = 0.41, \hspace{0.1cm} \gamma_2 = 0.4403, \hspace{0.1cm} \beta_2 = 0.0828, \hspace{0.1cm} \beta^\star = 0.09&
-\end{flalign}
-with
-\begin{flalign}
-   \hspace{2cm}	& F_1 = \tanh\left(\min\left(\max\left(\frac{\sqrt{k}}{\beta^\star \omega y};\frac{500\nu}{y^2 \omega}\right);\frac{4\rho\sigma_{\omega 2k}}{CD_{k\omega}y^2}\right)\right) & \\
-   & CD_{k\omega}=\max\left(2\rho\sigma_{\omega 2}\frac{1}{\omega}\frac{\partial k}{\partial x_j}\frac{\partial \omega}{\partial x_j};1.0 e^{-10}\right) & \\
-   & F_2=\tanh\left(\max\left(2\frac{\sqrt{k}}{\beta^\star \omega y};\frac{500\nu}{y^2 \omega}\right)\right) & \\
-   & \tau_{ij} = \mu_t\left(\frac{\partial U_i}{\partial x_j} + \frac{\partial U_j}{\partial x_i} - \frac{2}{3}\frac{\partial U_k}{\partial x_k}\right)-\frac{2}{3}\rho k \delta_{ij} &   
-\end{flalign}
-Here, the absolute value of the strain rate, S, is used in the definition of the eddy viscosity instead of the vorticity in order to increase the generality of the method beyond aerodynamic applications.\\
-The turbulent heat flux vector is modelled with the help of a turbulent diffusivity:
-\begin{flalign}
-   \hspace{2cm}	& \overline{u_i^\prime  T^\prime} = -\varepsilon_h \frac{\partial T}{\partial x_i} =-\frac{\nu_t}{Pr_t}\frac{\partial T}{\partial _i}	&   
-\end{flalign}
-with
-\begin{flalign}
-   \hspace{2cm}	& Pr_t = \frac{\nu_t}{\varepsilon_h}	&   
-\end{flalign}
-Finally, the temperature equation is written as:
-\begin{flalign}
-   \hspace{2cm}	& \frac{\partial \rho T}{\partial t} + \frac{\partial \rho U_j T}{\partial x_j} = \frac{\partial}{\partial x_j}\left[\left(\frac{\mu}{Pr}+\frac{\mu_t}{Pr_t}\right)\frac{\partial T}{\partial x_j}\right]	&   
-\end{flalign}
-The Prandtl number, $Pr$, is a fluid property, and the turbulent Prandtl number, $Pr_t$, is set to a constant value of 0.9, assuming an analogy between turbulent heat and mass transfert.
+The \textit{$k-\omega$ SST Sato} model \citep{SSTSato} was originally developed to tackle the problem of heat transfer for boundary layer flows. It combines eddy-viscosity models for the momentum equations and eddy-diffusivity model for heat transer. The idea behind SST model is to combine the best elements of the $k-\epsilon$ model and the $k-\omega$ model with the help of a blending function. Indeed, the $k-\epsilon$ model presents deficiencies near the wall, where fine meshes and specific near-wall treatments are required. Whereas, the $k-\omega$ model is strongly dependent of the solution to free stream values of $\omega$ outside the boundary layer. In addition Sato \cite{sato} model for bubble induced turbulence viscosity was added to this turbulence model especially for tackling multiphase problems.\\
+%The turbulent model equations reads:
+%
+%\begin{flalign}
+%   \hspace{2cm}	&\frac{\partial \rho k}{\partial t} + \frac{\partial \rho U_j k}{\partial x_j} 	= \tilde{P_k} - \beta^\star \rho \omega k + \frac{\partial}{\partial x_j}			\left(\Gamma_k \frac{\partial k}{\partial x_j}\right) \label{eq:k-equation_kOmegaSSTSato} & \\
+%   	&\frac{\partial \rho \omega}{\partial t} + \frac{\partial \rho U_j \omega}{\partial x_j} = \frac{\gamma}{\nu_t}P_k - \beta \rho \omega^2 + \frac{\partial}{\partial x_j}\left(\Gamma_\omega \frac{\partial \omega}{\partial x_j}\right) + (1-F_1)2\rho\sigma_{\omega 2}\frac{1}{\omega}\frac{\partial k}{\partial x_j}\frac{\partial \omega}{\partial x_j} \label{eq:omega-equation_kOmegaSSTSato}&
+%\end{flalign}
+%with
+%\begin{flalign}
+%   \hspace{2cm}	& \Gamma_k = \mu + \frac{\mu_t}{\sigma_k}, \hspace{0.1cm} \Gamma_\omega = \mu + \frac{\mu_t}{\sigma_\omega}, \hspace{0.1cm} P_k = \tau_{ij}\frac{\partial U_i}{\partial x_j}, \hspace{0.1cm} \tilde{P_k} = \min(P_k;c_l\epsilon), \hspace{0.1cm} \mu_t = \rho\frac{a_1k}{\max(a_1\omega; S \cdot F_2)} &
+%\end{flalign}
+%The coefficients, $\phi$ of the model are function of $F_1$: $\phi = F_1 \phi_1 + (1-F_1)\phi_2$, where $\phi_1$ and $\phi_2$ stand for the coefficients fo the $k-\omega$ and the $k-\epsilon$ model rispectively:
+%\begin{flalign}
+%   \hspace{2cm}	& \sigma_{k1}=1.176, \hspace{0.1cm} \sigma_{\omega 1}=2.000, \hspace{0.1cm} \kappa = 0.41, \hspace{0.1cm} \gamma_1 = 0.5532, \hspace{0.1cm} \beta_1 = 0.0750, \hspace{0.1cm} \beta^\star = 0.09, \hspace{0.1cm} c_1 = 10 & \\
+%   & \sigma_{k2}=1.00, \hspace{0.1cm} \sigma_{\omega 2}=1.168, \hspace{0.1cm} \kappa = 0.41, \hspace{0.1cm} \gamma_2 = 0.4403, \hspace{0.1cm} \beta_2 = 0.0828, \hspace{0.1cm} \beta^\star = 0.09&
+%\end{flalign}
+%with
+%\begin{flalign}
+%   \hspace{2cm}	& F_1 = \tanh\left(\min\left(\max\left(\frac{\sqrt{k}}{\beta^\star \omega y};\frac{500\nu}{y^2 \omega}\right);\frac{4\rho\sigma_{\omega 2k}}{CD_{k\omega}y^2}\right)\right) & \\
+%   & CD_{k\omega}=\max\left(2\rho\sigma_{\omega 2}\frac{1}{\omega}\frac{\partial k}{\partial x_j}\frac{\partial \omega}{\partial x_j};1.0 e^{-10}\right) & \\
+%   & F_2=\tanh\left(\max\left(2\frac{\sqrt{k}}{\beta^\star \omega y};\frac{500\nu}{y^2 \omega}\right)\right) & \\
+%   & \tau_{ij} = \mu_t\left(\frac{\partial U_i}{\partial x_j} + \frac{\partial U_j}{\partial x_i} - \frac{2}{3}\frac{\partial U_k}{\partial x_k}\right)-\frac{2}{3}\rho k \delta_{ij} &   
+%\end{flalign}
+%Here, the absolute value of the strain rate, S, is used in the definition of the eddy viscosity instead of the vorticity in order to increase the generality of the method beyond aerodynamic applications.\\
+%The turbulent heat flux vector is modelled with the help of a turbulent diffusivity:
+%\begin{flalign}
+%   \hspace{2cm}	& \overline{u_i^\prime  T^\prime} = -\varepsilon_h \frac{\partial T}{\partial x_i} =-\frac{\nu_t}{Pr_t}\frac{\partial T}{\partial _i}	&   
+%\end{flalign}
+%with
+%\begin{flalign}
+%   \hspace{2cm}	& Pr_t = \frac{\nu_t}{\varepsilon_h}	&   
+%\end{flalign}
+%Finally, the temperature equation is written as:
+%\begin{flalign}
+%   \hspace{2cm}	& \frac{\partial \rho T}{\partial t} + \frac{\partial \rho U_j T}{\partial x_j} = \frac{\partial}{\partial x_j}\left[\left(\frac{\mu}{Pr}+\frac{\mu_t}{Pr_t}\right)\frac{\partial T}{\partial x_j}\right]	&   
+%\end{flalign}
+%The Prandtl number, $Pr$, is a fluid property, and the turbulent Prandtl number, $Pr_t$, is set to a constant value of 0.9, assuming an analogy between turbulent heat and mass transfert.
 
 \subsubsection{Lahey $k-\epsilon$}
 This \textit{$k-\epsilon$} model has been developed by Lahey \citep{Lahey} specifically for three-dimensional, four-field, turbulent, two-fluid multiphase flows. It is an extension to two-phase flows of the standard single-phase $k-\epsilon$ turbulence model.\\
-In particular, for bubbly flows only two fields are required: the continuous liquid (cl) and dispersed vapor (dv) fields. Therefore, the following turbulent equations are used:
-\begin{flalign}
-   \hspace{2cm}	& \alpha_{cl}\frac{Dk_{cl}}{Dt} = \nabla \cdot \left[\alpha_{cl}\frac{v^T_{cl}}{\sigma_k}\nabla k_{cl} \right] + \alpha_{cl} [P_{cl} \varepsilon_{cl}] + \alpha_{cl} \Phi_k	& \\
-   & \alpha_{cl}\frac{D\varepsilon_{cl}}{Dt} = \nabla \cdot \left[\alpha_{cl}\frac{v^T_{cl}}{\sigma_k}\nabla \varepsilon_{cl} \right] + \alpha_{cl} C_{\varepsilon 1} \frac{P_{cl}\varepsilon_{cl}}{k_{cl}} - \alpha_{cl}C_{\varepsilon 2} \frac{\varepsilon^2_{cl}}{k_{cl}}+ \alpha_{cl} \Phi_k & 
-\end{flalign}
-where 
-\begin{flalign}
-   \hspace{2cm}	& k_{cl} = \frac{1}{2}\overline{\underline{v}^\prime_{cl} \cdot \underline{v}^\prime_{cl}} & \\
-   & \nu^T_{cl} = C_\mu \frac{k^2_{cl}}{\varepsilon_{cl}} + 0.6 D_{dv} \alpha_{dv} |\underline{v}_r| & \\
-   & \underline{v}_r = \underline{v}_{dv} - \underline{v}_{cl} &
-\end{flalign}
-The source term for turbulent kinetic energy is:
-\begin{flalign}
-   \hspace{2cm}	& \Phi_k = \frac{k_{cl}}{C \varepsilon_2 \varepsilon_{cl}} = C_p (1+ C_D^{4/3})\alpha_{dv} \frac{|vr|^3}{D_{dv}} \label{eq:soruceLahey} & 
-\end{flalign}
-where $C_p=0.25$. Eq. \eqref{eq:soruceLahey} accounts for the velocity fluctuations induced by liquid displacement due to the relative velocity ($v_r$) and the liquid eddies which may be formed behind the bubbles. \\
-Similar turbulent transport equations can be written for the dispersed phase.
+%In particular, for bubbly flows only two fields are required: the continuous liquid (cl) and dispersed vapor (dv) fields. Therefore, the following turbulent equations are used:
+%\begin{flalign}
+%   \hspace{2cm}	& \alpha_{cl}\frac{Dk_{cl}}{Dt} = \nabla \cdot \left[\alpha_{cl}\frac{v^T_{cl}}{\sigma_k}\nabla k_{cl} \right] + \alpha_{cl} [P_{cl} \varepsilon_{cl}] + \alpha_{cl} \Phi_k	& \\
+%   & \alpha_{cl}\frac{D\varepsilon_{cl}}{Dt} = \nabla \cdot \left[\alpha_{cl}\frac{v^T_{cl}}{\sigma_k}\nabla \varepsilon_{cl} \right] + \alpha_{cl} C_{\varepsilon 1} \frac{P_{cl}\varepsilon_{cl}}{k_{cl}} - \alpha_{cl}C_{\varepsilon 2} \frac{\varepsilon^2_{cl}}{k_{cl}}+ \alpha_{cl} \Phi_k & 
+%\end{flalign}
+%where 
+%\begin{flalign}
+%   \hspace{2cm}	& k_{cl} = \frac{1}{2}\overline{\underline{v}^\prime_{cl} \cdot \underline{v}^\prime_{cl}} & \\
+%   & \nu^T_{cl} = C_\mu \frac{k^2_{cl}}{\varepsilon_{cl}} + 0.6 D_{dv} \alpha_{dv} |\underline{v}_r| & \\
+%   & \underline{v}_r = \underline{v}_{dv} - \underline{v}_{cl} &
+%\end{flalign}
+%The source term for turbulent kinetic energy is:
+%\begin{flalign}
+%   \hspace{2cm}	& \Phi_k = \frac{k_{cl}}{C \varepsilon_2 \varepsilon_{cl}} = C_p (1+ C_D^{4/3})\alpha_{dv} \frac{|vr|^3}{D_{dv}} \label{eq:soruceLahey} & 
+%\end{flalign}
+%where $C_p=0.25$. Eq. \eqref{eq:soruceLahey} accounts for the velocity fluctuations induced by liquid displacement due to the relative velocity ($v_r$) and the liquid eddies which may be formed behind the bubbles. \\
+%Similar turbulent transport equations can be written for the dispersed phase.
 
 \subsubsection{Mixture $k-\epsilon$}
 The \textit{Mixture $k-\epsilon$} model \citep{Behzadi} has been developed to overcome the limitations of the standard $k-\epsilon$ turbulence model in the application to dilute systems.\\
 As the phase fraction increases, the dominance of the continuous phase on turbulence gradually diminishes as that phase becomes confined to thin interstices between dispersed phase elements. In the limit of unity dispersed phase fraction, this phase becomes continuous and its turbulence becomes the dominant/sole factor. \\
 The \textit{Mixture $k-\epsilon$} model appropriately incorporate high phase regimes and reverts to the single-phase form in the extreme limits of zero and unity phase fractions.\\
-The turbulence equations take the form:
-\begin{flalign}
-   \hspace{2cm}	& \frac{\partial}{\partial t} (\rho_m k_m) + \nabla \cdot (\rho_m \tilde{U}_m k_m) = \nabla \cdot \frac{\mu_m^t}{\sigma_m}\nabla k_m + P_k^m - \rho_m \varepsilon_m + S_k^m & \\
-   & \frac{\partial}{\partial t}(\rho_m \varepsilon_m) + \nabla \cdot (\rho_m \tilde{U}_m \varepsilon_m) = \nabla \cdot \frac{\mu_m^t}{\sigma_m}\nabla \varepsilon_m + \frac{\varepsilon_m}{k_m} (C_{\varepsilon 1}P^m_k - C_{\varepsilon 2}\rho_m \varepsilon_m) + C_{\varepsilon 3} \frac{\varepsilon_m}{k_m} S_k^m & 
-\end{flalign}
-The mixture quatities (referred by the subscript \textit{m}) appearing in the equations are defined by
-\begin{flalign}
-   \hspace{2cm}	& \rho_m = \overline{\alpha}_c \rho_c + \overline{\alpha}_d \rho_d & 
-\end{flalign}
-The mixture properties can be related to those of the continuous and dispersed as follow
-\begin{flalign}
-   \hspace{2cm}	& k_m = \left(\overline{\alpha}_c \frac{\rho_c}{\rho_m} + \overline{\alpha}_d \frac{\rho_d}{\rho_m}C_t^2 \right)k_c & \\
-   & \varepsilon_m = \left(\overline{\alpha}_c \frac{\rho_c}{\rho_m} + \overline{\alpha}_d \frac{\rho_d}{\rho_m}C_t^2 \right)\varepsilon_c & \\
-   & \tilde{U}_m = \frac{\overline{\alpha}_c \rho _c \tilde{U}_c + \overline{\alpha}_d \rho_d \tilde{U}_d C_t^2}{\overline{\alpha}_c \rho_c + \overline{\alpha}_d \rho_d C_t^2} & \\
-   & \mu_m^t = \frac{(\overline{\alpha}_c \mu_c^t + \overline{\alpha}_d \mu_d^t C_t^2) \rho_m}{\overline{\alpha}_c \rho_c + \overline{\alpha}_d \rho_d C_t^2} & \\
-  	& P_k^n = \overline{\alpha}_c P_k^c + \overline{\alpha}_d P_k^d & \\
-  	& S_k^m = S_k^c + S_k^d = -A_d(2\alpha_d(C_t -1)^2k_c + \nu_c\nabla\alpha_d\cdot\overline{U}_r) & \\
-  	& \mu_d^t = C_t^2 \left(\frac{\nu_c}{\nu_d}\frac{\rho_d}{\rho_c}\right) \mu_c^t  &
-\end{flalign}
+
+%The turbulence equations take the form:
+%\begin{flalign}
+%   \hspace{2cm}	& \frac{\partial}{\partial t} (\rho_m k_m) + \nabla \cdot (\rho_m \tilde{U}_m k_m) = \nabla \cdot \frac{\mu_m^t}{\sigma_m}\nabla k_m + P_k^m - \rho_m \varepsilon_m + S_k^m & \\
+%   & \frac{\partial}{\partial t}(\rho_m \varepsilon_m) + \nabla \cdot (\rho_m \tilde{U}_m \varepsilon_m) = \nabla \cdot \frac{\mu_m^t}{\sigma_m}\nabla \varepsilon_m + \frac{\varepsilon_m}{k_m} (C_{\varepsilon 1}P^m_k - C_{\varepsilon 2}\rho_m \varepsilon_m) + C_{\varepsilon 3} \frac{\varepsilon_m}{k_m} S_k^m & 
+%\end{flalign}
+%The mixture quatities (referred by the subscript \textit{m}) appearing in the equations are defined by
+%\begin{flalign}
+%   \hspace{2cm}	& \rho_m = \overline{\alpha}_c \rho_c + \overline{\alpha}_d \rho_d & 
+%\end{flalign}
+%The mixture properties can be related to those of the continuous and dispersed as follow
+%\begin{flalign}
+%   \hspace{2cm}	& k_m = \left(\overline{\alpha}_c \frac{\rho_c}{\rho_m} + \overline{\alpha}_d \frac{\rho_d}{\rho_m}C_t^2 \right)k_c & \\
+%   & \varepsilon_m = \left(\overline{\alpha}_c \frac{\rho_c}{\rho_m} + \overline{\alpha}_d \frac{\rho_d}{\rho_m}C_t^2 \right)\varepsilon_c & \\
+%   & \tilde{U}_m = \frac{\overline{\alpha}_c \rho _c \tilde{U}_c + \overline{\alpha}_d \rho_d \tilde{U}_d C_t^2}{\overline{\alpha}_c \rho_c + \overline{\alpha}_d \rho_d C_t^2} & \\
+%   & \mu_m^t = \frac{(\overline{\alpha}_c \mu_c^t + \overline{\alpha}_d \mu_d^t C_t^2) \rho_m}{\overline{\alpha}_c \rho_c + \overline{\alpha}_d \rho_d C_t^2} & \\
+%  	& P_k^n = \overline{\alpha}_c P_k^c + \overline{\alpha}_d P_k^d & \\
+%  	& S_k^m = S_k^c + S_k^d = -A_d(2\alpha_d(C_t -1)^2k_c + \nu_c\nabla\alpha_d\cdot\overline{U}_r) & \\
+%  	& \mu_d^t = C_t^2 \left(\frac{\nu_c}{\nu_d}\frac{\rho_d}{\rho_c}\right) \mu_c^t  &
+%\end{flalign}
 
 \subsection{Solver settings}
 \label{sub:solver}
@@ -383,10 +385,10 @@ The multi-fluid model governing equations for compressible, isothermal flow are 
     \frac{\partial \alpha_i}{\partial t}+u_i\cdot \nabla (\alpha_i)=0
 \end{equation}
 \begin{equation}
-    \frac{\partial \rho_i\alpha_iu_i}{\partial t}+\rho_i\alpha_iu_i\cdot \nabla u_i=-\alpha_i\nabla p+\nabla \cdot (\mu_i\alpha_i\nabla u_i)+F_g+F_{D,i}+F_{st,i}
+    \frac{\partial \rho_i\alpha_iu_i}{\partial t}+\rho_i\alpha_iu_i\cdot \nabla u_i=-\alpha_i\nabla p+\nabla \cdot (\mu_i\alpha_i\nabla u_i)+F_g+F_{D,i}+F_{i}
 \end{equation}
-where $\alpha_i$ is the phase fraction, $\rho_i$ the density, $u_i$ the velocity each for the respective phase $i$ and $F_g$ is the gravitational force. The two interfacial forces are the drag force $F_{D,i}$ and the surface tension force $F_{st,i}$. \\
-The first step is to define the properties of each compressible fluid phases with common pressure. Subsequently, the phase transport equations are solved for each individual phases and are calculated the interface properties of different phase pairs. The flow equations are solved through the use of the PIMPLE (Semi-Implicit Method for Pressure-Linked Equations) algorithm. Different sub-models are used for defining interfacial properties between each individual phase pairs for example the \verb!dragModel!. In Table \ref{tab:fvSchemes} and \ref{tab:fvSolution} are summarized the choices made. 
+where $\alpha_i$ is the phase fraction, $\rho_i$ the density, $u_i$ the velocity each for the respective phase $i$ and $F_g$ is the gravitational force. The two interfacial forces are the drag force $F_{D,i}$ and $F_{i}$ represents all the other multiphase forces. \\
+The first step is to define the properties of each compressible fluid phases with common pressure. Subsequently, the phase transport equations are solved for each individual phases and are calculated the interface properties of different phase pairs. The flow equations are solved through the use of the PIMPLE (Semi-Implicit Method for Pressure-Linked Equations) algorithm. Different sub-models are used for defining interfacial properties between each individual phase pairs for example the \texttt{dragModel}. In Table \ref{tab:fvSchemes} and \ref{tab:fvSolution} are summarized the choices made. 
 \begin{table}[H]
   \centering
     \begin{tabular}{|p{10em} c|}
@@ -414,7 +416,7 @@ The first step is to define the properties of each compressible fluid phases wit
     \rowcolor{bluePoli!40}
     \textbf{Variable} & \textbf{Solver} & \textbf{Smoother} & \textbf{Tolerance}\\
      \hline \hline
-     U, e, k, epsilon, omega  & smoothSolver & symGaussSeidel & 10$^{-7}$ \\
+     U, k, epsilon, omega  & smoothSolver & symGaussSeidel & 10$^{-7}$ \\
      p & GAMG & DIC & 10$^{-8}$\\
      \hline
     \end{tabular}%\caption{}
@@ -614,31 +616,37 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \subsection{Mesh sensitivity}
 \label{sub:mesh_sensitivity}
 
+The sensitivity analysis on mesh refinement has the objective of evaluating how the cell dimension influence the accuracy of the results. In this work we considered four different mesh sizes doubling the number of elements in Z, X and Y direction respectively. This sensitivity analysis was conducted considering a base case with just the influence of drag and lift force as reported in table \ref{tab:runs}. 
+
+
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{5em} c c c c c c |}
+    %\resizebox{.9\columnwidth}{!}{%
+    \begin{tabular}{|p{5em} c c c c c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & & \textbf{$N_x$} & \textbf{$N_y$} & \textbf{$N_z$} & \thead{Experimental holdup} & \thead{Numerical hold up}\T\B \\
+    & & \textbf{$N_x$} & \textbf{$N_y$} & \textbf{$N_z$} & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%] & \thead{Execution Time [h]}\T\B \\
     \hline \hline
-    \textbf{run001} & \textbf{Mesh A} & 20 & 200 & 4 & 0.03501 & 0.0404937\T\B \\
-    \textbf{run002} &\textbf{Mesh B} & 20 & 200 & 8 & 0.03501 & 0.0411561\T\B \\
-    \textbf{run003} &\textbf{Mesh C} & 40 & 200 & 8 & 0.03501 & 0.0406377\T\B \\
-    \textbf{run004} &\textbf{Mesh D} & 40 & 400 & 8 & 0.03501 & 0.0407799\T\B \\
+    \textbf{run001} & \textbf{Mesh A} & 20 & 200 & 4 & 0.03501 & 0.04049 & 15.65 & 3.26\T\B \\
+    \textbf{run002} &\textbf{Mesh B} & 20 & 200 & 8 & 0.03501 & 0.04116 & 17.57 & 6.09\T\B \\
+    \textbf{run003} &\textbf{Mesh C} & 40 & 200 & 8 & 0.03501 & 0.04064 & 16.08 & 11.72\T\B \\
+    \textbf{run004} &\textbf{Mesh D} & 40 & 400 & 8 & 0.03501 & 0.04078 & 16.48 & 25.44\T\B \\
     \hline
     \end{tabular}    \\[10pt]
-    \caption{Meshes}
+    \caption{Results of sensitivity analysis on mesh refinement}
     \label{table:meshes_sensivity}
 \end{table}
 
+Figure \ref{fig:alpha_mesh} displays the trend of local gas holdup on the two reference surfaces. From this plots we can observe virtually no difference between all the cases. It is worth noting that mesh size has an impact on the computational time of the simulation. It was observed that the computational time scaled almost linearly with mesh size so, given the results, the optimal choice was to choose the coarsest mesh for all the other runs. 
 
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/mesh/surfacesJ10h8.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/mesh/surfacesJ10h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/mesh/surfacesJ10h63.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/mesh/surfacesJ10h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different meshes}
     \label{fig:alpha_mesh}
@@ -647,16 +655,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \subsection{Time sensitivity}
 \label{sub:time_sensitivity}
 
+The sensitivity analysis on timestep size  has the objective of evaluating how the results can be influenced by a finer or coarser temporal discretization. To do so additional calculation halving and doubling the time step were performed. The global gas holdup shows no influence due to timestep size. It was observed, though, that the coarsest timestep gave stability problems and Courant number grater than 5 for some of the test cases so it was decided to stick with a timestep of 0.005 seconds also considering the computational time required for a simulation.
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c|}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-     & \textbf{$\Delta t$} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+     & \textbf{$\Delta t$} & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%]  \T\B \\
     \hline \hline
-    \textbf{run006} & 0.0025 & 0.03501 & 0.0401548\T\B \\
-    \textbf{run001} & 0.005  & 0.03501 & 0.0404937\T\B \\
-    \textbf{run005} & 0.010  & 0.03501 & 0.0398255\T\B \\
+    \textbf{run006} & 0.0025 & 0.03501 & 0.04015 & 14.71\T\B \\
+    \textbf{run001} & 0.005  & 0.03501 & 0.04049 & 15.65\T\B \\
+    \textbf{run005} & 0.010  & 0.03501 & 0.03983 & 13.77\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -667,10 +677,10 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/time/surfacesJ10h8.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/time/surfacesJ10h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/time/surfacesJ10h63.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/time/surfacesJ10h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different time steps}
     \label{fig:alpha_time}
@@ -679,19 +689,22 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \subsection{Turbulence models}
 \label{sub:turbulence_models}
 
+As reported in section \ref{sub:turbmodels}, different turbulence models are available for multiphase simulation. Therefore, it is important to test their influence on the results. As reported by \citeauthor{baseline} in \cite{baseline}, the best strategy for solving a bubbly flow is to consider SST turbulence model and to solve for turbulence just in the continuous phase. In openFOAM, several models for multiphase turbulence prediction are available. As reported in table \ref{table:turbulence_models}, Lahey k-$\varepsilon$ models seems to be the most accurate one. Anyway, by looking at figure \ref{fig:alpha_turbmodel}, this model overestimates the gas holdup at the center of the column in the developed region while the other two are more adherent to experimental data. The mixture k-$\varepsilon$ instead, has two main disadvantages. The first one is that it is not possible to account for turbulence just in the continuous phase and it does not provide a model for bubble turbulence interaction (BIT). The k-$\omega$ SST provides the Sato model for this scope and it must therefore be preferred. 
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Turbulence model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Turbulence model} & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%] \T\B \\
     \hline \hline
-    \textbf{run001} & kOmegaSSTSato & 0.03501 & 0.0404937\T\B \\
-    \textbf{run007} & LaheyKEpsilon  & 0.03501 & 0.0388271\T\B \\
-    \textbf{run008} & mixtureKEpsilon & 0.03501 & 0.039857\T\B \\
+    \textbf{run001} & kOmegaSSTSato & 0.03501 & 0.04049 & 15.65\T\B \\
+    \textbf{run007} & LaheyKEpsilon  & 0.03501 & 0.03883 & 10.91\T\B \\
+    \textbf{run008} & mixtureKEpsilon & 0.03501 & 0.03986 & 13.97\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
+    \vspace{-.5cm}
     \caption{Results of turbulence models sensitivity analysis}
     \label{table:turbulence_models}
 \end{table}
@@ -699,47 +712,31 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/turbmodel/surfacesJ10h8.png}
+        \includegraphics[scale=0.34, trim={0 30 0 50}, clip]{Images/graphs/turbmodel/surfacesJ10h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/turbmodel/surfacesJ10h63.png}
+        \includegraphics[scale=0.34, trim={0 30 0 50}, clip]{Images/graphs/turbmodel/surfacesJ10h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different turbulence models}
     \label{fig:alpha_turbmodel}
 \end{figure}
 
-\subsection{Drag models}
-\label{sub:drag_models}
-{\color{red} Ha senso inserirlo?}
-
-\begin{table}[H]
-    \centering 
-    \begin{tabular}{|p{8em} c c c|}
-    \hline
-    \rowcolor{bluePoli!40}
-    & \textbf{Drag model} & \thead{Experimental holdup} & \thead{Numerical hold up}\T\B \\
-    \hline \hline
-    \textbf{all runs} & IshiiZuber & 0.03501 & \T\B \\
-    \hline
-    \end{tabular}
-    \\[10pt]
-    \caption{Drag models}
-    \label{table:drag_models}
-\end{table}
 
 \subsection{Lift models}
 \label{sub:lift_models}
 
+The lift force in a bubble column is responsible of lateral forces and oscillation of the bubble swarm. It is therefore an important force that should not be neglected. In this sensitivity analysis two models are tested and also the effect of lift absence is shown. Tomiayama model is the least accurate in terms of global holdup but it is the one which represents the local air void fraction profile. By looking at figure \ref{fig:alpha_lift}, the effect of neglecting the lift force is clearly visible. The bubbles are concentrated in the center of the column and the holdup profile assumes an almost parabolic shape in the developed region. This is due to the lack of lateral forces that make the bubble swarm oscillate. The Moraga model, is similar to Tomiyama's one in terms of holdup profile but it slightly overpredicts the air void fraction in the center of the column. Moreover, as explained in section \ref{sub:lift_models}, it is lacking the Tomiyama's model feature of variable lift force direction depending on bubble size. In conclusion the Tomiyama model is the most suitable for this kind of simulations. 
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c|}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Lift model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Lift model} & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%]\T\B  \\
     \hline \hline
-    \textbf{run009} & None & 0.03501 & 0.0311115\T\B \\
-    \textbf{run001} & Tomiyama & 0.03501 & 0.0404937\T\B \\
-    \textbf{run010} & Moraga & 0.03501 & 0.0394963\T\B \\
+    \textbf{run009} & None & 0.03501 & 0.03111 & -11.17\T\B \\
+    \textbf{run001} & Tomiyama & 0.03501 & 0.04049 & 15.65\T\B \\
+    \textbf{run010} & Moraga & 0.03501 & 0.03950 & 12.82\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -750,10 +747,10 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/lift/surfacesJ10h8.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/lift/surfacesJ10h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/lift/surfacesJ10h63.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/lift/surfacesJ10h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different lift models}
     \label{fig:alpha_lift}
@@ -762,16 +759,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \subsection{Turbulent dispersion models}
 \label{sub:turbulent_dispersion_models}
 
+This force accounts for the interphase turbulent momentum transfer. By looking at table \ref{table:turbulent_dispersion_models}, one could say that considering this force in the analysis has a negative impact on the accuracy. This is not true when considering the local holdup profile displayed in figure \ref{fig:alpha_turbdisp}. In the injection zone (h=8cm) the profile is very close to the experimental one. This is the first case that exhibits a parabolic shape profile instead of a concave one. Both models are close to the experimental lines and resemble its shape. Lopez de Bertodano's model though, overestimates the gas holdup profile. This trend is reflected on the numerical value of the global holdup which reaches an error level of 31\%. Therefore, given the results discussed, Burns model was chosen for the remaining simulations.
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Turbulent dispersion model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Turbulent dispersion model} & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%] \T\B \\
     \hline \hline
-    \textbf{run001} & None & 0.03501 & 0.0404937\T\B \\
-    \textbf{run011} & Burns & 0.03501 & 0.0428537\T\B \\
-    \textbf{run012} & LopezDeBertodano & 0.03501 & 0.045886\T\B \\
+    \textbf{run001} & None & 0.03501 & 0.04049 & 15.65\T\B \\
+    \textbf{run011} & Burns & 0.03501 & 0.04285 & 22.39\T\B \\
+    \textbf{run012} & LopezDeBertodano & 0.03501 & 0.0459 & 31.11\T\B \\
     \hline
     \end{tabular}
     \\[10pt]
@@ -782,10 +781,10 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/turbdisp/surfacesJ10h8.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/turbdisp/surfacesJ10h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/turbdisp/surfacesJ10h63.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/turbdisp/surfacesJ10h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different turbulent dispersion models}
     \label{fig:alpha_turbdisp}
@@ -794,16 +793,19 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \subsection{Wall lubrication models}
 \label{sub:wall_lubrication_models}
 
+This force describes migration of bubble away from the walls due to the presence of the walls themselves. This effect is particularly visible in figure \ref{fig:alpha_walllub}. By looking at the developed region (h=63 cm) far from the inlet, is it clearly visible that Frank's model predicts a too strong wall lubrication force. The first point away from the wall sees a very low air void fraction which reaches instead a peak slightly away from the wall itself. This is reflected in the very low global gas holdup predicted when using this model. Antal model instead, has a softer behavior and it matches the experimental results almost perfectly in terms of local holdup profile. In the injection zone this force does not have a great impact on the results since the bubble are concentrated in the central region of the bubble column.
+
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Wall lubrication model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Wall lubrication model} & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%] \T\B \\
     \hline \hline
-    \textbf{run001} & None & 0.03501 &  0.0404937\T\B \\
-    \textbf{run013} & Antal  & 0.03501 & 0.0401398\T\B \\
-    \textbf{run014} & Frank & 0.03501 & 0.0306111\T\B \\
+    \textbf{run001} & None & 0.03501 &  0.04049 & 15.65\T\B \\
+    \textbf{run013} & Antal  & 0.03501 & 0.04014 & 14.65\T\B \\
+    \textbf{run014} & Frank & 0.03501 & 0.03061 & -12.57\T\B \\
     \hline
     \end{tabular}    \\[10pt]
     \caption{Results of sensitivity analysis on wall lubrication models}
@@ -813,10 +815,10 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/walllub/surfacesJ10h8.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/walllub/surfacesJ10h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/walllub/surfacesJ10h63.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/walllub/surfacesJ10h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different wall lubrication models}
     \label{fig:alpha_walllub}
@@ -825,16 +827,19 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \subsection{Inflow velocity}
 \label{sub:inflow_velocity}
 
+Once defined the optimal set of condition, additional experimental results at different gas superficial inlet velocity were considered. The approach remains valid also for lower gas inlet velocities. The error on global holdup is between 10\% and 15\% for all three cases. The local holdup profiles are in good agreement with experimental data, especially in the developed region.
+
+
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{$J_{in} [mm/s]$}  & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{$J_{in} [mm/s]$}  & \thead{Experimental holdup [-]} & \thead{Numerical holdup [-]} & $\Delta \varepsilon$ [\%]\T\B \\
     \hline \hline
-    \textbf{run013} & 10 & 0.03501 & 0.0401398\T\B \\
-    \textbf{run015} & 8  & 0.02808 & 0.0309794\T\B \\
-    \textbf{run016} & 6  & 0.02042 & 0.0227286\T\B \\
+    \textbf{run013} & 10 & 0.03501 & 0.04014 & 14.65\T\B \\
+    \textbf{run015} & 8  & 0.02808 & 0.03098 & 10.33\T\B \\
+    \textbf{run016} & 6  & 0.02042 & 0.02273 & 11.31\T\B \\
     \hline
     \end{tabular}    \\[10pt]
     \caption{Results obtained at different inflow gas superficial velocities}
@@ -844,10 +849,10 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 \begin{figure}[H]
     \centering
     \subfloat[h = 8 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/allj/surfacesJ6h8.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/allj/surfacesJ6h8.png}
     }
     \subfloat[h = 63 cm]{
-        \includegraphics[scale=0.35]{Images/graphs/allj/surfacesJ6h63.png}
+        \includegraphics[scale=0.35, trim={0 30 0 50}, clip]{Images/graphs/allj/surfacesJ6h63.png}
     }
     \caption[]{Gas volume fraction horizontal distribution at different heights for different inflow velocities}
     \label{fig:alpha_inflow_velocities}
@@ -871,9 +876,28 @@ Post-processing...
 \section{Conclusion}
 \label{sec:Conclusion}
 
-The present work had the objective of validating openFOAM multiphase capabilities against  an experimental benchmark.  .....
+The present work had the objective of validating openFOAM multiphase capabilities against experiments. A bubble column from literature was considered as experimental benchmark. Simulations showed that mesh and timestep refinement have little influence on the accuracy of the results. The SST turbulence model resulted the best one when considering the holdup profiles as well as the capabilities of the turbulence models itself. For what concerns the multiphase forces, it was showed how important it is to evaluate carefully their use in the numerical model. By adding the various forces in a step-by-step manner and evaluating their impact on the results, an optimal configuration was defined and it is summarized in table \ref{tab:optimalconfig}. In conclusion, openFOAM and the solver \texttt{multiphaseEulerFoam} proved themselves to be a valuable tool when tackling multiphase simulations.
 
 
+
+\begin{table}[H]
+  \centering
+    \begin{tabular}{| c c |}
+    \hline
+    \rowcolor{bluePoli!40}
+    \textbf{Model for} &  \T\B \\
+     \hline \hline 
+    Turbulence & k-$\omega$ SST Sato \cite{SSTSato} \T\B \\
+    Virtual mass & Constant = 0.5 \T\B \\
+    Drag & Ishii Zuber \cite{ishiizuber} \T\B \\
+    Lift & Tomiyama \cite{tomiyamalift} \T\B \\  
+    Turbulent dispersion & Burns \cite{burns} \T\B \\   
+    Wall lubrication & Antal \cite{antal} \T\B \\ 
+    \hline
+    \end{tabular}%
+  \caption{Summary of the optimal multiphase forces configuration}
+  \label{tab:optimalconfig}%
+\end{table}%
 
 
 

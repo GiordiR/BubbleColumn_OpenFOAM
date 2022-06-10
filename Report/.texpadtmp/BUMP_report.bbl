@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{15}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -29,6 +29,12 @@ Florian Menter and Thomas Esch.
 \newblock Elements of industrial heat transfer predictions.
 \newblock \emph{16th Brazilian Congress of Mechanical Engineering (COBEM)},
   20:\penalty0 117--127, 2001.
+
+\bibitem[Sato et~al.(1981)Sato, Sadatomi, and Sekoguchi]{sato}
+Y~Sato, M~Sadatomi, and K~Sekoguchi.
+\newblock Momentum and heat transfer in two-phase bubble flow—i. theory.
+\newblock \emph{International Journal of Multiphase Flow}, 7\penalty0
+  (2):\penalty0 167--177, 1981.
 
 \bibitem[Jr.(2005)]{Lahey}
 Richard T.~Lahey Jr.
@@ -86,5 +92,12 @@ Thomas Frank.
 \newblock In \emph{NAFEMS Seminar: Simulation of Complex Flows
   (CFD)--Applications and Trends, Wiesbaden, Germany, Citeseer}, pages 1--18,
   2005.
+
+\bibitem[H{ä}nsch et~al.(2021)H{ä}nsch, Evdokimov, Schlegel, and
+  Lucas]{baseline}
+S~H{ä}nsch, I~Evdokimov, F~Schlegel, and D~Lucas.
+\newblock A workflow for the sustainable development of closure models for
+  bubbly flows.
+\newblock \emph{Chemical Engineering Science}, 244:\penalty0 116807, 2021.
 
 \end{thebibliography}
