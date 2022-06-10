@@ -574,7 +574,7 @@ In this section the results of the present work are presented and commented. Eac
 \subsection{CFD methodology}
 \label{sub:methodology}
 
-All the simulations are three-dimensional and time-dependent. The solution was initialized with constant pressure distribution at $P_{atm}$ and the bubble column was filled with water. The simulated time was 90 seconds for each case. Results were averaged from 30 s to the end of the simulations in order to obtain the averaged field in terms of velocity, pressure and void fraction distribution for both phases. In particular, the air void fraction was sampled on two horizontal surfaces at 8 cm and 63 cm from the inlet surface in order to compare the numerical results to the experimental ones.
+All the simulations are three-dimensional and time-dependent. The solution was initialized with constant pressure distribution at $P_{atm}$ and the bubble column was filled with water. The simulated time was 90 seconds for each case. Results were averaged from 30 s to the end of the simulations in order to obtain the averaged field in terms of velocity, pressure and void fraction distribution for both phases. In particular, the air void fraction was sampled on two horizontal surfaces at 8 cm and 63 cm height from the inlet surface in order to compare the numerical results to the experimental ones. Benchmark for the accuracy of the simulations are therefore the time-averaged distribution of local gas hold up profile on the two horizontal surfaces as well as the global gas holdup value of the entire bubble column (referred to as "numerical holdup" in the following tables). Table \ref{tab:runs} summarizes all the runs performed.
 
 
 
@@ -585,7 +585,7 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \begin{tabular}{|p{3em} c c c c c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-     & \thead{\textbf{$J_{in} [mm/s]$}} & \thead{\textbf{Mesh}} & \thead{\textbf{Time step}} &  \thead{\textbf{Turbulence model}}  & \thead{\textbf{Drag model}}  & \thead{\textbf{Lift model}} &  \thead{\textbf{Turbulent dispersion model}} & \thead{\textbf{Wall lubrication model}}\T\B \\
+     & \thead{\boldmath{$J_{in}$ $[mm/s]$}} & \thead{\textbf{Mesh}} & \thead{\textbf{Time step}} &  \thead{\textbf{Turbulence model}}  & \thead{\textbf{Drag model}}  & \thead{\textbf{Lift model}} &  \thead{\textbf{Turbulent dispersion model}} & \thead{\textbf{Wall lubrication model}}\T\B \\
     \hline \hline
     \textbf{run001} & 10 & A & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
     \textbf{run002} & 10 & B & 0.005  & kOmegaSSTSato   & IshiiZuber & Tomiyama & None & None \T\B \\
@@ -607,7 +607,7 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \end{tabular}
     \\[10pt]
     \caption{Runs performed}
-    \label{table:example}
+    \label{tab:runs}
 \end{sidewaystable}
 %}
 
@@ -650,18 +650,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c|}
+    \begin{tabular}{|p{8em} c c c c |}
     \hline
     \rowcolor{bluePoli!40}
-     & \textbf{$\Delta t$} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+     & \textbf{$\Delta t$} & \thead{Experimental holdup} & \thead{Numerical holdup} & \thead{$\Delta$ [\%]} \T\B \\
     \hline \hline
-    \textbf{run006} & 0.0025 & 0.03501 & \T\B \\
-    \textbf{run001} & 0.005  & 0.03501 & \T\B \\
-    \textbf{run005} & 0.010  & 0.03501 & \T\B \\
+    \textbf{run006} & 0.0025 & 0.03501 & & \T\B \\
+    \textbf{run001} & 0.005  & 0.03501 & & \T\B \\
+    \textbf{run005} & 0.010  & 0.03501 & & \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Time steps}
+    \caption{Results of timestep size sensitivity analysis}
     \label{table:time_steps}
 \end{table}
 
@@ -682,18 +682,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Turbulence model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Turbulence model} & \thead{Experimental holdup} & \thead{Numerical holdup} & \thead{$\Delta$ [\%]} \T\B \\
     \hline \hline
-    \textbf{run001} & kOmegaSSTSato & 0.03501 & \T\B \\
-    \textbf{run007} & LaheyKEpsilon  & 0.03501 & \T\B \\
-    \textbf{run008} & mixtureKEpsilon & 0.03501 & \T\B \\
+    \textbf{run001} & kOmegaSSTSato & 0.03501 & & \T\B \\
+    \textbf{run007} & LaheyKEpsilon  & 0.03501 & & \T\B \\
+    \textbf{run008} & mixtureKEpsilon & 0.03501 & & \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Turbulence models}
+    \caption{Results of turbulence models sensitivity analysis}
     \label{table:turbulence_models}
 \end{table}
 
@@ -711,6 +711,7 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \subsection{Drag models}
 \label{sub:drag_models}
+{\color{red} Ha senso inserirlo?}
 
 \begin{table}[H]
     \centering 
@@ -732,18 +733,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c|}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Lift model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Lift model} & \thead{Experimental holdup} & \thead{Numerical hold up} & \thead{$\Delta$ [\%]} \T\B \\
     \hline \hline
-    \textbf{run009} & None & 0.03501 & \T\B \\
-    \textbf{run001} & Tomiyama & 0.03501 & \T\B \\
-    \textbf{run010} & Moraga & 0.03501 & \T\B \\
+    \textbf{run009} & None & 0.03501 & & \T\B \\
+    \textbf{run001} & Tomiyama & 0.03501 & & \T\B \\
+    \textbf{run010} & Moraga & 0.03501 & & \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Lift models}
+    \caption{Results of lift models sensitivity analysis}
     \label{table:lift_models}
 \end{table}
 
@@ -764,18 +765,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Turbulent dispersion model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Turbulent dispersion model} & \thead{Experimental holdup} & \thead{Numerical holdup} & \thead{$\Delta$ [\%]} \T\B \\
     \hline \hline
-    \textbf{run001} & None & 0.03501 & \T\B \\
-    \textbf{run011} & Burns & 0.03501 & \T\B \\
-    \textbf{run012} & LopezDeBertodanonone & 0.03501 & \T\B \\
+    \textbf{run001} & None & 0.03501 & & \T\B \\
+    \textbf{run011} & Burns & 0.03501 & & \T\B \\
+    \textbf{run012} & LopezDeBertodanonone & 0.03501 & & \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Turbulent dispersion models}
+    \caption{Results of sensitivity analysis on turbulent dispersion models}
     \label{table:turbulent_dispersion_models}
 \end{table}
 
@@ -796,18 +797,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{Wall lubrication model} & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{Wall lubrication model} & \thead{Experimental holdup} & \thead{Numerical hold up} & \thead{$\Delta$ [\%]} \T\B \\
     \hline \hline
-    \textbf{run001} & None & 0.03501 &  \T\B \\
-    \textbf{run013} & Antal  & 0.03501 & \T\B \\
-    \textbf{run014} & Frank & 0.03501 & \T\B \\
+    \textbf{run001} & None & 0.03501 & &  \T\B \\
+    \textbf{run013} & Antal  & 0.03501 & &\T\B \\
+    \textbf{run014} & Frank & 0.03501 & & \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Wall lubrication models}
+    \caption{Results of sensitivity analysis on wall lubrication models}
     \label{table:wall_lubrication_models}
 \end{table}
 
@@ -828,18 +829,18 @@ All the simulations are three-dimensional and time-dependent. The solution was i
 
 \begin{table}[H]
     \centering 
-    \begin{tabular}{|p{8em} c c c |}
+    \begin{tabular}{|p{8em} c c c c|}
     \hline
     \rowcolor{bluePoli!40}
-    & \textbf{$J_{in} [mm/s]$}  & \thead{Experimental holdup} & \thead{Numerical hold up} \T\B \\
+    & \textbf{$J_{in} [mm/s]$}  & \thead{Experimental holdup} & \thead{Numerical hold up} & \thead{$\Delta$ [\%]} \T\B \\
     \hline \hline
-    \textbf{run013} & 10 & 0.03501 & \T\B \\
-    \textbf{run015} & 8  & 0.02808 &\T\B \\
-    \textbf{run016} & 6  & 0.02042 & \T\B \\
+    \textbf{run013} & 10 & 0.03501 & & \T\B \\
+    \textbf{run015} & 8  & 0.02808 & & \T\B \\
+    \textbf{run016} & 6  & 0.02042 & & \T\B \\
     \hline
     \end{tabular}
     \\[10pt]
-    \caption{Inflow velocities}
+    \caption{Results obtained at different inflow gas superficial velocities}
     \label{table:inflow_velocities}
 \end{table}
 
@@ -854,6 +855,33 @@ All the simulations are three-dimensional and time-dependent. The solution was i
     \caption[]{Gas volume fraction horizontal distribution at different heights for different inflow velocities}
     \label{fig:alpha_inflow_velocities}
 \end{figure}
+
+
+
+%-----------------------------------------------------------------------------
+% LOCAL RESULTS
+%-----------------------------------------------------------------------------
+\section{Local results}
+\label{sec:localresults}
+
+Post-processing...
+
+
+
+%-----------------------------------------------------------------------------
+% CONCLUSION
+%-----------------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:Conclusion}
+
+The present work had the objective of validating openFOAM multiphase capabilities against  an experimental benchmark.  .....
+
+
+
+
+
+
+
 
 %-----------------------------------------------------------------------------
 % BIBLIOGRAPHY
