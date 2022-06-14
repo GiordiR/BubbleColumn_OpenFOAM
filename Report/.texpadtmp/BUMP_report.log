@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.28)  10 JUN 2022 16:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2022/dev) (preloaded format=pdflatex 2021.11.28)  14 JUN 2022 15:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -890,16 +890,16 @@ Package pdftex.def Info: Images//raggiera_polimi-eps-converted-to.pdf  used on i
  [1
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Images//raggiera_polimi-eps-converted-to.pdf> <./Images//logo_polimi_ing_indinf-eps-converted-to.pdf>] [2]
-<Images/test_facility.png, id=199, 345.29pt x 764.8575pt>
-File: Images/test_facility.png Graphic file (type png)
-<use Images/test_facility.png>
-Package pdftex.def Info: Images/test_facility.png  used on input line 173.
-(pdftex.def)             Requested size: 85.35826pt x 189.07814pt.
+<Images/test_facility2.png, id=199, 865.0719pt x 465.1779pt>
+File: Images/test_facility2.png Graphic file (type png)
+<use Images/test_facility2.png>
+Package pdftex.def Info: Images/test_facility2.png  used on input line 173.
+(pdftex.def)             Requested size: 423.29495pt x 227.62204pt.
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 191.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-<Images/mesh1.png, id=206, 1505.625pt x 1405.25pt>
+<Images/mesh1.png, id=205, 1505.625pt x 1405.25pt>
 File: Images/mesh1.png Graphic file (type png)
 <use Images/mesh1.png>
 Package pdftex.def Info: Images/mesh1.png  used on input line 200.
@@ -926,7 +926,10 @@ Overfull \hbox (29.04428pt too wide) in paragraph at lines 200--210
 
 [3
 
- <./Images/mesh1.png> <./Images/mesh2.png> <./Images/mesh3.png> <./Images/mesh4.png> <./Images/test_facility.png>]
+ <./Images/mesh1.png> <./Images/mesh2.png> <./Images/mesh3.png> <./Images/mesh4.png> <./Images/test_facility2.png
+
+pdfTeX warning: /usr/local/texlive/2021/bin/universal-darwin/pdflatex (file ./Images/test_facility2.png): large interlaced PNG might cause out of memory (use non-interlaced PNG to fix this)
+>]
 Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
@@ -1089,12 +1092,12 @@ Overfull \hbox (5.7208pt too wide) in paragraph at lines 626--636
  []
 
 [8] [9]
-<Images/graphs/mesh/surfacesJ10h8.png, id=349, 722.7pt x 578.16pt>
+<Images/graphs/mesh/surfacesJ10h8.png, id=348, 722.7pt x 578.16pt>
 File: Images/graphs/mesh/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/mesh/surfacesJ10h8.png>
 Package pdftex.def Info: Images/graphs/mesh/surfacesJ10h8.png  used on input line 647.
 (pdftex.def)             Requested size: 252.94878pt x 174.25354pt.
-<Images/graphs/mesh/surfacesJ10h63.png, id=351, 722.7pt x 578.16pt>
+<Images/graphs/mesh/surfacesJ10h63.png, id=350, 722.7pt x 578.16pt>
 File: Images/graphs/mesh/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/mesh/surfacesJ10h63.png>
 Package pdftex.def Info: Images/graphs/mesh/surfacesJ10h63.png  used on input line 650.
@@ -1104,12 +1107,12 @@ Overfull \hbox (36.72284pt too wide) in paragraph at lines 647--651
  [][][][] 
  []
 
-<Images/graphs/time/surfacesJ10h8.png, id=353, 722.7pt x 578.16pt>
+<Images/graphs/time/surfacesJ10h8.png, id=352, 722.7pt x 578.16pt>
 File: Images/graphs/time/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/time/surfacesJ10h8.png>
 Package pdftex.def Info: Images/graphs/time/surfacesJ10h8.png  used on input line 681.
 (pdftex.def)             Requested size: 252.94878pt x 174.25354pt.
-<Images/graphs/time/surfacesJ10h63.png, id=355, 722.7pt x 578.16pt>
+<Images/graphs/time/surfacesJ10h63.png, id=354, 722.7pt x 578.16pt>
 File: Images/graphs/time/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/time/surfacesJ10h63.png>
 Package pdftex.def Info: Images/graphs/time/surfacesJ10h63.png  used on input line 684.
@@ -1120,12 +1123,12 @@ Overfull \hbox (36.72284pt too wide) in paragraph at lines 681--685
  []
 
 [10 <./Images/graphs/mesh/surfacesJ10h8.png> <./Images/graphs/mesh/surfacesJ10h63.png>]
-<Images/graphs/turbmodel/surfacesJ10h8.png, id=376, 722.7pt x 578.16pt>
+<Images/graphs/turbmodel/surfacesJ10h8.png, id=375, 722.7pt x 578.16pt>
 File: Images/graphs/turbmodel/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/turbmodel/surfacesJ10h8.png>
 Package pdftex.def Info: Images/graphs/turbmodel/surfacesJ10h8.png  used on input line 716.
 (pdftex.def)             Requested size: 245.71474pt x 169.2701pt.
-<Images/graphs/turbmodel/surfacesJ10h63.png, id=378, 722.7pt x 578.16pt>
+<Images/graphs/turbmodel/surfacesJ10h63.png, id=377, 722.7pt x 578.16pt>
 File: Images/graphs/turbmodel/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/turbmodel/surfacesJ10h63.png>
 Package pdftex.def Info: Images/graphs/turbmodel/surfacesJ10h63.png  used on input line 719.
@@ -1136,12 +1139,12 @@ Overfull \hbox (22.25476pt too wide) in paragraph at lines 716--720
  []
 
 [11 <./Images/graphs/time/surfacesJ10h8.png> <./Images/graphs/time/surfacesJ10h63.png> <./Images/graphs/turbmodel/surfacesJ10h8.png> <./Images/graphs/turbmodel/surfacesJ10h63.png>]
-<Images/graphs/lift/surfacesJ10h8.png, id=402, 722.7pt x 578.16pt>
+<Images/graphs/lift/surfacesJ10h8.png, id=401, 722.7pt x 578.16pt>
 File: Images/graphs/lift/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/lift/surfacesJ10h8.png>
 Package pdftex.def Info: Images/graphs/lift/surfacesJ10h8.png  used on input line 751.
 (pdftex.def)             Requested size: 252.94878pt x 174.25354pt.
-<Images/graphs/lift/surfacesJ10h63.png, id=404, 722.7pt x 578.16pt>
+<Images/graphs/lift/surfacesJ10h63.png, id=403, 722.7pt x 578.16pt>
 File: Images/graphs/lift/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/lift/surfacesJ10h63.png>
 Package pdftex.def Info: Images/graphs/lift/surfacesJ10h63.png  used on input line 754.
@@ -1152,12 +1155,12 @@ Overfull \hbox (36.72284pt too wide) in paragraph at lines 751--755
  []
 
 [12 <./Images/graphs/lift/surfacesJ10h8.png> <./Images/graphs/lift/surfacesJ10h63.png>]
-<Images/graphs/turbdisp/surfacesJ10h8.png, id=422, 722.7pt x 578.16pt>
+<Images/graphs/turbdisp/surfacesJ10h8.png, id=421, 722.7pt x 578.16pt>
 File: Images/graphs/turbdisp/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/turbdisp/surfacesJ10h8.png>
 Package pdftex.def Info: Images/graphs/turbdisp/surfacesJ10h8.png  used on input line 785.
 (pdftex.def)             Requested size: 252.94878pt x 174.25354pt.
-<Images/graphs/turbdisp/surfacesJ10h63.png, id=424, 722.7pt x 578.16pt>
+<Images/graphs/turbdisp/surfacesJ10h63.png, id=423, 722.7pt x 578.16pt>
 File: Images/graphs/turbdisp/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/turbdisp/surfacesJ10h63.png>
 Package pdftex.def Info: Images/graphs/turbdisp/surfacesJ10h63.png  used on input line 788.
@@ -1167,12 +1170,12 @@ Overfull \hbox (36.72284pt too wide) in paragraph at lines 785--789
  [][][][] 
  []
 
-<Images/graphs/walllub/surfacesJ10h8.png, id=427, 722.7pt x 578.16pt>
+<Images/graphs/walllub/surfacesJ10h8.png, id=426, 722.7pt x 578.16pt>
 File: Images/graphs/walllub/surfacesJ10h8.png Graphic file (type png)
 <use Images/graphs/walllub/surfacesJ10h8.png>
 Package pdftex.def Info: Images/graphs/walllub/surfacesJ10h8.png  used on input line 819.
 (pdftex.def)             Requested size: 252.94878pt x 174.25354pt.
-<Images/graphs/walllub/surfacesJ10h63.png, id=429, 722.7pt x 578.16pt>
+<Images/graphs/walllub/surfacesJ10h63.png, id=428, 722.7pt x 578.16pt>
 File: Images/graphs/walllub/surfacesJ10h63.png Graphic file (type png)
 <use Images/graphs/walllub/surfacesJ10h63.png>
 Package pdftex.def Info: Images/graphs/walllub/surfacesJ10h63.png  used on input line 822.
@@ -1183,12 +1186,12 @@ Overfull \hbox (36.72284pt too wide) in paragraph at lines 819--823
  []
 
 [13 <./Images/graphs/turbdisp/surfacesJ10h8.png> <./Images/graphs/turbdisp/surfacesJ10h63.png>]
-<Images/graphs/allj/surfacesJ6h8.png, id=444, 722.7pt x 578.16pt>
+<Images/graphs/allj/surfacesJ6h8.png, id=443, 722.7pt x 578.16pt>
 File: Images/graphs/allj/surfacesJ6h8.png Graphic file (type png)
 <use Images/graphs/allj/surfacesJ6h8.png>
 Package pdftex.def Info: Images/graphs/allj/surfacesJ6h8.png  used on input line 853.
 (pdftex.def)             Requested size: 252.94878pt x 174.25354pt.
-<Images/graphs/allj/surfacesJ6h63.png, id=446, 722.7pt x 578.16pt>
+<Images/graphs/allj/surfacesJ6h63.png, id=445, 722.7pt x 578.16pt>
 File: Images/graphs/allj/surfacesJ6h63.png Graphic file (type png)
 <use Images/graphs/allj/surfacesJ6h63.png>
 Package pdftex.def Info: Images/graphs/allj/surfacesJ6h63.png  used on input line 856.
@@ -1213,7 +1216,7 @@ Package rerunfilecheck Info: File `BUMP_report.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  30382 strings out of 478353
- 565964 string characters out of 5848085
+ 565971 string characters out of 5848085
  1717063 words of memory out of 5000000
  47649 multiletter control sequences out of 15000+600000
  423709 words of font info for 75 fonts, out of 8000000 for 9000
@@ -1221,9 +1224,9 @@ Here is how much of TeX's memory you used:
  83i,25n,80p,1315b,2078s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2021/texmf-dis
 t/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on /Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.pdf (19 pages, 2344828 bytes).
+Output written on /Users/spassoni/Documents/GitHub/finalProject/Report/.texpadtmp/BUMP_report.pdf (19 pages, 11342495 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
+ 853 PDF objects out of 1000 (max. 8388607)
  708 compressed objects within 8 object streams
  309 named destinations out of 1000 (max. 500000)
  458 words of extra memory for PDF output out of 10000 (max. 10000000)
