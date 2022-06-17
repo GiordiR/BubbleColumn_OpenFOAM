@@ -333,7 +333,8 @@ The \textit{$k-\omega$ SST Sato} model \citep{SSTSato} was originally developed 
 %The Prandtl number, $Pr$, is a fluid property, and the turbulent Prandtl number, $Pr_t$, is set to a constant value of 0.9, assuming an analogy between turbulent heat and mass transfert.
 
 \subsubsection{Lahey $k-\epsilon$}
-This \textit{$k-\epsilon$} model has been developed by Lahey \citep{Lahey} specifically for three-dimensional, four-field, turbulent, two-fluid multiphase flows. It is an extension to two-phase flows of the standard single-phase $k-\epsilon$ turbulence model.\\
+This \textit{$k-\epsilon$} model has been developed by Lahey \citep{Lahey} specifically for three-dimensional, four-field, turbulent, two-fluid multiphase flows. It is an extension to two-phase flows of the standard single-phase $k-\epsilon$ turbulence model. Indeed, the turbulent equations are rewritten for both the continuous liquid (cl) and dispersed vapor (dv) fields. \\
+Moreover, the source term in the turbulent kinetic energy equation accounts for the velocity fluctuations induced by the liquid displacement due to relative velocity and the liquid eddies which may be formed behind the bubbles.
 %In particular, for bubbly flows only two fields are required: the continuous liquid (cl) and dispersed vapor (dv) fields. Therefore, the following turbulent equations are used:
 %\begin{flalign}
 %   \hspace{2cm}	& \alpha_{cl}\frac{Dk_{cl}}{Dt} = \nabla \cdot \left[\alpha_{cl}\frac{v^T_{cl}}{\sigma_k}\nabla k_{cl} \right] + \alpha_{cl} [P_{cl} \varepsilon_{cl}] + \alpha_{cl} \Phi_k	& \\
