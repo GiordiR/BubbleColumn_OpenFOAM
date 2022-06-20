@@ -1,6 +1,6 @@
 from pyBUMP import *
 
-caso="walllub"
+caso="ansys"
 
 # case list: mesh, time, turbmodel, lift, turbdisp, walllub, j10, j8, j6, allj
 
@@ -422,4 +422,30 @@ elif caso=="allj":
     xHold, yHold = readScalar(path3, "holdUp", "volFieldValue.dat", instantaneous=True)
     plot(4,xHold, yHold, "holdUpInstantaneous", 6, 8, label3, colorID=3,caso=caso)
   
+elif caso=="ansys":
+ 
+    path1="results/run013"
+    path2="results/run015"
+    path3="results/run016"
+    
+    label1="run 013"
+    label2="run 015"
+    label3="run 016"
 
+
+    #plot time-averaged aplha.air superficie 8cm
+    xVars, avgVars = readScalar(path1, "surfaces", "alphaMean.air_y_8cm.raw",nz=4)
+    plot(1,xVars, avgVars, "surfaces", 10, 8, label1, colorID=1, caso=caso,lastCompare=False, comparisonAnsys=True)
+    xVars, avgVars = readScalar(path2, "surfaces", "alphaMean.air_y_8cm.raw",nz=4)
+    plot(1,xVars, avgVars, "surfaces", 8, 8, label2, colorID=2,caso=caso, lastCompare=False, comparisonAnsys=True)
+    xVars, avgVars = readScalar(path3, "surfaces", "alphaMean.air_y_8cm.raw",nz=4)
+    plot(1,xVars, avgVars, "surfaces", 6, 8, label3, colorID=3,caso=caso, comparisonAnsys=True)
+
+
+    #plot time-averaged aplha.air superficie 63cm
+    xVars, avgVars = readScalar(path1, "surfaces", "alphaMean.air_y_63cm.raw",nz=4)
+    plot(2,xVars, avgVars, "surfaces", 10, 63, label1 ,colorID=1,caso=caso,lastCompare=False, comparisonAnsys=True)
+    xVars, avgVars = readScalar(path2, "surfaces", "alphaMean.air_y_63cm.raw",nz=4)
+    plot(2,xVars, avgVars, "surfaces", 8, 63, label2, colorID=2,caso=caso,lastCompare=False, comparisonAnsys=True)
+    xVars, avgVars = readScalar(path3, "surfaces", "alphaMean.air_y_63cm.raw",nz=4)
+    plot(2,xVars, avgVars, "surfaces", 6, 63, label3,colorID=3,caso=caso, comparisonAnsys=True)

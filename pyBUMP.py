@@ -40,7 +40,7 @@ def readScalar(caseFolder, sampleType, fileName, nz=4, instantaneous=False):
 def readExpData(fileName,exptype):
     if exptype=='surfaces':
         dataDf = pd.read_excel(fileName, engine='openpyxl', skiprows=4)
-        data = {'J6h8': dataDf.to_numpy(dtype=float)[:,:3],
+        data = {'J6h8': dataDf.to_numpy(dtype=float)[:,:],
                 'J8h8' : dataDf.to_numpy(dtype=float)[:,3:6],
                 'J10h8' : dataDf.to_numpy(dtype=float)[:-1,6:9],
                 'J6h63' : dataDf.to_numpy(dtype=float)[:,10:13],
@@ -50,6 +50,21 @@ def readExpData(fileName,exptype):
         data={'J6':[0.02042,0.02042], 'J8':[0.02808,0.02808], 'J10':[0.03501,0.03501]}
            
     return data
+
+def readAnsysData(fileName):
+    
+    xNorm = np.linspace(0, 1, 21)
+    dataDf = pd.read_excel(fileName, sheet_name="LocalVoidFractionProfiles", engine='openpyxl', skiprows=3)
+    dataDf.drop([21,22, 23],inplace=True, axis=0)
+    dataDf = dataDf.iloc[0:45, 0:5]
+    data = {'J6h8': dataDf.to_numpy(dtype=float)[21:42,2],
+            'J8h8' : dataDf.to_numpy(dtype=float)[21:42,3],
+            'J10h8' : dataDf.to_numpy(dtype=float)[21:42,4],
+            'J6h63' : dataDf.to_numpy(dtype=float)[0:21,2],
+            'J8h63' : dataDf.to_numpy(dtype=float)[0:21,3],
+            'J10h63' : dataDf.to_numpy(dtype=float)[0:21,4]}
+    
+    return data, xNorm
 
 def findExpData(J,h):
     pass
@@ -87,7 +102,7 @@ def write_holdup(yVars,save_path):
         pass
     
 
-def plot(figID, xVars, yVars, sampleType, J, h, label, colorID=None, caso="mesh", lastCompare=True, comparisonJ=False):
+def plot(figID, xVars, yVars, sampleType, J, h, label, colorID=None, caso="mesh", lastCompare=True, comparisonJ=False, comparisonAnsys=False):
     
     save_path=os.path.join("./graphs", caso)
     if not os.path.isdir(save_path):
@@ -117,8 +132,12 @@ def plot(figID, xVars, yVars, sampleType, J, h, label, colorID=None, caso="mesh"
         plt.xticks(np.arange(0,1.025,0.1))
         if comparisonJ==True:
             plt.plot(expData[:,1], expData[:,2], 'd', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--", color=colors[colorID],alpha=0.7)
+        elif comparisonAnsys==True:
+                ansysDataDict, xNormAnsys  = readAnsysData("Ansys_Data.xlsx")
+                ansysData = ansysDataDict['J'+str(J)+'h'+str(h)]
+                plt.plot(xNormAnsys, ansysData[:], 'o', label=r"ANSYS - $J_G$ = "+str(J)+" mm/s", linestyle="--", color=colors[colorID])
         if lastCompare==True:
-            if comparisonJ==False:
+            if comparisonJ==False and comparisonAnsys==False:
                 plt.plot(expData[:,1], expData[:,2], 'o', label=r"experimental - $J_G$ = "+str(J)+" mm/s", linestyle="--", color=colors[4])
             plt.legend()
             plt.savefig(save_path+'/surfacesJ'+str(J)+'h'+str(h)+'.png')
