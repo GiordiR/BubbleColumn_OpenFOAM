@@ -726,7 +726,7 @@ As reported in section \ref{sub:turbmodels}, different turbulence models are ava
 \subsection{Lift models}
 \label{sub:lift_models}
 
-The lift force in a bubble column is responsible of lateral forces and oscillation of the bubble swarm. It is therefore an important force that should not be neglected. In this sensitivity analysis two models are tested and also the effect of lift absence is shown. Tomiayama model is the least accurate in terms of global holdup but it is the one which represents the local air void fraction profile. By looking at figure \ref{fig:alpha_lift}, the effect of neglecting the lift force is clearly visible. The bubbles are concentrated in the center of the column and the holdup profile assumes an almost parabolic shape in the developed region. This is due to the lack of lateral forces that make the bubble swarm oscillate. The Moraga model, is similar to Tomiyama's one in terms of holdup profile but it slightly overpredicts the air void fraction in the center of the column. Moreover, as explained in section \ref{sub:lift_models}, it is lacking the Tomiyama's model feature of variable lift force direction depending on bubble size. In conclusion the Tomiyama model is the most suitable for this kind of simulations. 
+The lift force in a bubble column is responsible of lateral forces and oscillation of the bubble swarm. It is therefore an important force that should not be neglected. In this sensitivity analysis two models are tested and also the effect of lift absence is shown. Tomiayama model is the least accurate in terms of global holdup but it is the one which represents the local air void fraction profile. By looking at figure \ref{fig:alpha_lift}, the effect of neglecting the lift force is clearly visible. The bubbles are concentrated in the center of the column and the holdup profile assumes an almost parabolic shape in the developed region. This is due to the lack of lateral forces that make the bubble swarm oscillate. The Moraga model, is similar to Tomiyama's one in terms of holdup profile but it slightly overpredicts the air void fraction in the center of the column. Moreover, as explained in section \ref{sub:lift_models}, it is lacking the Tomiyama's model feature of variable lift force direction depending on bubble size. In conclusion the Tomiyama model is the most suitable for this kind of simulations. Figure \ref{fig:lift_models} shows the air volume fraction and velocity magnitude contours for different lift models. It is clearly visible how the presence of lift force influences the results. This force contributes significantly to lateral forces in the bubble column allowing a spreading of the bubble swarm. This behavior is not seen when employing only the drag force models.
 
 \begin{table}[H]
     \centering 
@@ -756,6 +756,15 @@ The lift force in a bubble column is responsible of lateral forces and oscillati
     \caption[]{Gas volume fraction horizontal distribution at different heights for different lift models}
     \label{fig:alpha_lift}
 \end{figure}
+
+
+\begin{figure*}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{Images/lift_models.png}
+	\caption{Air volume fraction and velocity magnitude contours for different lift models at t=90s}
+	\label{fig:lift_models}
+\end{figure*}
+
 
 \subsection{Turbulent dispersion models}
 \label{sub:turbulent_dispersion_models}
@@ -867,7 +876,30 @@ Once defined the optimal set of condition, additional experimental results at di
 \section{Local results}
 \label{sec:localresults}
 
-Post-processing...
+In this section are reported some images of the different field variables in order to have a more complete comprehension of the flow inside the bubble column itself.
+
+\begin{figure*}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{Images/times_alpha_run013.png}
+	\caption{Contours of air void fraction at different timesteps}
+	\label{fig:air_void}
+\end{figure*}
+
+\begin{figure*}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{Images/air_velocity_gliphs.png}
+	\caption{Vectors of air velocity colored with air velocity in Y direction at different timesteps}
+	\label{fig:air_vect}
+\end{figure*}
+
+\begin{figure*}[!ht]
+	\centering
+	\includegraphics[width=\textwidth]{Images/water_velocity_glyphs.png}
+	\caption{Vectors of water velocity colored with water velocity in Y direction at different timesteps}
+	\label{fig:water_vect}
+\end{figure*}
+
+\clearpage
 
 
 
